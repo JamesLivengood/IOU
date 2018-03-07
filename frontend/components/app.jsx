@@ -15,6 +15,7 @@ import LoginFormContainer from './session/login_form_container';
 // import BenchShowContainer from './bench_show/bench_show_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Modal from './modal';
 
 const App = () => (
   <div>
@@ -23,10 +24,10 @@ const App = () => (
         <span className="IOU-header">I O U</span>
       </Link>
       <WelcomeContainer />
+      <Modal/>
     </header>
     <Switch>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
-      <AuthRoute path="/login" component={LoginFormContainer}/>
     </Switch>
   </div>
 );

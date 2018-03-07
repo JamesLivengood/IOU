@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class SignupForm extends React.Component{
+class LoginForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -34,10 +34,10 @@ class SignupForm extends React.Component{
             <div className='login-submit-form'>
               <form onSubmit = { this.handleSubmit }>
                 <label className='login-email-label'>
-                  <input type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
+                  <input placeholder='Email address' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
                 </label>
                 <label className='login-password-label'>
-                  <input type='text' name='password' value = {this.state.password} onChange = { this.handleChange }/>
+                  <input placholder='Password' type='text' name='password' value = {this.state.password} onChange = { this.handleChange }/>
                 </label>
                 <button >Log in to IOU</button>
               </form>
@@ -49,4 +49,4 @@ class SignupForm extends React.Component{
 }
 
 
-export default SignupForm;
+export default LoginForm;
