@@ -17,9 +17,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <header>
+    <header className='nav-bar'>
       <Link to="/" className="header-link">
-        <h1 className="IOU-header">I O U</h1>
+        <span className="IOU-header">I O U</span>
       </Link>
       <WelcomeContainer />
     </header>
