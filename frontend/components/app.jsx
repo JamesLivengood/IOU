@@ -8,11 +8,12 @@ import {
   HashRouter
 } from 'react-router-dom';
 import WelcomeContainer from './welcome/welcome_container';
+import SignupFormContainer from './session/signup_form_container';
 // import SessionFormContainer from './session_form/session_form_container';
 // import SearchContainer from './search/search_container';
 // import BenchShowContainer from './bench_show/bench_show_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
-// import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
@@ -23,6 +24,7 @@ const App = () => (
       <WelcomeContainer />
     </header>
     <Switch>
+      <AuthRoute path="/signup" component={SignupFormContainer}/>
     </Switch>
   </div>
 );
