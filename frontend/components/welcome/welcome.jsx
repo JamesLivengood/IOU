@@ -1,13 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginForm from '../session/login_form';
 
-const sessionLinks = () => (
-  <ul className="login-signup">
-    <li><Link to="/login">Log in</Link></li>
-    <li>or</li>
-    <li><Link to="/signup">Sign up</Link></li>
-  </ul>
-);
+const Welcome = ({ currentUser, modal, logout, openModal, closeModal }) => {
+// debugger
+  return (
+    currentUser ? userLoggedIn(currentUser, logout) : sessionLinks(modal, openModal, closeModal)
+  );
+};
+
+const sessionLinks = (modal, openModal, closeModal) => {
+// debugger
+  return (
+    <ul className="login-signup">
+      <li><button onClick={()=>modalSwitch(modal, openModal, closeModal)}>Log in</button></li>
+      <li>or</li>
+      <li><Link to="/signup">Sign up</Link></li>
+    </ul>
+  );
+};
 
 const userLoggedIn = (props, logout) => {
 // debugger
@@ -18,11 +29,14 @@ const userLoggedIn = (props, logout) => {
 	</hgroup>);
 };
 
-const Welcome = ({ currentUser, logout }) => {
+function modalSwitch(modal, openModal, closeModal) {
 // debugger
-  return (
-    currentUser ? userLoggedIn(currentUser, logout) : sessionLinks()
-  );
+  if (modal) {
+    return closeModal();
+  } else
+    {
+    return openModal('login');
+  }
 };
 
 export default Welcome;
