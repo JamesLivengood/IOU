@@ -1,9 +1,9 @@
 class Api::SessionsController < ApplicationController
 
   def create
-    @user = User.find_by_credentials(user_params)
+    @user = User.find_by_credentials(email: params[:email], password: params[:password])
     if @user
-      @user.login
+      log_in(@user)
       render "api/users/show"
     else
       render json: ["Invalid username/password combination"], status: 401
@@ -19,8 +19,5 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  def user_params
-    params.require(:user).permit(:username, :password)
-  end
 
 end
