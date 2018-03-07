@@ -10,7 +10,7 @@ const sessionLinks = () => (
 );
 
 const userLoggedIn = (props, logout) => {
-debugger
+// debugger
 	return (<hgroup className="header-group">
 
     <h2 className="header-name">{props.name}</h2>

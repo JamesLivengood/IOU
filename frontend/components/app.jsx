@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import WelcomeContainer from './welcome/welcome_container';
 import SignupFormContainer from './session/signup_form_container';
+import LoginFormContainer from './session/login_form_container';
 // import SessionFormContainer from './session_form/session_form_container';
 // import SearchContainer from './search/search_container';
 // import BenchShowContainer from './bench_show/bench_show_container';
@@ -25,6 +26,7 @@ const App = () => (
     </header>
     <Switch>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
+      <AuthRoute path="/login" component={LoginFormContainer}/>
     </Switch>
   </div>
 );
