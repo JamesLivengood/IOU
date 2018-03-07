@@ -39,3 +39,7 @@ h1 {
 .login-signup {
   color: white;
 }
+
+div {
+  display: flex;
+}
