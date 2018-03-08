@@ -42,6 +42,8 @@
   background-color: rgb(252,	74,	25);
 
 }
+
+
 .signup-introduce {
   color: grey;
   /* text-shadow: 0 -.3px 0 yellow, .4px 0 0 lightblue; */
@@ -62,22 +64,25 @@
   text-align: center;
   width: 144px;
   height: 44px;
-  border: 1px solid rgb(226,	85,	44);
-  border-bottom: 1px solid rgb(189,	71, 37);
-  border-radius: 4px;
-  color: white;
-  text-shadow: 0 -1px 0 rgb(198, 44,3);
   padding: 5px 10px;
   font-size: 24px;
-  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
-  background-color: rgb(252,	95 ,49);
-  box-shadow: inset 0px 1px 0px rgb(253,	127,	90);
 }
 
 
 .signup-email-input, .signup-name-input, .signup-password-input {
   margin-bottom: 17px;
 }
+
+.signup-email-input:focus, .signup-name-input:focus, .signup-password-input:focus{
+  border: 1px solid rgb(120, 184, 240);
+  box-shadow: 0 0 5px rgb(50, 150, 240);
+}
+
+.signup-submit-button:focus {
+  border: 1px solid rgb(120, 184, 240);
+  box-shadow: 0 0 5px rgb(50, 150, 240);
+}
+
 
 .signup-name-input {
   width: 338px;
