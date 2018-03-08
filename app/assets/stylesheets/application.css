@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import "./reset.scss";
+@import "./reset.css";
 
 header {
   width: 100%;
