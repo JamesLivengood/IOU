@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import "./reset.scss";
+
 header {
   width: 100%;
   border-bottom: 1px solid black;
@@ -22,7 +24,7 @@ header {
   color: #000;
   height: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 h1 {
@@ -33,16 +35,51 @@ h1 {
   letter-spacing: 8px;
 }
 
+.login-button {
+  border: 5px groove rgb(122, 162, 108)ck;
+  border-radius: 4px;
+  text-shadow: 0 -1px 0 rgb(41, 47, 39);
+  padding: 5px 10px;
+  font-size: 14px;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
+}
+
+.signup-button {
+  border: 5px groove rgb(122, 162, 108)ck;
+  border-radius: 4px;
+  text-shadow: 0 -1px 0 rgb(41, 47, 39);
+  padding: 5px 10px;
+  font-size: 14px;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
+  background-color: rgb(224, 162, 25);
+}
+
+.nav-bar-box {
+  width: 960px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .header-link {
   align-items: center;
   height: 50px;
   width: auto;
+  display: flex;
+  text-decoration: none;
+}
+
+#root {
+  margin: none;
 }
 
 .IOU-header {
-  text-decoration: none;
   color: white;
-  font-size: 35px;
+  font-size: 22px;
+  font-family: Georgia, serif;
+  text-decoration: bold;
+  letter-spacing: 5px;
 }
 
 .login-signup {
@@ -65,6 +102,21 @@ h1 {
 
 }
 
+body {
+  font-family: 'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
 .signup-hi {
+  font-size: 30px;
+}
+
+.signup-introduce {
   color: grey;
+}
+
+.signup-name-input, .signup-email-input, .signup-password-input{
+  border: 3px grey;
+  background-color: red;
 }
