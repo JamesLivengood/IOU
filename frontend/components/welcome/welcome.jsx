@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from '../session/login_form';
 import Modal from '../modal';
+import {ensureModalOff} from './home_page';
 
 const Welcome = ({ currentUser, modal, logout, openModal, closeModal }) => {
 // debugger
@@ -18,7 +19,7 @@ const sessionLinks = (modal, openModal, closeModal) => {
         <Modal/>
       </li>
       <li className="or">or</li>
-      <li><button className='signup-button'><Link to="/signup">Sign up</Link></button></li>
+      <li><button onClick={()=>ensureModalOff(closeModal, modal)}className='signup-button'><Link to="/signup">Sign up</Link></button></li>
     </ul>
   );
 };

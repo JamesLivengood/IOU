@@ -17,7 +17,7 @@ import LoginFormContainer from './session/login_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { HeaderRoute } from '../util/header_util';
 import Modal from './modal';
-import HomePage from './welcome/home_page';
+import HomePageContainer from './welcome/home_page_container';
 
 const Header = () => {
   return (
@@ -39,7 +39,7 @@ const App = () => (
       <AuthRoute path="/signup" component={SignupFormContainer}/>
     </Switch>
 
-    <AuthRoute exact path='/' component={HomePage}/>
+    <AuthRoute exact path='/' component={HomePageContainer}/>
 
   </div>
 );
