@@ -37,16 +37,13 @@ class SignupForm extends React.Component{
             <h3 className='signup-introduce'>INTRODUCE YOURSELF</h3>
             <div className='signup-submit-form'>
               <form onSubmit = { this.handleSubmit }>
-                <label className='signup-hi'>Hi there! My name is
+                <div className='signup-hi'>Hi there! My name is</div>
                   <input className='signup-name-input' type='text' name='name' value = {this.state.name} onChange = { this.handleChange }/>
-                </label>
-                <label className='signup-email-label'>Here’s my email address:
+                <div className='signup-email-label'>Here’s my <strong>email address:</strong></div>
                   <input className='signup-email-input' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
-                </label>
-                <label className='signup-password-label'>And here’s my password:
+                <div className='signup-password-label'>And here’s my <strong>password:</strong></div>
                   <input className='signup-password-input' type='text' name='password' value = {this.state.password} onChange = { this.handleChange }/>
-                </label>
-                <button >Sign me up!</button>
+                <button className='signup-submit-button'>Sign me up!</button>
               </form>
             </div>
           </div>

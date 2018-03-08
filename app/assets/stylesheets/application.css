@@ -117,38 +117,20 @@ h1 {
   padding: 10px;
 }
 
-.signup-welcome {
-  z-index: 999;
-  list-style: none;
-  height: 50px;
-  text-align: center;
-  display: block;
-}
-
-.signup-page-logo {
-  height:200px;
-  width: auto;
-
-}
 
 body {
   font-family: 'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
   margin: 0px;
   padding: 0px;
-}
-
-.signup-hi {
-  font-size: 30px;
-}
-
-.signup-introduce {
-  color: grey;
+  text-shadow: 0 -.15px 0 rgb(220,	178,	140), .2px 0 0 rgb(117,	154,	192);
 }
 
 input {
-  border: 10px black;
+  border: 1px solid rgb(204,	204, 204);
   background-color: white;
-  box-shadow: 0 0 1px black;
+  border-radius: 2px;
+  box-shadow: inset 0px 1px 0px rgb(237,	237,	237);
+  /* box-shadow: 0 0 1px black; */
 }
 
 .login-submit-button {
@@ -189,6 +171,8 @@ input {
 
 .homepage-body {
   font-size: 21px;
+  text-shadow: 0 -.3px 0 yellow, .4px 0 0 lightblue;
+  /* text-shadow: 0 0 .2px lightblue; */
 
 }
 .homepage-get-started-button {
@@ -207,6 +191,7 @@ input {
   box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
   background-color: rgb(252,	95 ,49);
   margin: 30px;
+  text-align: center;
 }
 
 .homepage-get-started-button:hover {
@@ -223,7 +208,7 @@ input {
   color: rgb(210,	146,	130);
   font-size: 7px;
   text-align: center;
-  padding-top: 5px;
+
 }
 
 .homepage-body {
