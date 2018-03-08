@@ -14,8 +14,8 @@ const sessionLinks = (modal, openModal, closeModal) => {
   return (
     <ul className="login-signup">
       <li><button className='login-button' onClick={()=>modalSwitch(modal, openModal, closeModal)}>Log in</button></li>
-      <li>or</li>
-      <li><Link to="/signup" className='signup-button'>Sign up</Link></li>
+      <li className="or">or</li>
+      <li><Link to="/signup"><button className='signup-button'>Sign up</button></Link></li>
     </ul>
   );
 };
