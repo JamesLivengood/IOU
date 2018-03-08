@@ -18,6 +18,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { HeaderRoute } from '../util/header_util';
 import Modal from './modal';
 import HomePageContainer from './welcome/home_page_container';
+// import LoginRetryContainer from './welcome/home_page_container';
 
 const Header = () => {
   return (
@@ -35,8 +36,8 @@ const Header = () => {
 const App = () => (
   <div>
     <Switch>
-      <Route exact path='/' component={Header}/>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
+      <Route path='/' component={Header}/>
     </Switch>
 
     <AuthRoute exact path='/' component={HomePageContainer}/>
@@ -46,6 +47,7 @@ const App = () => (
 
 export default App;
 
+// <AuthRoute exact path='/login_retry' component={LoginRetryContainer}/>
 
 
 
