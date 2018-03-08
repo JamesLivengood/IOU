@@ -37,9 +37,9 @@ class LoginForm extends React.Component{
                   <input placeholder='Email address' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
                 </label>
                 <label className='login-password-label'>
-                  <input placholder='Password' type='text' name='password' value = {this.state.password} onChange = { this.handleChange }/>
+                  <input placeholder='Password' type='password' name='password' value = {this.state.password} onChange = { this.handleChange }/>
                 </label>
-                <button >Log in to IOU</button>
+                <button className="login-submit-button">Log in to IOU</button>
               </form>
             </div>
           </div>

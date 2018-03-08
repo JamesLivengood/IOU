@@ -16,6 +16,7 @@ import LoginFormContainer from './session/login_form_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal';
+import HomePage from './welcome/home_page';
 
 const App = () => (
   <div>
@@ -29,6 +30,7 @@ const App = () => (
       </div>
     </header>
     <Switch>
+      <Route exact path='/' component={HomePage}/>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
     </Switch>
   </div>
