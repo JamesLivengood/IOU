@@ -15,11 +15,12 @@ import LoginFormContainer from './session/login_form_container';
 // import BenchShowContainer from './bench_show/bench_show_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { HeaderRoute } from '../util/header_util';
 import Modal from './modal';
 import HomePage from './welcome/home_page';
 
-const App = () => (
-  <div>
+const Header = () => {
+  return (
     <header className='nav-bar'>
       <div className='nav-bar-box'>
         <Link to="/" className="header-link">
@@ -29,10 +30,18 @@ const App = () => (
         <Modal/>
       </div>
     </header>
+  );
+};
+
+const App = () => (
+  <div>
     <Switch>
-      <Route exact path='/' component={HomePage}/>
+      <Route exact path='/' component={Header}/>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
     </Switch>
+
+    <AuthRoute exact path='/' component={HomePage}/>
+
   </div>
 );
 
