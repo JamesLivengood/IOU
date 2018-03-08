@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HomePage = () => {
+const HomePage = ({modal, closeModal}) => {
   return (
     <div className='homepage-container'>
       <h2 className='homepage-header'>Boss Up On Life.</h2>
       <div className='homepage-body'><strong>Share</strong> bills and IOUs. <strong>Make sure</strong> everyone gets paid back.</div>
-      <button className='homepage-get-started-button'><Link to="/signup">Get started now<div className='button-small-font'>(it's free!)</div></Link></button>
+      <button onClick={()=>ensureModalOff(closeModal, modal)} className='homepage-get-started-button'><Link to="/signup">Get started now<div className='button-small-font'>(it's free!)</div></Link></button>
     </div>
   );
+};
+
+export const ensureModalOff = (closeModal, modal) => {
+  if (modal) {
+    return closeModal();
+  };
 };
 
 export default HomePage;
