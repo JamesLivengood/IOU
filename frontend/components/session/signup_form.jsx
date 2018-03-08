@@ -38,13 +38,13 @@ class SignupForm extends React.Component{
             <div className='signup-submit-form'>
               <form onSubmit = { this.handleSubmit }>
                 <label className='signup-hi'>Hi there! My name is
-                  <input type='text' name='name' value = {this.state.name} onChange = { this.handleChange }/>
+                  <input className='signup-name-input' type='text' name='name' value = {this.state.name} onChange = { this.handleChange }/>
                 </label>
                 <label className='signup-email-label'>Here’s my email address:
-                  <input type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
+                  <input className='signup-email-input' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
                 </label>
                 <label className='signup-password-label'>And here’s my password:
-                  <input type='text' name='password' value = {this.state.password} onChange = { this.handleChange }/>
+                  <input className='signup-password-input' type='text' name='password' value = {this.state.password} onChange = { this.handleChange }/>
                 </label>
                 <button >Sign me up!</button>
               </form>

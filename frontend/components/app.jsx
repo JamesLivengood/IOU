@@ -20,11 +20,13 @@ import Modal from './modal';
 const App = () => (
   <div>
     <header className='nav-bar'>
-      <Link to="/" className="header-link">
-        <span className="IOU-header">I O U</span>
-      </Link>
-      <WelcomeContainer />
-      <Modal/>
+      <div className='nav-bar-box'>
+        <Link to="/" className="header-link">
+          <span className="IOU-header">I O U</span>
+        </Link>
+        <WelcomeContainer />
+        <Modal/>
+      </div>
     </header>
     <Switch>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
