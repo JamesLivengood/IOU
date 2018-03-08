@@ -35,14 +35,35 @@ h1 {
   letter-spacing: 8px;
 }
 
-.login-button {
-  border: 5px groove rgb(122, 162, 108)ck;
+.signup-button, .homepage-get-started-button, .signup-submit-button {
+  border: 1px solid rgb(226,	85,	44);
+  border-bottom: 1px solid rgb(189,	71, 37);
   border-radius: 4px;
+  color: white;
+  text-shadow: 0 -1px 0 rgb(198, 44,3);
+  /* box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2); */
+  background-color: rgb(252,	95 ,49);
+  box-shadow: inset 0px 1px 0px rgb(253,	127,	90), 0 1px 2px 1px rgba(0,0,0,0.2);
+}
+
+
+
+
+.login-button {
+  border: 1px solid rgb(86,	180,	150);
+  border-bottom: 1px solid rgb(72,	150,	125);
+  border-radius: 4px;
+  color: white;
+  /* box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2); */
+  box-shadow: inset 0px 1px 0px rgb(128,	211,	185	), 0 1px 2px 1px rgba(0,0,0,0.2);
+/*  */128,	211,	185
+  /* border: 5px groove rgb(122, 162, 108)ck; */
+  /* border-radius: 4px; */
   text-shadow: 0 -1px 0 rgb(55, 139, 112);
   padding: 5px 10px;
   font-size: 14px;
   background: #5bc5a7;
-  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
+  /* box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2); */
 }
 
 .login-button:hover, .login-submit-button:hover {
@@ -61,21 +82,24 @@ h1 {
 
 }
 
-.signup-button:focus,{
-  background-color: rgb(79, 193, 157);
-  box-shadow: inset 0px 0px 5px rgb(226,	66,	22);
+.signup-button:active, .signup-submit-button:active, .homepage-get-started-button:active{
+  box-shadow: inset 0px 0px 5px rgb(226,	85,	44);
+  background-color: rgb(252,	74,	25);
 
 }
+
+
 
 .signup-button {
-  border: 5px groove rgb(122, 162, 108)ck;
-  border-radius: 4px;
-  text-shadow: 0 -1px 0 rgb(198, 44,3);
+  /* border: 5px groove rgb(122, 162, 108)ck; */
+  /* border-radius: 4px; */
+  /* text-shadow: 0 -1px 0 rgb(198, 44,3); */
   padding: 5px 10px;
   font-size: 14px;
-  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
-  background-color: rgb(252,	95 ,49);
+  /* box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2); */
+  /* background-color: rgb(252,	95 ,49); */
 }
+
 
 .nav-bar-box {
   width: 960px;
@@ -130,19 +154,8 @@ input {
   background-color: white;
   border-radius: 2px;
   box-shadow: inset 0px 1px 0px rgb(237,	237,	237);
+  transition: border .5s ease-in-out;
   /* box-shadow: 0 0 1px black; */
-}
-
-.login-submit-button {
-  border: 5px groove rgb(122, 162, 108)ck;
-  border-radius: 4px;
-  text-shadow: 0 -1px 0 rgb(55, 139, 112);
-  padding: 5px 25px;
-  font-size: 14px;
-  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
-  color: white;
-  background: #5bc5a7;
-
 }
 
 .or {
@@ -164,19 +177,22 @@ input {
 .homepage-header {
   font: inherit;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 68px;
   display: block;
   margin: 20px;
+  text-rendering: optimizeLegibility;
 }
 
 .homepage-body {
   font-size: 21px;
-  text-shadow: 0 -.3px 0 yellow, .4px 0 0 lightblue;
+  /* text-shadow: 0 -.3px 0 yellow, .4px 0 0 lightblue; */
   /* text-shadow: 0 0 .2px lightblue; */
 
 }
+
+
 .homepage-get-started-button {
-  color: white;
+  /* color: white; */
   font-size: 28px;
   width: 334px;
   height: 85px;
@@ -184,12 +200,12 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 5px groove rgb(122, 162, 108)ck;
-  border-radius: 4px;
-  text-shadow: 0 -1px 0 rgb(198, 44,3);
+  /* border: 5px groove rgb(122, 162, 108)ck; */
+  /* border-radius: 4px; */
+  /* text-shadow: 0 -1px 0 rgb(198, 44,3); */
   padding: 5px 10px;
-  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
-  background-color: rgb(252,	95 ,49);
+  /* box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2); */
+  /* background-color: rgb(252,	95 ,49); */
   margin: 30px;
   text-align: center;
 }
@@ -212,4 +228,8 @@ input {
 }
 
 .homepage-body {
+}
+
+strong {
+  font-weight: bold;
 }

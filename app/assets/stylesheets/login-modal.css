@@ -1,0 +1,73 @@
+.modal-box {
+  position: absolute;
+  z-index: 100;
+  display: block;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 0 0 5px 5px;
+  top: 42px;
+  right: -110px;
+  width: 268px;
+  height: 183px;
+  background-color: rgb(238, 238, 238);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px 0px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  /* text-align: center; */
+  line-height: 18px;
+}
+
+.login-submit-button {
+  border-radius: 4px;
+  text-shadow: 0 -1px 0 rgb(55, 139, 112);
+  padding: 5px 25px;
+  font-size: 14px;
+  border: 1px solid rgb(86,	180,	150);
+  border-bottom: 1px solid rgb(72,	150,	125);
+  border-radius: 4px;
+  color: white;
+  box-shadow: inset 0px 1px 0px rgb(128,	211,	185	), 0 1px 2px 1px rgba(0,0,0,0.2);
+  background: #5bc5a7;
+  width: 200px;
+  margin-top: 5px;
+  margin-left: 7.5px;
+}
+
+.login-modal-email-input, .login-modal-password-input {
+  color: black;
+  border: 1px solid rgb(204,	204, 204);
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: inset 0px 1px 0px rgb(237,	237,	237);
+  transition: border .5s ease-in-out;
+  padding: 7px;
+  width: 240px;
+  height: 28px;
+  margin: 5px;
+}
+
+.login-modal-email-input:focus, .login-modal-password-input:focus {
+  border: 1px solid rgb(120, 184, 240);
+  box-shadow: 0 0 5px rgb(50, 150, 240);
+  text-align: left;
+}
+
+.login-modal-email-input:focus::placeholder, .login-modal-password-input:focus::placeholder {
+  color: rgb(221, 221, 221);
+}
+
+.login-modal-email-input::placeholder, .login-modal-password-input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.login-button-li {
+  position:relative;
+}

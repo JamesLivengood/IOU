@@ -31,15 +31,11 @@ class LoginForm extends React.Component{
       return(
         <div className='login-page'>
           <div className='login-form-box'>
-            <div className='login-submit-form'>
-              <form onSubmit = { this.handleSubmit }>
-                <label className='login-email-label'>
-                  <input placeholder='Email address' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
-                </label>
-                <label className='login-password-label'>
-                  <input placeholder='Password' type='password' name='password' value = {this.state.password} onChange = { this.handleChange }/>
-                </label>
-                <button className="login-submit-button">Log in to IOU</button>
+            <div className='login-form-container'>
+              <form className='login-form' onSubmit = { this.handleSubmit }>
+                  <input className='login-modal-email-input' placeholder='Email address' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
+                  <input className='login-modal-password-input' placeholder='Password' type='password' name='password' value = {this.state.password} onChange = { this.handleChange }/>
+                  <button className="login-submit-button">Log in to IOU</button>
               </form>
             </div>
           </div>

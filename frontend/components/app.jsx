@@ -27,7 +27,6 @@ const Header = () => {
           <span className="IOU-header">I O U</span>
         </Link>
         <WelcomeContainer />
-        <Modal/>
       </div>
     </header>
   );
