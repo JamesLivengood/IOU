@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+
 
 class LoginForm extends React.Component{
   constructor(props){
@@ -11,7 +12,17 @@ class LoginForm extends React.Component{
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.errorsPresent = this.errorsPresent.bind(this);
   }
+
+  componentWillReceiveProps(newProps) {
+    debugger
+    if (this.errorsPresent(newProps)){
+      this.props.history.push('/login_retry');
+      this.props.closeModal();
+    }
+  }
+
 
   handleSubmit(e) {
 // debugger
@@ -24,6 +35,14 @@ class LoginForm extends React.Component{
 // debugger
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
+  }
+
+  errorsPresent(props) {
+    // debugger
+    if (Object.values(props.errors).length > 0) {
+      return true;
+    }
+    return false;
   }
 
   render() {
@@ -45,4 +64,4 @@ class LoginForm extends React.Component{
 }
 
 
-export default LoginForm;
+export default withRouter(LoginForm);
