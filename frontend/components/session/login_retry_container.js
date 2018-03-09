@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import { logout, login } from '../../actions/session_actions';
-import { closeModal } from '../../actions/modal_actions';
-import LoginForm from './login_form';
+import LoginRetry from './login_retry';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   errors: state.errors.sessionErrors,
 });
@@ -11,10 +10,9 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
   processForm: (user) => dispatch(login(user)),
-  closeModal: () => dispatch(closeModal()),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginForm);
+)(LoginRetry);
