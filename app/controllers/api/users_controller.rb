@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+
   def create
     # debugger
     @user = User.new({name: params[:name], email: params[:email], password: params[:password]})

@@ -12,3 +12,7 @@ require 'faker'
   email = name.downcase.split(' ').join('_')
   User.create(email: "#{email}@gmail.com", password: 'swagger', name: name)
 end
+
+20.times do
+  
+end

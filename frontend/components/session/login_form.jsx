@@ -16,7 +16,7 @@ class LoginForm extends React.Component{
   }
 
   componentWillReceiveProps(newProps) {
-    debugger
+    // debugger
     if (this.errorsPresent(newProps)){
       this.props.history.push('/login_retry');
       this.props.closeModal();
@@ -48,17 +48,19 @@ class LoginForm extends React.Component{
   render() {
 
       return(
-        <div className='login-page'>
-          <div className='login-form-box'>
-            <div className='login-form-container'>
-              <form className='login-form' onSubmit = { this.handleSubmit }>
-                  <input className='login-modal-email-input' placeholder='Email address' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
-                  <input className='login-modal-password-input' placeholder='Password' type='password' name='password' value = {this.state.password} onChange = { this.handleChange }/>
-                  <button className="login-submit-button">Log in to IOU</button>
-              </form>
+        <div className='login-modal-div'>
+          <div className='login-page'>
+            <div className='login-form-box'>
+              <div className='login-form-container'>
+                <form className='login-form' onSubmit = { this.handleSubmit }>
+                    <input className='login-modal-email-input' placeholder='Email address' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
+                    <input className='login-modal-password-input' placeholder='Password' type='password' name='password' value = {this.state.password} onChange = { this.handleChange }/>
+                    <button className="login-submit-button">Log in to IOU</button>
+                </form>
+              </div>
             </div>
-          </div>
-       </div>
+         </div>
+        </div>
       );
   }
 }

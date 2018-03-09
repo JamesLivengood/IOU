@@ -1,10 +1,31 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                   :integer          not null, primary key
+#  email                :string           not null
+#  password_digest      :string           not null
+#  session_token        :string           not null
+#  current_user_balance :float            default(0.0), not null
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  name                 :string           not null
+#
+
 
 class User < ApplicationRecord
 
-  # has_many :friendships,
-  #   class: 'Friendship',
-  #   primary_key: :id,
-  #   foreign_key: :user2_id
+  has_many :bill_joins,
+    class_name: 'BillJoin',
+    foreign_key: :user_id
+
+  has_many :bills,
+    through: :bill_joins,
+    source: :bill
+
+  def check_bill_balance(bill)
+
+  end
 
 
 

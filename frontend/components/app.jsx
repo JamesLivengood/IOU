@@ -17,6 +17,7 @@ import LoginFormContainer from './session/login_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { HeaderRoute } from '../util/header_util';
 import Modal from './modal';
+import DashboardContainer from './dashboard/dashboard_container';
 import HomePageContainer from './welcome/home_page_container';
 import LoginRetryContainer from './session/login_retry_container';
 
@@ -42,6 +43,7 @@ const App = () => (
 
     <AuthRoute exact path='/' component={HomePageContainer}/>
     <AuthRoute path='/login_retry' component={LoginRetryContainer}/>
+    <ProtectedRoute path='/dashboard' component={DashboardContainer}/>
 
   </div>
 );
