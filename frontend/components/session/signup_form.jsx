@@ -11,6 +11,7 @@ class SignupForm extends React.Component{
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.receiveErrors = this.receiveErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -26,6 +27,16 @@ class SignupForm extends React.Component{
     this.setState({[e.target.name]: e.target.value});
   }
 
+  receiveErrors() {
+    // debugger
+    if (Object.values(this.props.errors).length > 0) {
+      const errorsArr = Object.values(this.props.errors).map((err, idx) => <li key={idx}>{err}</li>);
+      return (
+        <div className='signup-form-errors'>The following errors occurred:<ul>{errorsArr}</ul></div>
+      );
+    }
+  }
+
   render() {
 
       return(
@@ -35,6 +46,7 @@ class SignupForm extends React.Component{
           </Link>
           <div className='signup-form-box'>
             <h3 className='signup-introduce'>INTRODUCE YOURSELF</h3>
+            {this.receiveErrors()}
             <div className='signup-submit-form'>
               <form onSubmit = { this.handleSubmit }>
                 <div className='signup-hi'>Hi there! My name is</div>
