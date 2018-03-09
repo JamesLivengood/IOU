@@ -7,7 +7,7 @@ import {ensureModalOff} from './home_page';
 const Welcome = ({ currentUser, modal, logout, openModal, closeModal }) => {
 // debugger
   return (
-    currentUser ? userLoggedIn(currentUser, logout) : sessionLinks(modal, openModal, closeModal)
+    currentUser ? userLoggedIn(currentUser, openModal, logout) : sessionLinks(modal, openModal, closeModal)
   );
 };
 
@@ -24,12 +24,17 @@ const sessionLinks = (modal, openModal, closeModal) => {
   );
 };
 
-const userLoggedIn = (props, logout) => {
+const userLoggedIn = (props, openModal, logout) => {
+  let toggleObj = {};
+  toggleObj['toggle'] = "hidden-user-dropdown";
 // debugger
 	return (<hgroup className="header-group">
-
-    <h2 className="header-name">{props.name}</h2>
-    <button className="header-button" onClick={logout}>Log Out</button>
+    <button className="user-dropdown-button" onClick={()=>openModal('userDropdown')}>
+      <img src='https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/avatars/50-31b0bb2f5aec77f11d60a1dc3fa14c23a958fed79261b32e94a73e9c27473ebb.png'/>
+      <span>{props.name}</span>
+      <div className='caret'>▼</div>
+    </button>
+    <Modal/>
 	</hgroup>);
 };
 
