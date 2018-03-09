@@ -1,37 +1,82 @@
-.user-dropdown{
+.dashboard-container {
+  display:flex;
+  justify-content: center;
+}
+
+.left-column, .right-column, .center-column {
+  /* border: 1px solid red; */
+}
+
+.center-column {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px;
+  border-left: 1px solid rgb(204, 204, 204);
+  border-right: 1px solid rgb(204, 204, 204);
+}
+
+.dashboard-big-container {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard-container {
+}
+
+.center-column-header {
+  height: 110px;
+  background: rgb(238,	238,	238);
+  /* background: transparent; */
+}
+
+.center-column-header-top, .header-bottom-balances {
+  height: 53px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-right: 15px;
-  height: 50px;
-  width: 85px;
-  padding: 0 5px 0 5px;
+  border-bottom: 1px solid rgb(221, 221, 221);
 }
 
-.user-dropdown-button:hover {
-  background-color: rgb(79, 193, 157);
+.header-bottom-balances {
+  display: flex;
+  justify-content: space-around;
 }
 
-.user-dropdown-button img{
-  border: 1px solid rgb(62, 175, 143);
-  border-radius: 1000px;
-  height: 22px;
-  width: auto;
+.center-column-header-top h2, .center-column-header-top .top-dash-buttons {
+  padding: 10px;
 }
 
-.user-dropdown-button span {
-  color: white;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-  font-size: 14px;
-  line-height: 19px;
-  padding: 5px 2px 5px 5px;
+.center-column-header-top h2 {
+  font-weight: 700;
 }
 
-.caret {
-  opacity: 0.3;
-  color: white;
-  font-size: 10px;
+.top-dash-buttons button {
+  margin: 5px;
+  height: 25px;
+  width: 65px;
+  text-align: center;
+  font-size: 15px;
 }
 
-.hidden-user-dropdown {
-  display: none;
+
+.left-column, .right-column {
+  width: 200px;
+  height: 451px;
+}
+
+.center-column {
+  width: 560px;
+  height: 100%;
+}
+
+.dashboard-title {
+  font-size: 24px;
+}
+
+.total-balance, .you-owe, .you-are-owed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: rgb(153,	153,	153);
 }

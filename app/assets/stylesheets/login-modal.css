@@ -1,4 +1,4 @@
-.modal-box {
+.login-modal-div {
   position: absolute;
   z-index: 100;
   display: block;
@@ -9,7 +9,7 @@
   width: 268px;
   height: 183px;
   background-color: rgb(238, 238, 238);
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;

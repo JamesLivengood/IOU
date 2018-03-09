@@ -30,6 +30,7 @@ gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
+gem 'annotate'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment

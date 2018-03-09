@@ -1,10 +1,11 @@
 # == Schema Information
 #
-# Table name: friendships
+# Table name: bill_joins
 #
 #  id         :integer          not null, primary key
-#  user1_id   :integer          not null
-#  user2_id   :integer          not null
+#  user_id    :integer          not null
+#  bill_id    :integer          not null
+#  owing      :boolean          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -12,9 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user1_id: 1
-  user2_id: 1
+  user_id: 1
+  bill_id: 1
+  owing: false
 
 two:
-  user1_id: 1
-  user2_id: 1
+  user_id: 1
+  bill_id: 1
+  owing: false

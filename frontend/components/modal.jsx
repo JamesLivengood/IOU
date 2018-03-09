@@ -4,7 +4,9 @@ import LoginFormContainer from './session/login_form_container';
 import UserDropdown from './welcome/user_welcome_bar_dropdown';
 import { closeModal } from '../actions/modal_actions';
 
-function Modal({modal, closeModal}) {
+
+function Modal({modal, closeModal, logout}) {
+  // debugger
   if (!modal) {
     return null;
   }
@@ -12,7 +14,7 @@ function Modal({modal, closeModal}) {
   let backgroundOffClick;
   switch (modal) {
     case 'userDropdown':
-      component = <UserDropdown />;
+      component = <UserDropdown logout={logout} />;
       backgroundOffClick = true;
     break;
     case 'login':
