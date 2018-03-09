@@ -54,7 +54,7 @@ class SignupForm extends React.Component{
                 <div className='signup-email-label'>Here’s my <strong>email address:</strong></div>
                   <input className='signup-email-input' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
                 <div className='signup-password-label'>And here’s my <strong>password:</strong></div>
-                  <input className='signup-password-input' type='text' name='password' value = {this.state.password} onChange = { this.handleChange }/>
+                  <input className='signup-password-input' type='password' name='password' value = {this.state.password} onChange = { this.handleChange }/>
                 <button className='signup-submit-button'>Sign me up!</button>
               </form>
             </div>
