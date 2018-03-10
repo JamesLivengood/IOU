@@ -23,11 +23,43 @@ class User < ApplicationRecord
     through: :bill_joins,
     source: :bill
 
-  def check_bill_balance(bill)
-
+  def total_balance
+    total = 0
+    self.bills.each do |bill|
+      if self.id == bill.owing_at_creation_user_id
+        total -= bill.balance
+      else
+        total += bill.balance
+      end
+    end
+    total
   end
 
+  def you_owe
+    total = 0
+    #note that < and > are flipped in logic compared to method User#you_are_owed
+    self.bills.each do |bill|
+      if self.id == bill.owing_at_creation_user_id && bill.balance > 0
+        total += bill.balance
+      elsif self.id != bill.owing_at_creation_user_id && bill.balance < 0
+        total += bill.balance
+      end
+    end
+    total
+  end
 
+  def you_are_owed
+    total = 0
+    #note that < and > are flipped in logic compared to method User#you_owe
+    self.bills.each do |bill|
+      if self.id == bill.owing_at_creation_user_id && bill.balance < 0
+        total += bill.balance
+      elsif self.id != bill.owing_at_creation_user_id && bill.balance > 0
+        total += bill.balance
+      end
+    end
+    total
+  end
 
   validates :name, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true

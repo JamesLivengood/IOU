@@ -13,6 +13,11 @@ require 'faker'
   User.create(email: "#{email}@gmail.com", password: 'swagger', name: name)
 end
 
-20.times do
-  
+25.times do
+  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..20))
+end
+
+Bill.all.each do |bill|
+  BillJoin.create(user_id: bill.owing_at_creation_user_id, bill_id: bill.id, owing: true)
+  BillJoin.create(user_id: rand(1..20), bill_id: bill.id, owing: false)
 end

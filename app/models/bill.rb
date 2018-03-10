@@ -22,16 +22,27 @@ class Bill < ApplicationRecord
 
   has_many :payments
 
-  def current_balance
-    x = amount_currently_owed
+  def balance
+    #returns current balance always to the owing_at_creation user
+    #so if it returns a negative number, it means the only user is currently owing the balance
+    return_balance = self.amount_originally_owed
     self.payments.each do |payment|
-      
+      if payment.paying_user_id === self.owing_at_creation_user_id
+        return_balance -= payment.payment_amount
+      else
+        return_balance += payment.payment_amount
+      end
     end
-    return x
+    return return_balance
   end
 
   def owing_user
-
+    if self.current_balance > 0
+      return User.find(self.owing_at_creation_user_id)
+    else
+      user_id_arr = self.users.map {|user| user.id unless user.id == self.owing_at_creation_user_id}
+      return user_id_arr[0]
+    end
   end
 
 end

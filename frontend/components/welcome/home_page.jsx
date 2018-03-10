@@ -18,6 +18,7 @@ export const ensureModalOff = (closeModal, modal, history) => {
     closeModal();
     history.push('/signup');
   } else {
+    
     history.push('/signup');
   }
 };

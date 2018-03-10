@@ -41,6 +41,6 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-* {
+/** {
   z-index: 1;
-}
+}*/
