@@ -14,6 +14,10 @@ class SignupForm extends React.Component{
     this.receiveErrors = this.receiveErrors.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearSessionErrors();
+  }
+
   handleSubmit(e) {
 // debugger
     e.preventDefault();
