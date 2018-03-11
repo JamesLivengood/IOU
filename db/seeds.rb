@@ -18,6 +18,6 @@ end
 end
 
 Bill.all.each do |bill|
-  BillJoin.create(user_id: bill.owing_at_creation_user_id, bill_id: bill.id, owing: true)
   BillJoin.create(user_id: rand(1..20), bill_id: bill.id, owing: false)
+  BillJoin.create(user_id: bill.owing_at_creation_user_id, bill_id: bill.id, owing: true)
 end

@@ -6,7 +6,7 @@ import Dashboard from './dashboard'
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   modal: state.ui.modal,
-  errors: state.errors.sessionErrors
+  errors: state.errors.sessionErrors,
 });
 
 const mapDispatchToProps = dispatch => ({
