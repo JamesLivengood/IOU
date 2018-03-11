@@ -24,15 +24,7 @@ class User < ApplicationRecord
     source: :bill
 
   def total_balance
-    total = 0
-    self.bills.each do |bill|
-      if self.id == bill.owing_at_creation_user_id
-        total -= bill.balance
-      else
-        total += bill.balance
-      end
-    end
-    total
+    self.you_are_owed - self.you_owe
   end
 
   def you_owe

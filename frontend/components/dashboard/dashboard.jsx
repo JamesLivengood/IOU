@@ -3,6 +3,21 @@ import React from 'react';
 class Dashboard extends React.Component{
   constructor(props) {
     super(props);
+    this.totalBalance = this.totalBalance.bind(this);
+    this.youOwe = this.youOwe.bind(this);
+    this.youAreOwed = this.youAreOwedbind(this);
+  }
+
+  totalBalance() {
+
+  }
+
+  youOwe() {
+
+  }
+
+  youAreOwed() {
+
   }
 
   render() {
@@ -22,15 +37,15 @@ class Dashboard extends React.Component{
               <div className="header-bottom-balances">
                 <div className="total-balance">
                   <div className='balance-bar-items'>total balance</div>
-                  <div className='user-balance-number'>${this.props.currentUser.current_user_balance}</div>
+                  <div className='user-balance-number'>${this.props.currentUser.total_balance}</div>
                 </div>
                 <div className="you-owe">
                   <div className='balance-bar-items'>you owe</div>
-                  <div className='you-owe-number'>300</div>
+                  <div className='you-owe-number'>${this.props.currentUser.you_owe}</div>
                 </div>
                 <div className="you-are-owed">
                   <div className='balance-bar-items'>you are owed</div>
-                  <div className='you-are-owed-number'>700</div>
+                  <div className='you-are-owed-number'>${this.props.currentUser.you_are_owed}</div>
                 </div>
               </div>
             </div>
