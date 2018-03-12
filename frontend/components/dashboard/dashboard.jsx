@@ -3,13 +3,28 @@ import React from 'react';
 class Dashboard extends React.Component{
   constructor(props) {
     super(props);
-    this.totalBalance = this.totalBalance.bind(this);
+    this.TotalBalance = this.TotalBalance.bind(this);
     this.youOwe = this.youOwe.bind(this);
-    this.youAreOwed = this.youAreOwedbind(this);
+    this.youAreOwed = this.youAreOwed.bind(this);
   }
 
-  totalBalance() {
-
+  TotalBalance() {
+    let sign = '';
+    let color = 'grey';
+    let number = 0;
+    // debugger
+    if (this.props.currentUser.total_balance > 0) {
+      sign = '+';
+      color = 'green';
+      number = this.props.currentUser.total_balance.toFixed(2);
+    } else if (this.props.currentUser.total_balance < 0) {
+      sign = '-';
+      color = 'orange';
+      number = this.props.currentUser.total_balance.toString().slice(1).toFixed(2);
+    }
+    return (
+     <div id={`${color}`} className='user-balance-number'>{sign} ${number}</div>
+    )
   }
 
   youOwe() {
@@ -37,7 +52,7 @@ class Dashboard extends React.Component{
               <div className="header-bottom-balances">
                 <div className="total-balance">
                   <div className='balance-bar-items'>total balance</div>
-                  <div className='user-balance-number'>${this.props.currentUser.total_balance}</div>
+                  <this.TotalBalance/>
                 </div>
                 <div className="you-owe">
                   <div className='balance-bar-items'>you owe</div>
