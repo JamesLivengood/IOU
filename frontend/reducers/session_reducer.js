@@ -4,6 +4,8 @@ import {
   RECEIVE_CURRENT_USER,
 } from '../actions/session_actions';
 
+// import { RECEIVE_BILL } from '../actions/bill_actions';
+
 const _nullUser = Object.freeze({
   currentUser: null
 });

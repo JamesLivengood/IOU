@@ -7,6 +7,7 @@ class CreateBillModal extends React.Component{
     super(props);
     this.state = {
       total_bill_amount: '',
+      other_user_id: '',
       amount_originally_owed: '',
       owing_at_creation_user_id: '',
       owed_to_at_creation_user_id: '',
@@ -29,7 +30,14 @@ class CreateBillModal extends React.Component{
 // debugger
     e.preventDefault();
     const bill = Object.assign({}, this.state);
+    if (bill.owed_to_at_creation_user_id === this.props.currentUser.id) {
+      bill.owing_at_creation_user_id = bill.other_user_id;
+    } else {
+      bill.owing_at_creation_user_id = this.props.currentUser.id;
+    }
+    delete bill.other_user_id;
     this.props.createBill(bill);
+    // this.props.closeModal();
   }
 
   handleChange(e) {
@@ -50,10 +58,11 @@ class CreateBillModal extends React.Component{
 
       return(
         <div className='create-bill-modal-div'>
+          <h2><div>Add a bill</div></h2>
           <form className='login-form' onSubmit = { this.handleSubmit }>
 
             <label> With <strong>you</strong> and:
-              <input className='create-bill-user-search' placeholder='Enter id' type='text' name='owing_at_creation_user_id' value={this.state.owing_at_creation_user_id} onChange = { this.handleChange }>
+              <input className='create-bill-user-search' placeholder='Enter id' type='text' name='other_user_id' value={this.state.other_user_id} onChange = { this.handleChange }>
               </input>
             </label>
 
@@ -62,7 +71,7 @@ class CreateBillModal extends React.Component{
             </label>
 
             <label>
-              <input className='paid-by' placeholder='paid-by' name='owed_to_at_creation_user_id'></input>
+              <input className='paid-by' placeholder='paid-by' name='owed_to_at_creation_user_id' value={this.state.owed_to_at_creation_user_id} onChange={ this.handleChange }></input>
             </label>
 
             <input className='create-bill-split' placeholder='Split' type='text' name='amount_originally_owed' value = {this.state.amount_originally_owed} onChange = { this.handleChange }/>
