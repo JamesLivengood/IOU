@@ -11,16 +11,28 @@
 #
 
 class Bill < ApplicationRecord
-
-  has_many :bill_joins,
-    class_name: 'BillJoin',
-    foreign_key: :bill_id
-
-  has_many :users,
-    through: :bill_joins,
-    source: :user
+  #
+  # has_many :bill_joins,
+  #   class_name: 'BillJoin',
+  #   foreign_key: :bill_id
+  #
+  # has_many :users,
+  #   through: :bill_joins,
+  #   source: :user
 
   has_many :payments
+
+  belongs_to :owing_at_creation_user,
+    class_name: 'User',
+    foreign_key: :owing_at_creation_user_id
+
+  belongs_to :owed_to_at_creation_user,
+    class_name: 'User',
+    foreign_key: :owed_to_at_creation_user_id
+
+  def users
+    return [self.owing_at_creation_user, self.owed_to_at_creation_user]
+  end
 
   def balance
     #returns current balance always to the owing_at_creation user

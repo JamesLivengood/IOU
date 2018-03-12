@@ -13,25 +13,29 @@ function Modal({modal, closeModal, logout}) {
   }
   let component;
   let backgroundOffClick;
+  let backgroundColor;
   switch (modal) {
     case 'userDropdown':
       component = <UserDropdown logout={logout} />;
       backgroundOffClick = true;
+      backgroundColor = 'modal-background'
     break;
     case 'login':
       component = <LoginFormContainer />;
       backgroundOffClick = false;
+      backgroundColor = 'modal-background'
     break;
     case 'createBill':
       component = <CreateBillModalContainer />;
       backgroundOffClick = true;
+      backgroundColor = 'grey-modal-background'
     break;
     default:
       return null;
   }
   if (backgroundOffClick){
     return (
-      <div className="modal-background" onClick={closeModal}>
+      <div className={backgroundColor} onClick={closeModal}>
         <div className="modal-box" onClick={e => e.stopPropagation()}>
           { component }
         </div>

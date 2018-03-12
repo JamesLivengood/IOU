@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312144512) do
+ActiveRecord::Schema.define(version: 20180312194324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20180312144512) do
   create_table "bills", force: :cascade do |t|
     t.float "total_bill_amount", null: false
     t.float "amount_originally_owed", null: false
-    t.integer "owing_at_creation_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["owing_at_creation_user_id"], name: "index_bills_on_owing_at_creation_user_id"
+    t.integer "owing_at_creation_user_id", null: false
+    t.integer "owed_to_at_creation_user_id", null: false
   end
 
   create_table "friendships", force: :cascade do |t|

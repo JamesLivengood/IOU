@@ -8,6 +8,11 @@ class Api::BillsController < ApplicationController
         owing_at_creation_user_id: params[:owing_at_creation_user_id]
         })
       if @bill.save
+        if @bill.owing_at_creation_user_id == @user.id
+          owing_user_id = @user.id
+          owed_user =
+        BillJoin.create(user_id: @bill.owing_at_creation_user_id, bill_id: bill.id, owing: true)
+        BillJoin.create(user_id: , bill_id: bill.id, owing: false)
         render "api/users/show"
       else
         render json: @bill.errors.full_messages, status: 422

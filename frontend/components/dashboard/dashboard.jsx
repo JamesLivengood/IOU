@@ -37,11 +37,17 @@ class Dashboard extends React.Component{
   }
 
   YouAreOwed() {
+// debugger
     if (this.props.currentUser.you_are_owed === 0) {
      return <div className='you-are-owed-number'>$0.00</div>
      } else {
-       return <div id='green' className='you-owe-number'>${this.props.currentUser.you_owe.toFixed(2)}</div>
+       return <div id='green' className='you-owe-number'>${this.props.currentUser.you_are_owed.toFixed(2)}</div>
      }
+  }
+
+
+  componentDidMount() {
+    return this.props.closeModal();
   }
 
   render() {
