@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createBill } from '../../actions/bill_actions';
+import { closeModal } from '../../actions/modal_actions';
 import CreateBillModal from './create_bill_modal';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -10,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   createBill: (bill) => dispatch(createBill(bill)),
-  openModal: (modal) => dispatch(openModal(modal)),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default connect(

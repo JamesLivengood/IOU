@@ -7,6 +7,7 @@ class Dashboard extends React.Component{
     this.TotalBalance = this.TotalBalance.bind(this);
     this.YouOwe = this.YouOwe.bind(this);
     this.YouAreOwed = this.YouAreOwed.bind(this);
+    this.state = this.props.currentUser;
   }
 
   TotalBalance() {
@@ -50,6 +51,10 @@ class Dashboard extends React.Component{
     return this.props.closeModal();
   }
 
+  componentWillReceiveProps() {
+
+  }
+
   render() {
     return(
       <div className="dashboard-big-container">
@@ -82,7 +87,6 @@ class Dashboard extends React.Component{
           </div>
           <div className='right-column'></div>
         </div>
-        <CreateBillModalContainer/>
       </div>
     );
   }
