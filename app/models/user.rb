@@ -6,7 +6,6 @@
 #  email                :string           not null
 #  password_digest      :string           not null
 #  session_token        :string           not null
-#  current_user_balance :float            default(0.0), not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  name                 :string           not null
@@ -24,14 +23,14 @@ class User < ApplicationRecord
     source: :bill
 
   def total_balance
-    debugger
+    # debugger
     self.you_are_owed - self.you_owe
   end
 
   def you_owe
     total = 0
     #note that < and > are flipped in logic compared to method User#you_are_owed
-    debugger
+    # debugger
     self.bills.each do |bill|
       if self.id == bill.owing_at_creation_user_id && bill.balance > 0
         total += bill.balance

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from './session/login_form_container';
 import UserDropdown from './welcome/user_welcome_bar_dropdown';
 import { closeModal } from '../actions/modal_actions';
+import CreateBillModalContainer from './dashboard/create_bill_modal_container';
 
 
 function Modal({modal, closeModal, logout}) {
@@ -20,6 +21,10 @@ function Modal({modal, closeModal, logout}) {
     case 'login':
       component = <LoginFormContainer />;
       backgroundOffClick = false;
+    break;
+    case 'createBill':
+      component = <CreateBillModalContainer />;
+      backgroundOffClick = true;
     break;
     default:
       return null;
