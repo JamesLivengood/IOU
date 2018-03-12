@@ -14,10 +14,10 @@ require 'faker'
 end
 
 25.times do
-  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..20))
+  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..20), owed_to_at_creation_user_id: rand(1..20))
 end
 
-Bill.all.each do |bill|
-  BillJoin.create(user_id: rand(1..20), bill_id: bill.id, owing: false)
-  BillJoin.create(user_id: bill.owing_at_creation_user_id, bill_id: bill.id, owing: true)
-end
+# Bill.all.each do |bill|
+#   BillJoin.create(user_id: rand(1..20), bill_id: bill.id, owing: false)
+#   BillJoin.create(user_id: bill.owing_at_creation_user_id, bill_id: bill.id, owing: true)
+# end

@@ -14,13 +14,22 @@
 
 class User < ApplicationRecord
 
-  has_many :bill_joins,
-    class_name: 'BillJoin',
-    foreign_key: :user_id
+  # has_many :bill_joins,
+  #   class_name: 'BillJoin',
+  #   foreign_key: :user_id
+  #
+  has_many :owed_bills,
+    class_name: 'Bill',
+    foreign_key: :owing_at_creation_user_id
 
-  has_many :bills,
-    through: :bill_joins,
-    source: :bill
+  has_many :owed_to_bills,
+    class_name: 'Bill',
+    foreign_key: :owed_to_at_creation_user_id
+
+  def bills
+    return self.owed_bills + self.owed_to_bills
+  end
+
 
   def total_balance
     # debugger
@@ -42,6 +51,7 @@ class User < ApplicationRecord
   end
 
   def you_are_owed
+    # debugger
     total = 0
     #note that < and > are flipped in logic compared to method User#you_owe
     self.bills.each do |bill|

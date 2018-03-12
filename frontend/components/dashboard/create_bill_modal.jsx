@@ -1,14 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-const CreateBillModal = () => {
-  return (
-    <div>swag</div>
-  );
-};
-
-
-import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
 
@@ -16,29 +6,30 @@ class CreateBillModal extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      password: "",
+      total_bill_amount: '',
+      amount_originally_owed: '',
+      owing_at_creation_user_id: '',
+      owed_to_at_creation_user_id: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.errorsPresent = this.errorsPresent.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
+  // componentWillReceiveProps(newProps) {
     // debugger
-    if (this.errorsPresent(newProps)){
-      this.props.history.push('/login_retry');
-      this.props.closeModal();
-    }
-  }
+    // if (this.errorsPresent(newProps)){
+    //   this.props.history.push('/login_retry');
+    //   this.props.closeModal();
+    // }
+  // }
 
 
   handleSubmit(e) {
 // debugger
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    const bill = Object.assign({}, this.state);
+    this.props.createBill(bill);
   }
 
   handleChange(e) {
@@ -58,18 +49,30 @@ class CreateBillModal extends React.Component{
   render() {
 
       return(
-        <div className='login-modal-div'>
-          <div className='login-page'>
-            <div className='login-form-box'>
-              <div className='login-form-container'>
-                <form className='login-form' onSubmit = { this.handleSubmit }>
-                    <input className='login-modal-email-input' placeholder='Email address' type='text' name='email' value = {this.state.email} onChange = { this.handleChange }/>
-                    <input className='login-modal-password-input' placeholder='Password' type='password' name='password' value = {this.state.password} onChange = { this.handleChange }/>
-                    <button className="login-submit-button">Log in to IOU</button>
-                </form>
-              </div>
+        <div className='create-bill-modal-div'>
+          <form className='login-form' onSubmit = { this.handleSubmit }>
+
+            <label> With <strong>you</strong> and:
+              <input className='create-bill-user-search' placeholder='Enter id' type='text' name='owing_at_creation_user_id' value={this.state.owing_at_creation_user_id} onChange = { this.handleChange }>
+              </input>
+            </label>
+
+            <label className='create-bill-amount-label'>$
+              <input className='create-bill-amount' placeholder='0.00' type='text' name='total_bill_amount' value = {this.state.total_bill_amount} onChange = { this.handleChange }/>
+            </label>
+
+            <label>
+              <input className='paid-by' placeholder='paid-by' name='owed_to_at_creation_user_id'></input>
+            </label>
+
+            <input className='create-bill-split' placeholder='Split' type='text' name='amount_originally_owed' value = {this.state.amount_originally_owed} onChange = { this.handleChange }/>
+
+            <div className='cancel-or-save-buttons-div'>
+              <button className="create-bill-cancel-button">Cancel</button>
+              <button className="create-bill-save-button" onClick={this.handleSubmit}>Save</button>
             </div>
-         </div>
+
+          </form>
         </div>
       );
   }
