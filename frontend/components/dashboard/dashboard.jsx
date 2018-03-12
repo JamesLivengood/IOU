@@ -1,11 +1,12 @@
 import React from 'react';
+import CreateBillModalContainer from './create_bill_modal_container';
 
 class Dashboard extends React.Component{
   constructor(props) {
     super(props);
     this.TotalBalance = this.TotalBalance.bind(this);
-    this.youOwe = this.youOwe.bind(this);
-    this.youAreOwed = this.youAreOwed.bind(this);
+    this.YouOwe = this.YouOwe.bind(this);
+    this.YouAreOwed = this.YouAreOwed.bind(this);
   }
 
   TotalBalance() {
@@ -20,19 +21,27 @@ class Dashboard extends React.Component{
     } else if (this.props.currentUser.total_balance < 0) {
       sign = '-';
       color = 'orange';
-      number = this.props.currentUser.total_balance.toString().slice(1).toFixed(2);
+      number = this.props.currentUser.total_balance.toFixed(2).slice(1);
     }
     return (
      <div id={`${color}`} className='user-balance-number'>{sign} ${number}</div>
     )
   }
 
-  youOwe() {
-
+  YouOwe() {
+   if (this.props.currentUser.you_owe === 0) {
+    return <div className='you-owe-number'>$0.00</div>
+    } else {
+      return <div id='orange' className='you-owe-number'>${this.props.currentUser.you_owe.toFixed(2)}</div>
+    }
   }
 
-  youAreOwed() {
-
+  YouAreOwed() {
+    if (this.props.currentUser.you_are_owed === 0) {
+     return <div className='you-are-owed-number'>$0.00</div>
+     } else {
+       return <div id='green' className='you-owe-number'>${this.props.currentUser.you_owe.toFixed(2)}</div>
+     }
   }
 
   render() {
@@ -45,7 +54,7 @@ class Dashboard extends React.Component{
               <div className="center-column-header-top">
                 <h2 className='dashboard-title'>Dashboard</h2>
                 <div className='top-dash-buttons'>
-                  <button className='signup-button'>Add a bill</button>
+                  <button className='signup-button' onClick={() => this.props.openModal('createBill')}>Add a bill</button>
                   <button className='login-button'>Settle up</button>
                 </div>
               </div>
@@ -56,17 +65,18 @@ class Dashboard extends React.Component{
                 </div>
                 <div className="you-owe">
                   <div className='balance-bar-items'>you owe</div>
-                  <div className='you-owe-number'>${this.props.currentUser.you_owe}</div>
+                  <this.YouOwe/>
                 </div>
                 <div className="you-are-owed">
                   <div className='balance-bar-items'>you are owed</div>
-                  <div className='you-are-owed-number'>${this.props.currentUser.you_are_owed}</div>
+                  <this.YouAreOwed/>
                 </div>
               </div>
             </div>
           </div>
           <div className='right-column'></div>
         </div>
+        <CreateBillModalContainer/>
       </div>
     );
   }
