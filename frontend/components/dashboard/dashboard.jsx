@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateBillModalContainer from './create_bill_modal_container';
-import DashboardChart from './dashboard_chart.jsx'
+import DashboardList from './dashboard_list.jsx';
+import DashboardChart from './dashboard_chart.jsx';
 
 class Dashboard extends React.Component{
   constructor(props) {
@@ -8,8 +9,15 @@ class Dashboard extends React.Component{
     this.TotalBalance = this.TotalBalance.bind(this);
     this.YouOwe = this.YouOwe.bind(this);
     this.YouAreOwed = this.YouAreOwed.bind(this);
-    this.state = this.props.currentUser;
+    this.state = this.props.chart;
+    this.Chart = this.Chart.bind(this);
   }
+
+  componentDidMount() {
+    this.props.closeModal();
+    // return this.props.openModal('dashboardList');
+  }
+
 
   TotalBalance() {
     let sign = '';
@@ -27,29 +35,24 @@ class Dashboard extends React.Component{
     }
     return (
      <div id={`${color}`} className='user-balance-number'>{sign} ${number}</div>
-    )
+    );
   }
 
   YouOwe() {
    if (this.props.currentUser.you_owe === 0) {
-    return <div className='you-owe-number'>$0.00</div>
+    return <div className='you-owe-number'>$0.00</div>;
     } else {
-      return <div id='orange' className='you-owe-number'>${this.props.currentUser.you_owe.toFixed(2)}</div>
+      return <div id='orange' className='you-owe-number'>${this.props.currentUser.you_owe.toFixed(2)}</div>;
     }
   }
 
   YouAreOwed() {
 // debugger
     if (this.props.currentUser.you_are_owed === 0) {
-     return <div className='you-are-owed-number'>$0.00</div>
+     return <div className='you-are-owed-number'>$0.00</div>;
      } else {
-       return <div id='green' className='you-owe-number'>${this.props.currentUser.you_are_owed.toFixed(2)}</div>
+       return <div id='green' className='you-owe-number'>${this.props.currentUser.you_are_owed.toFixed(2)}</div>;
      }
-  }
-
-
-  componentDidMount() {
-    return this.props.closeModal();
   }
 
   componentWillReceiveProps() {
@@ -57,6 +60,7 @@ class Dashboard extends React.Component{
   }
 
   render() {
+    // debugger
     return(
       <div className="dashboard-big-container">
         <div className="dashboard-container">
@@ -85,12 +89,31 @@ class Dashboard extends React.Component{
                 </div>
               </div>
             </div>
-            <DashboardChart bills={this.props.currentUser.bills}/>
+            <div className='dashboard-chart-header'>
+              <div className='dashboard-chart-owe-title'>YOU OWE</div>
+              <div>
+                <button className='view-as-list-button' onClick={this.props.openList}>view as list</button>
+                <button className='view-as-chart-button' onClick={this.props.openChart}>view chart</button>
+              </div>
+              <div className='dashboard-chart-owe-title'>YOU ARE OWED</div>
+            </div>
+            <this.Chart/>
           </div>
           <div className='right-column'></div>
         </div>
       </div>
     );
+  }
+
+  Chart() {
+    // debugger
+    if (this.props.chart === 'list'){
+      return (
+        <DashboardList owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
+      );} else if (this.props.chart==='chart') {
+        return (
+          <DashboardChart owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
+        );}
   }
 
 }

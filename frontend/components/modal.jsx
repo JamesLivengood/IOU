@@ -4,9 +4,11 @@ import LoginFormContainer from './session/login_form_container';
 import UserDropdown from './welcome/user_welcome_bar_dropdown';
 import { closeModal } from '../actions/modal_actions';
 import CreateBillModalContainer from './dashboard/create_bill_modal_container';
+import DashboardList from './dashboard/dashboard_list';
+import DashboardChart from './dashboard/dashboard_chart';
 
 
-function Modal({modal, closeModal, logout}) {
+function Modal({modal, closeModal, logout, owedBills, owedToBills, owedToBillsInfo, owedBillsInfo}) {
   // debugger
   if (!modal) {
     return null;
@@ -18,17 +20,27 @@ function Modal({modal, closeModal, logout}) {
     case 'userDropdown':
       component = <UserDropdown logout={logout} />;
       backgroundOffClick = true;
-      backgroundColor = 'modal-background'
+      backgroundColor = 'modal-background';
     break;
     case 'login':
       component = <LoginFormContainer />;
       backgroundOffClick = false;
-      backgroundColor = 'modal-background'
+      backgroundColor = 'modal-background';
     break;
     case 'createBill':
       component = <CreateBillModalContainer />;
       backgroundOffClick = true;
-      backgroundColor = 'grey-modal-background'
+      backgroundColor = 'grey-modal-background';
+    break;
+    case 'dashboardList':
+      component = <DashboardList owedBills={owedBills} owedtoBills={owedToBills} owedToBillsInfo={owedToBillsInfo} owedBillsInfo={owedBillsInfo}/>;
+      backgroundOffClick = false;
+      backgroundColor = 'modal-background';
+    break;
+    case 'dashboardChart':
+      component = <DashboardChart />;
+      backgroundOffClick = false;
+      backgroundColor = 'modal-background';
     break;
     default:
       return null;

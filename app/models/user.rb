@@ -18,22 +18,59 @@ class User < ApplicationRecord
   #   class_name: 'BillJoin',
   #   foreign_key: :user_id
   #
-  has_many :owed_bills,
+  has_many :originally_owing_bills,
     class_name: 'Bill',
     foreign_key: :owing_at_creation_user_id
 
-  has_many :owed_to_bills,
+  has_many :originally_owed_to_bills,
     class_name: 'Bill',
     foreign_key: :owed_to_at_creation_user_id
 
   def bills
-    return self.owed_bills + self.owed_to_bills
+    return self.originally_owing_bills + self.originally_owed_to_bills
   end
 
+  def owed_bills_info
+    self.owed_bills.map do |bill|
+      {balance: bill.balance, name: bill.owed_to_user.name, id: bill.owed_to_user.id}
+    end
+  end
+
+  def you_are_owed_bills_info
+  # debugger
+    self.you_are_owed_bills.map do |bill|
+      {balance: bill.balance, name: bill.owing_user.name, id: bill.owing_user.id}
+    end
+  end
 
   def total_balance
     # debugger
     self.you_are_owed - self.you_owe
+  end
+
+  def owed_bills
+    final = []
+    self.bills.each do |bill|
+      if self.id == bill.owing_at_creation_user_id && bill.balance > 0
+        final << bill
+      elsif self.id != bill.owing_at_creation_user_id && bill.balance < 0
+        final << bill
+      end
+    end
+    final
+  end
+
+  def you_are_owed_bills
+    final = []
+    #note that < and > are flipped in logic compared to method User#you_owe
+    self.bills.each do |bill|
+      if self.id == bill.owing_at_creation_user_id && bill.balance < 0
+        final << bill
+      elsif self.id != bill.owing_at_creation_user_id && bill.balance > 0
+        final << bill
+      end
+    end
+    final
   end
 
   def you_owe

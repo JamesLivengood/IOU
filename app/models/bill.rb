@@ -49,11 +49,18 @@ class Bill < ApplicationRecord
   end
 
   def owing_user
-    if self.current_balance > 0
+    if self.balance > 0
       return User.find(self.owing_at_creation_user_id)
     else
-      user_id_arr = self.users.map {|user| user.id unless user.id == self.owing_at_creation_user_id}
-      return user_id_arr[0]
+      return User.find(self.owed_to_at_creation_user_id)
+    end
+  end
+
+  def owed_to_user
+    if self.balance > 0
+      return User.find(self.owed_to_at_creation_user_id)
+    else
+      return User.find(self.owing_at_creation_user_id)
     end
   end
 

@@ -1,0 +1,52 @@
+
+.dashboard-list-icon{
+  border: 1px solid rgb(204,	204,	204	);
+  border-radius: 1000px;
+  height: 30px;
+  width: auto;
+}
+
+.orange-dashboard-list, .green-dashboard-list {
+  width: 280px;
+  padding: 7px 13px 7px 13px;
+  text-rendering: optimizeLegibility;
+  font-size: 13px;
+}
+
+
+.dashboard-list-box {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+
+.dashboard-list-item-div {
+  line-height: 18px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.dashboard-list-info {
+  margin-left: 10px;
+}
+
+.dashboard-list-name {
+  font-size: 16px;
+}
+
+.orange-dashboard-list .dashboard-list-amount {
+  color: rgb(252,	95,	49);
+}
+
+.green-dashboard-list .dashboard-list-amount {
+  color: rgb(101,	201,	167);
+}
+
+.bold-balance {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.orange-dashboard-list {
+  border-right: 5px solid rgb{238,	238,	238};
+}

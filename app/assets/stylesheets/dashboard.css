@@ -94,3 +94,42 @@
   color: rgb(253,	98,	60);
   text-rendering: optimizeLegibility;
 }
+
+.dashboard-chart-owe-title {
+  color: rgb(153,	153,	153);
+  margin: 15px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.dashboard-chart-header {
+  display: flex;
+  justify-content: space-between;
+  height: 46px;
+  align-items: center;
+
+}
+
+.view-as-list-button, .view-as-chart-button{
+  padding: 2px 5px 1px;
+  text-align: center;
+  display: inline-block;
+  font-size: 12px;
+  color: #999;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid rgb(236, 236, 236);
+  opacity: .75;
+}
+
+.view-as-list-button:hover, .view-as-chart-button:hover {
+  color: rgb(105, 105, 105);
+  border-color: rgb(205, 205, 205);
+}
+
+.view-as-list-button:focus, .view-as-chart-button:focus {
+  color: black;
+  background: rgb(238,	238,	238);
+  border: 1px solid rgb(214,	214,	214);
+  border-bottom: 1px solid rgb(178,	178,	178);
+}
