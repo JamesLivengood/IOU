@@ -120,6 +120,7 @@
   border-radius: 3px;
   border: 1px solid rgb(236, 236, 236);
   opacity: .75;
+  height: 24px;
 }
 
 .view-as-list-button:hover, .view-as-chart-button:hover {
@@ -127,7 +128,21 @@
   border-color: rgb(205, 205, 205);
 }
 
-.view-as-list-button:focus, .view-as-chart-button:focus {
+/* .view-as-list-button:focus, .view-as-chart-button:focus {
+  color: black;
+  background: rgb(238,	238,	238);
+  border: 1px solid rgb(214,	214,	214);
+  border-bottom: 1px solid rgb(178,	178,	178);
+} */
+
+.center-boxes-dashboard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+#selected-button {
   color: black;
   background: rgb(238,	238,	238);
   border: 1px solid rgb(214,	214,	214);
