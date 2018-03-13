@@ -92,8 +92,8 @@ class Dashboard extends React.Component{
             <div className='dashboard-chart-header'>
               <div className='dashboard-chart-owe-title'>YOU OWE</div>
               <div>
-                <button className='view-as-list-button' onClick={this.props.openList}>view as list</button>
-                <button className='view-as-chart-button' onClick={this.props.openChart}>view chart</button>
+                <button className='view-as-list-button' onClick={this.props.openList}><i class='fa fa-bars'/>view as list</button>
+                <button className='view-as-chart-button' onClick={this.props.openChart}><i class='fa fa-bar-chart'/>view chart</button>
               </div>
               <div className='dashboard-chart-owe-title'>YOU ARE OWED</div>
             </div>
