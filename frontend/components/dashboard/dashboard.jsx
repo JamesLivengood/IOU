@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateBillModalContainer from './create_bill_modal_container';
+import DashboardChart from './dashboard_chart.jsx'
 
 class Dashboard extends React.Component{
   constructor(props) {
@@ -84,6 +85,7 @@ class Dashboard extends React.Component{
                 </div>
               </div>
             </div>
+            <DashboardChart bills={this.props.currentUser.bills}/>
           </div>
           <div className='right-column'></div>
         </div>
