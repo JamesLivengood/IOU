@@ -2,6 +2,7 @@ import React from 'react';
 import CreateBillModalContainer from './create_bill_modal_container';
 import DashboardList from './dashboard_list.jsx';
 import DashboardChart from './dashboard_chart.jsx';
+import AllFriendsContainer from './all_friends_container';
 
 class Dashboard extends React.Component{
   constructor(props) {
@@ -66,7 +67,9 @@ class Dashboard extends React.Component{
     return(
       <div className="dashboard-big-container">
         <div className="dashboard-container">
-          <div className="left-column"></div>
+          <div className="left-column">
+            <AllFriendsContainer/>
+          </div>
           <div className="center-column">
             <div className="center-column-header">
               <div className="center-column-header-top">
@@ -123,7 +126,7 @@ class Dashboard extends React.Component{
   ListButton() {
     if (this.props.chart === 'list') {
       return(
-        <button id='selected-button' className='view-as-list-button' onClick={this.props.openList}><i id='icons' className='fa fa-bars'/>view as list</button>
+        <div id='selected-div-list'><button id='selected-button' className='view-as-list-button' onClick={this.props.openList}><i id='icons' className='fa fa-bars'/>view as list </button><span id='hideMe'>(all bills)</span></div>
       );
     } else {
         return (
@@ -135,7 +138,7 @@ class Dashboard extends React.Component{
   ChartButton() {
     if (this.props.chart === 'chart') {
       return(
-        <button id='selected-button' className='view-as-chart-button' onClick={this.props.openChart}><i id='icons' className='fa fa-bar-chart'/>view chart</button>
+        <div id='selected-div'><button id='selected-button' className='view-as-chart-button' onClick={this.props.openChart}><i id='icons' className='fa fa-bar-chart'/>view chart </button><span id='hideMe'>(balance per friend)</span></div>
       );
     } else {
         return (

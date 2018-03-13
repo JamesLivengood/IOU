@@ -26,6 +26,32 @@ class User < ApplicationRecord
     class_name: 'Bill',
     foreign_key: :owed_to_at_creation_user_id
 
+  def friends
+    friendships1 = Friendship.where(user1_id: self.id)
+    friendships2 = Friendship.where(user2_id: self.id)
+    final = []
+    friendships1.map do |friendship|
+      final << User.find(friendship.user2_id)
+    end
+    friendships2.map do |friendship|
+      final << User.find(friendship.user1_id)
+    end
+    final
+  end
+
+  def balance_with(friend)
+    bills = Bill.where(owing_at_creation_user_id: self.id, owed_to_at_creation_user_id: friend.id) + Bill.where(owing_at_creation_user_id: friend.id, owed_to_at_creation_user_id: self.id)
+    balance = 0
+    bills.each do |bill|
+      if bill.owing_at_creation_user_id == self.id
+        bill.balance > 0 ? balance -= bill.balance : balance += bill.balance
+      elsif bill.owed_to_at_creation_user_id == self.id
+        bill.balance > 0 ? balance += bill.balance : balance -= bill.balance
+      end
+    end
+    return balance
+  end
+
   def bills
     return self.originally_owing_bills + self.originally_owed_to_bills
   end
@@ -100,6 +126,10 @@ class User < ApplicationRecord
     end
     total
   end
+
+
+
+
 
   validates :name, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
