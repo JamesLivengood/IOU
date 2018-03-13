@@ -1,0 +1,41 @@
+.add-friend-header {
+  background: rgb(92, 197, 167);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-shadow: rgb(49, 138, 113) 0px -1px 0px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  width: 97%;
+  /* z-index: -1; */
+  padding-left: 10px;
+}
+
+.add-friend-box {
+  width: 330px;
+  height: 135px;
+  border-radius: 5px;
+  border: 1px solid rgb(153, 153, 153);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: white;
+}
+
+.add-friend-buttons {
+  display: flex;
+}
+
+.add-friend-submit {
+  border: 1px solid rgb(86,	180,	150);
+  border-bottom: 1px solid rgb(72,	150,	125);
+  border-radius: 4px;
+  color: white;
+  box-shadow: inset 0px 1px 0px rgb(128,	211,	185	), 0 1px 2px 1px rgba(0,0,0,0.2);
+  text-shadow: 0 -1px 0 rgb(55, 139, 112);
+  padding: 5px 10px;
+  font-size: 14px;
+  background: #5bc5a7;
+}
