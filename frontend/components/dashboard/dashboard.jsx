@@ -11,6 +11,8 @@ class Dashboard extends React.Component{
     this.YouAreOwed = this.YouAreOwed.bind(this);
     this.state = this.props.chart;
     this.Chart = this.Chart.bind(this);
+    this.ListButton = this.ListButton.bind(this);
+    this.ChartButton = this.ChartButton.bind(this);
   }
 
   componentDidMount() {
@@ -90,12 +92,14 @@ class Dashboard extends React.Component{
               </div>
             </div>
             <div className='dashboard-chart-header'>
-              <div className='dashboard-chart-owe-title'>YOU OWE</div>
-              <div>
-                <button className='view-as-list-button' onClick={this.props.openList}><i class='fa fa-bars'/>view as list</button>
-                <button className='view-as-chart-button' onClick={this.props.openChart}><i class='fa fa-bar-chart'/>view chart</button>
+              <div className='center-boxes-dashboard'>
+                <div className='dashboard-chart-owe-title'>YOU OWE</div>
+                <this.ListButton />
               </div>
-              <div className='dashboard-chart-owe-title'>YOU ARE OWED</div>
+              <div className='center-boxes-dashboard'>
+                <this.ChartButton />
+                <div className='dashboard-chart-owe-title'>YOU ARE OWED</div>
+              </div>
             </div>
             <this.Chart/>
           </div>
@@ -114,6 +118,30 @@ class Dashboard extends React.Component{
         return (
           <DashboardChart owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
         );}
+  }
+
+  ListButton() {
+    if (this.props.chart === 'list') {
+      return(
+        <button id='selected-button' className='view-as-list-button' onClick={this.props.openList}><i id='icons' className='fa fa-bars'/>view as list</button>
+      );
+    } else {
+        return (
+          <button className='view-as-list-button' onClick={this.props.openList}><i id='icons' className='fa fa-bars'/>view as list</button>
+        );
+      }
+  }
+
+  ChartButton() {
+    if (this.props.chart === 'chart') {
+      return(
+        <button id='selected-button' className='view-as-chart-button' onClick={this.props.openChart}><i id='icons' className='fa fa-bar-chart'/>view chart</button>
+      );
+    } else {
+        return (
+        <button className='view-as-chart-button' onClick={this.props.openChart}><i id='icons' className='fa fa-bar-chart'/>view chart</button>
+        );
+      }
   }
 
 }
