@@ -11,12 +11,21 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def search
-    @user = User.find_by(name: params[:name])
-    if @user
-      render "api/users/show"
+  # def search
+  #   @user = User.find_by(name: params[:name])
+  #   if @user
+  #     render "api/users/show"
+  #   else
+  #     render json: ["User does not exist"], status: 404
+  #   end
+  # end
+
+  def index
+    # debugger
+    if params[:query].present?
+      @users = User.where('name ~ ?', params[:query])
     else
-      render json: ["User does not exist"], status: 404
+      @users = User.none
     end
   end
 

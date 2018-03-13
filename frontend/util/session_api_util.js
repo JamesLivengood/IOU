@@ -10,7 +10,7 @@ export const signup = (user) => {
 
   return $.ajax({
     method: 'POST',
-    url: '/api/user',
+    url: '/api/users',
     data: user
   });
 };
@@ -21,3 +21,10 @@ export const logout = () => {
     url: '/api/session'
   });
 };
+
+export const searchUsers = (query) => (
+  $.ajax({
+    url: 'api/users',
+    data: { query }
+  })
+);
