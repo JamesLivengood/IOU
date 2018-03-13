@@ -6,6 +6,7 @@ import { closeModal } from '../actions/modal_actions';
 import CreateBillModalContainer from './dashboard/create_bill_modal_container';
 import DashboardList from './dashboard/dashboard_list';
 import DashboardChart from './dashboard/dashboard_chart';
+import AddFriendModal from './dashboard/add_friend_modal';
 
 
 function Modal({modal, closeModal, logout, owedBills, owedToBills, owedToBillsInfo, owedBillsInfo}) {
@@ -41,6 +42,11 @@ function Modal({modal, closeModal, logout, owedBills, owedToBills, owedToBillsIn
       component = <DashboardChart />;
       backgroundOffClick = false;
       backgroundColor = 'modal-background';
+    break;
+    case 'addFriend':
+      component = <AddFriendModal />;
+      backgroundOffClick = true;
+      backgroundColor = 'grey-modal-background';
     break;
     default:
       return null;
