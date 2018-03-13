@@ -77,7 +77,7 @@ class CreateBillModal extends React.Component{
             <input className='create-bill-split' placeholder='Split' type='text' name='amount_originally_owed' value = {this.state.amount_originally_owed} onChange = { this.handleChange }/>
 
             <div className='cancel-or-save-buttons-div'>
-              <button className="create-bill-cancel-button">Cancel</button>
+              <button className="create-bill-cancel-button" onClick={this.props.closeModal}>Cancel</button>
               <button className="create-bill-save-button" onClick={this.handleSubmit}>Save</button>
             </div>
 
