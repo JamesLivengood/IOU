@@ -52,6 +52,22 @@ class User < ApplicationRecord
     return balance
   end
 
+  def highest_friend_balance
+    balance = 1
+    friends.each do |friend|
+      self.balance_with(friend).abs > balance ? balance = self.balance_with(friend) : balance
+    end
+    balance
+  end
+
+  def friend_and_balance_array
+    final = []
+    self.friends.map do |friend|
+      final << {id: friend.id, name: friend.name, balance: self.balance_with(friend)}
+    end
+    final
+  end
+
   def bills
     return self.originally_owing_bills + self.originally_owed_to_bills
   end

@@ -14,7 +14,7 @@ require 'faker'
 end
 
 50.times do
-  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..20), owed_to_at_creation_user_id: rand(1..20), description: Faker::GameOfThrones.dragon)
+  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..10), owed_to_at_creation_user_id: rand(11..20), description: Faker::GameOfThrones.dragon)
 end
 
 
