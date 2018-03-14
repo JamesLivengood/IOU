@@ -19,7 +19,7 @@ end
 
 
 Bill.all.each do |bill|
-  Friendship.create(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id) unless Friendship.where(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id).length > 0)
+  Friendship.create(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id) unless Friendship.where(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id).length > 0
 end
 
 # Bill.all.each do |bill|
