@@ -13,8 +13,8 @@ require 'faker'
   User.create(email: "#{email}@gmail.com", password: 'swagger', name: name)
 end
 
-25.times do
-  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..20), owed_to_at_creation_user_id: rand(1..20))
+50.times do
+  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..20), owed_to_at_creation_user_id: rand(1..20), description: Faker::GameOfThrones.dragon)
 end
 
 

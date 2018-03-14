@@ -20,12 +20,32 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px 0px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   background: white;
+  margin-bottom: 400px;
+  position: absolute;
+  left: 570px;
+  top: 100px;
 }
 
 .add-friend-buttons {
   display: flex;
+  justify-content: flex-end;
+}
+
+.add-friend-buttons button {
+  margin: 10px 10px 10px 0;
+}
+
+.add-friend-cancel {
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  color: rgb(51, 51, 51);
+  width: 75px;
+  height: 38px;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
 
 .add-friend-submit {
@@ -38,4 +58,30 @@
   padding: 5px 10px;
   font-size: 14px;
   background: #5bc5a7;
+}
+
+.add-friend-submit:hover {
+  background-color: rgb(79, 193, 157);
+}
+
+.add-friend-cancel:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.add-friend-submit:active {
+  background-color: rgb(79, 193, 157);
+  box-shadow: inset 0px 0px 5px rgb(71, 173, 143);
+}
+
+.add-friend-box label {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.add-friend-box label input {
+  border-radius: 3px;
+  border: 1px solid transparent;
+  color: rgb(85, 85, 85);
+  text-align: left;
+  padding-left: 15px;
 }

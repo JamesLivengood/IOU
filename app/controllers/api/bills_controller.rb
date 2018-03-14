@@ -7,6 +7,7 @@ class Api::BillsController < ApplicationController
         amount_originally_owed: params[:amount_originally_owed],
         owing_at_creation_user_id: params[:owing_at_creation_user_id],
         owed_to_at_creation_user_id: params[:owed_to_at_creation_user_id],
+        description: params[:description]
         })
       if @bill.save
         render "api/users/show"
