@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import FriendSearchDropdownContainer from '../search_dropdown/friend_search_dropdown_container';
 
 
 class CreateBillModal extends React.Component{
@@ -56,6 +57,19 @@ class CreateBillModal extends React.Component{
     return false;
   }
 
+  sendQuery() {
+    // debugger
+    if (this.state.query.length > 0) {
+      return this.props.searchUsers(this.state.query);
+    } else if (this.state.query.length === 0) {
+      return this.props.clearSearch();
+    }
+  }
+
+  handleSearchChange(e) {
+    this.setState({query: e.currentTarget.value}, this.sendQuery);
+  }
+
   render() {
 
       return(
@@ -64,7 +78,12 @@ class CreateBillModal extends React.Component{
           <form className='create-bill-form' onSubmit = { this.handleSubmit }>
 
             <label className='with-you-and'> With you and:
-              <input className='create-bill-user-search' placeholder='Enter id' type='text' name='other_user_id' value={this.state.other_user_id} onChange = { this.handleChange }>
+              <input className='create-bill-user-search'
+                placeholder='Enter name'
+                type='text'
+                name='other_user_id'
+                value={ this.state.other_user_id }
+                onChange = { this.handleSearchChange }>
               </input>
             </label>
 
@@ -98,6 +117,7 @@ class CreateBillModal extends React.Component{
             </div>
 
           </form>
+          <FriendSearchDropdownContainer/>
         </div>
       );
   }

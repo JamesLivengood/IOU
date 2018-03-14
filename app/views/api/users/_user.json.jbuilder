@@ -9,3 +9,5 @@ json.you_are_owed_bills user.you_are_owed_bills
 json.owed_bills_info user.owed_bills_info
 json.you_are_owed_bills_info user.you_are_owed_bills_info
 json.friends user.friends
+json.highest_friend_balance user.highest_friend_balance
+json.friend_and_balance_array user.friend_and_balance_array
