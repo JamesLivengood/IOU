@@ -35,7 +35,7 @@
 
 .orange-dashboard-chart div, .green-dashboard-chart div {
   border-radius: 5px;
-  color: white;
+  color: black;
   margin: 7px;
   display: flex;
   flex-direction: column;
