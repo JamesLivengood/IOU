@@ -70,6 +70,8 @@ class CreateBillModal extends React.Component{
     this.setState({query: e.currentTarget.value}, this.sendQuery);
   }
 
+  
+
   render() {
 
       return(
