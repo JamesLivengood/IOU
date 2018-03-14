@@ -119,7 +119,7 @@ class Dashboard extends React.Component{
         <DashboardList owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
       );} else if (this.props.chart==='chart') {
         return (
-          <DashboardChart owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
+          <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array}/>
         );}
   }
 

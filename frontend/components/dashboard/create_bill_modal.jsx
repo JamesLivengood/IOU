@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import FriendSearchDropdownContainer from '../search_dropdown/friend_search_dropdown_container';
+import AddBillDropdownSearchContainer from '../search_dropdown/add_bill_dropdown_search_container';
 
 
 class CreateBillModal extends React.Component{
@@ -10,27 +10,26 @@ class CreateBillModal extends React.Component{
     this.state = {
       total_bill_amount: '',
       description: '',
-      other_user_id: '',
+      other_user_id: this.props.bills.other_user.id,
       amount_originally_owed: '',
       owing_at_creation_user_id: '',
-      owed_to_at_creation_user_id: '',
+      owed_to_at_creation_user_id: this.props.currentUser.id,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.errorsPresent = this.errorsPresent.bind(this);
+    this.WhoOwes = this.WhoOwes.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
-  // componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(newProps) {
     // debugger
-    // if (this.errorsPresent(newProps)){
-    //   this.props.history.push('/login_retry');
-    //   this.props.closeModal();
-    // }
-  // }
+    this.setState({other_user_id: newProps.bills.other_user.id});
+  }
 
 
   handleSubmit(e) {
-// debugger
+    // debugger
     e.preventDefault();
     const bill = Object.assign({}, this.state);
     if (bill.owed_to_at_creation_user_id === this.props.currentUser.id) {
@@ -40,11 +39,12 @@ class CreateBillModal extends React.Component{
     }
     delete bill.other_user_id;
     this.props.createBill(bill);
+
     // this.props.closeModal();
   }
 
   handleChange(e) {
-// debugger
+    // debugger
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
@@ -70,7 +70,21 @@ class CreateBillModal extends React.Component{
     this.setState({query: e.currentTarget.value}, this.sendQuery);
   }
 
-  
+  WhoOwes() {
+    // debugger
+    if (this.state.other_user_id) {
+      if (this.state.other_user_id == this.state.owed_to_at_creation_user_id)
+      { return (<div>I owe:</div>);}
+      else {return (<div> {this.props.bills.other_user.name} owes:</div>);}
+    } else {
+      return (<div> owes:</div>);
+    }
+  }
+
+  NameButtonOnTopInput() {
+
+  }
+
 
   render() {
 
@@ -84,7 +98,7 @@ class CreateBillModal extends React.Component{
                 placeholder='Enter name'
                 type='text'
                 name='other_user_id'
-                value={ this.state.other_user_id }
+                value={ this.props.bills.other_user.name }
                 onChange = { this.handleSearchChange }>
               </input>
             </label>
@@ -101,15 +115,14 @@ class CreateBillModal extends React.Component{
               </div>
             <div className='paid-by-div'>
               <div>Paid by </div>
-                <select className='paid-by-dropdown' name='owed_to_at_creation_user_id' value={this.state.owed_to_at_creation_user_id} onChange={ this.handleChange }>
-                  <option value={this.props.currentUser.id} selected="selected">Me</option>
+                <select className='paid-by-dropdown' name='owed_to_at_creation_user_id' onChange={ this.handleChange }>
+                  <option selected value={this.props.currentUser.id}>Me</option>
                   <option value={this.state.other_user_id}>name</option>
                 </select>
             </div>
 
             <div className='owe-amount-div'>
-              <label> name owes:
-              </label>
+              <label><this.WhoOwes/></label>
               <input className='owing-person-owes' placeholder='Owes' type='text' name='amount_originally_owed' value = {this.state.amount_originally_owed} onChange = { this.handleChange }/>
             </div>
 
@@ -119,7 +132,7 @@ class CreateBillModal extends React.Component{
             </div>
 
           </form>
-          <FriendSearchDropdownContainer/>
+          <AddBillDropdownSearchContainer otherUserState={this.otherUserState}/>
         </div>
       );
   }

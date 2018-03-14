@@ -22,3 +22,23 @@
 #icons {
   padding: 3px;
 }
+
+.orange-dashboard-chart div {
+  background-color: rgb(252,	95,	49);
+  display: flex;
+  align-items: flex-end;
+}
+
+.green-dashboard-chart div {
+  background-color: rgb(96,	200,	167);
+}
+
+.orange-dashboard-chart div, .green-dashboard-chart div {
+  border-radius: 5px;
+  color: white;
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40px;
+}

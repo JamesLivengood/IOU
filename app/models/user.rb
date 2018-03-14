@@ -44,18 +44,19 @@ class User < ApplicationRecord
     balance = 0
     bills.each do |bill|
       if bill.owing_at_creation_user_id == self.id
-        bill.balance > 0 ? balance -= bill.balance : balance += bill.balance
+        balance -= bill.balance
       elsif bill.owed_to_at_creation_user_id == self.id
-        bill.balance > 0 ? balance += bill.balance : balance -= bill.balance
+        balance += bill.balance
       end
     end
     return balance
   end
 
   def highest_friend_balance
+    # debugger
     balance = 1
     friends.each do |friend|
-      self.balance_with(friend).abs > balance ? balance = self.balance_with(friend) : balance
+      self.balance_with(friend).abs > balance ? balance = self.balance_with(friend).abs : balance
     end
     balance
   end
