@@ -10,5 +10,5 @@
 #
 
 class Friendship < ApplicationRecord
-  
+
 end

@@ -3,10 +3,12 @@ import { withRouter, Link } from 'react-router-dom';
 
 
 class CreateBillModal extends React.Component{
+
   constructor(props){
     super(props);
     this.state = {
       total_bill_amount: '',
+      description: '',
       other_user_id: '',
       amount_originally_owed: '',
       owing_at_creation_user_id: '',
@@ -59,22 +61,36 @@ class CreateBillModal extends React.Component{
       return(
         <div className='create-bill-modal-div'>
           <h2><div>Add a bill</div></h2>
-          <form className='login-form' onSubmit = { this.handleSubmit }>
+          <form className='create-bill-form' onSubmit = { this.handleSubmit }>
 
-            <label> With <strong>you</strong> and:
+            <label className='with-you-and'> With you and:
               <input className='create-bill-user-search' placeholder='Enter id' type='text' name='other_user_id' value={this.state.other_user_id} onChange = { this.handleChange }>
               </input>
             </label>
 
-            <label className='create-bill-amount-label'>$
-              <input className='create-bill-amount' placeholder='0.00' type='text' name='total_bill_amount' value = {this.state.total_bill_amount} onChange = { this.handleChange }/>
-            </label>
+              <div className='img-description-div'>
+                <img src='https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png'></img>
+                <div className='description-amount-div'>
+                  <input className='create-bill-description' placeholder='Enter a description' name='description' value={this.state.description} onChange={this.handleChange}></input>
 
-            <label>
-              <input className='paid-by' placeholder='paid-by' name='owed_to_at_creation_user_id' value={this.state.owed_to_at_creation_user_id} onChange={ this.handleChange }></input>
-            </label>
+                  <label className='create-bill-amount-label'>$
+                    <input className='create-bill-amount' placeholder='0.00' type='text' name='total_bill_amount' value = {this.state.total_bill_amount} onChange = { this.handleChange }/>
+                  </label>
+                </div>
+              </div>
+            <div className='paid-by-div'>
+              <div>Paid by </div>
+                <select className='paid-by-dropdown' name='owed_to_at_creation_user_id' value={this.state.owed_to_at_creation_user_id} onChange={ this.handleChange }>
+                  <option value={this.props.currentUser.id} selected="selected">Me</option>
+                  <option value={this.state.other_user_id}>name</option>
+                </select>
+            </div>
 
-            <input className='create-bill-split' placeholder='Split' type='text' name='amount_originally_owed' value = {this.state.amount_originally_owed} onChange = { this.handleChange }/>
+            <div className='owe-amount-div'>
+              <label> name owes:
+              </label>
+              <input className='owing-person-owes' placeholder='Owes' type='text' name='amount_originally_owed' value = {this.state.amount_originally_owed} onChange = { this.handleChange }/>
+            </div>
 
             <div className='cancel-or-save-buttons-div'>
               <button className="create-bill-cancel-button" onClick={this.props.closeModal}>Cancel</button>
@@ -88,3 +104,10 @@ class CreateBillModal extends React.Component{
 }
 
 export default withRouter(CreateBillModal);
+
+
+
+//
+//
+// <input className='paid-by' name='owed_to_at_creation_user_id' value={this.state.owed_to_at_creation_user_id} onChange={ this.handleChange }>
+// </input>

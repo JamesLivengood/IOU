@@ -2,7 +2,7 @@
 export const createBill = (bill) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/bill',
+    url: '/api/bills',
     data: bill
   });
 };

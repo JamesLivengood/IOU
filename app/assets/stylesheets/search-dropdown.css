@@ -1,0 +1,38 @@
+.search-dropdown {
+  position: absolute;
+  width: 332px;
+  box-sizing: border-box;
+  background: white;
+  height: 200px;
+  overflow: auto;
+  top: 170px;
+  left: 570px;
+  border: 1px solid rgb(187, 187, 187);
+}
+
+.search-dropdown-hidden {
+  display: none;
+}
+
+.search-dropdown button {
+  height: 40px;
+  width: 100%;
+}
+
+.search-dropdown button:hover {
+  background: rgb(238, 238, 238);
+}
+
+.search-dropdown button li img {
+  height: 25px;
+  width: 25px;
+  border-radius: 2000px;
+  border: 1px solid rgb(207, 207, 207);
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.search-dropdown button li {
+  display: flex;
+  justify-content: flex-start;
+}

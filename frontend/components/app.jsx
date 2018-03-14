@@ -26,7 +26,7 @@ const Header = () => {
     <header className='nav-bar'>
       <div className='nav-bar-box'>
         <Link to="/" className="header-link">
-          <span className="IOU-header">I O U</span>
+          <span className="IOU-header">I O U - U O M E</span>
         </Link>
         <WelcomeContainer />
       </div>
