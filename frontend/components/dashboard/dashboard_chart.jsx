@@ -58,3 +58,5 @@ const DashboardChartItem = ({owed, balance, name, id, highestFriendBalance}) => 
 export default DashboardChart;
 
 // style="color:red;background:black;"
+
+//
