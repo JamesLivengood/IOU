@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateBillModalContainer from '../dashboard/create_bill_modal_container';
 import AllFriendsContainer from '../dashboard/all_friends_container';
+import FriendHistory from './friend_history';
 
 class FriendShow extends React.Component{
   constructor(props) {
@@ -12,7 +13,8 @@ class FriendShow extends React.Component{
       })[0],
       balance: this.props.currentUser.friend_and_balance_array.filter(info => {
         if (info.id == this.props.match.params.id) {return info;}
-      })[0].balance
+      })[0].balance,
+      history: this.props.history,
     };
     // debugger
     this.friendExists = this.friendExists.bind(this);
@@ -30,8 +32,9 @@ class FriendShow extends React.Component{
   }
 
   componentDidMount() {
+    // debugger
     this.props.closeModal();
-    // return this.props.openModal('dashboardList');
+
   }
 
 
@@ -58,18 +61,23 @@ class FriendShow extends React.Component{
   }
 
   componentWillReceiveProps(newProps) {
+    // debugger
+    if (this.friendExists() && newProps.match.params.id !== this.props.match.params.id){
+      return this.props.fetchFriendHistory(this.props.match.params.id);
+    }
     this.setState({
-      other_user: this.props.currentUser.friends.filter(friend => {
-      if (friend.id == this.props.match.params.id) {return friend;}
+      other_user: newProps.currentUser.friends.filter(friend => {
+      if (friend.id == newProps.match.params.id) {return friend;}
     })[0],
-      balance: this.props.currentUser.friend_and_balance_array.filter(info => {
-        if (info.id == this.props.match.params.id) {return info;}
+      balance: newProps.currentUser.friend_and_balance_array.filter(info => {
+        if (info.id == newProps.match.params.id) {return info;}
       })[0].balance,
+      history: newProps.history
     });
   }
 
   openModalFilledIn() {
-    
+    this.props.otherBillUser(this.state.other_user);
     this.props.openModal('createBill');
   }
 
@@ -87,12 +95,20 @@ class FriendShow extends React.Component{
             <AllFriendsContainer/>
           </div>
           <div className="center-column">
-            <div className="center-column-header">
+            <div className="friend-column-header">
               <div className="center-column-header-top">
-                <h2 className='dashboard-title'>{this.state.other_user.name}</h2>
+                <h2 className='friend-show-title'><img
+                  className='dashboard-list-icon'
+                  src='https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/avatars/50-31b0bb2f5aec77f11d60a1dc3fa14c23a958fed79261b32e94a73e9c27473ebb.png'
+                  />
+                  <div>{this.state.other_user.name}</div>
+                </h2>
                 <div className='top-dash-buttons'>
                   <button className='signup-button' onClick={this.openModalFilledIn}>Add a bill</button>
                 </div>
+              </div>
+              <div className='friendship-history'>
+                <FriendHistory history={this.state.history}/>
               </div>
 
             </div>

@@ -1,0 +1,1 @@
+json.history @friendship.history
