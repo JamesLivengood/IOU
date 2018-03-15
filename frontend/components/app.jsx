@@ -20,6 +20,8 @@ import Modal from './modal';
 import DashboardContainer from './dashboard/dashboard_container';
 import HomePageContainer from './welcome/home_page_container';
 import LoginRetryContainer from './session/login_retry_container';
+import FriendShowContainer from './friend/friend_show_container';
+import LeftColumnContainer from './dashboard/left_column_container';
 
 const Header = () => {
   return (
@@ -41,15 +43,18 @@ const App = () => (
       <Route path='/' component={Header}/>
     </Switch>
 
-    <AuthRoute exact path='/' component={HomePageContainer}/>
-    <AuthRoute path='/login_retry' component={LoginRetryContainer}/>
-    <ProtectedRoute path='/dashboard' component={DashboardContainer}/>
-
+    <Switch>
+      <AuthRoute exact path='/' component={HomePageContainer}/>
+      <AuthRoute path='/login_retry' component={LoginRetryContainer}/>
+      <ProtectedRoute path='/dashboard' component={DashboardContainer}/>
+      <ProtectedRoute path='/friend/:id' component={FriendShowContainer}/>
+    </Switch>
   </div>
 );
 
 export default App;
 
+// <ProtectedRoute path='/' component={LeftColumnContainer}/>
 // <AuthRoute exact path='/login_retry' component={LoginRetryContainer}/>
 
 

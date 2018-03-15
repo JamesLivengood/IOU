@@ -3,6 +3,7 @@ import CreateBillModalContainer from './create_bill_modal_container';
 import DashboardList from './dashboard_list.jsx';
 import DashboardChart from './dashboard_chart.jsx';
 import AllFriendsContainer from './all_friends_container';
+import LeftColumnContainer from './left_column_container';
 
 class Dashboard extends React.Component{
   constructor(props) {

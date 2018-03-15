@@ -41,3 +41,9 @@
   color: rgb(102, 102, 102);
   background: rgb(238, 238, 238);
 }
+
+.friend-not-found {
+  margin: 100px;
+  font-size: 30px;
+  text-align: center;
+}

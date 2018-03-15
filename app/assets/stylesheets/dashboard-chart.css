@@ -44,7 +44,8 @@
 }
 
 .dashboard-chart-item-div div {
-  /* font-size: 1vw; */
+  /* font-size: 30px; */
+  /* font-size: calc(50% + .5vw); */
 }
 
 .orange-dashboard-chart .dashboard-chart-item-div {
