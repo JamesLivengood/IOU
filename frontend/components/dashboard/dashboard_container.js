@@ -3,6 +3,7 @@ import { logout } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import Dashboard from './dashboard';
 import {openChart, openList} from '../../actions/chart_actions.js';
+import {fetchBill} from '../../actions/bill_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
@@ -17,6 +18,7 @@ const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   openList: () => dispatch(openList()),
   openChart: () => dispatch(openChart()),
+  fetchBill: (id) => dispatch(fetchBill(id)),
 });
 
 export default connect(

@@ -34,6 +34,11 @@ class Bill < ApplicationRecord
     return [self.owing_at_creation_user, self.owed_to_at_creation_user]
   end
 
+  def other_user(current_user)
+    # debugger
+    (self.users.select {|user| user != current_user } )[0]
+  end
+
   def balance
     #returns current balance always to the owing_at_creation user
     #so if it returns a negative number, it means the only user is currently owing the balance

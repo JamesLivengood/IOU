@@ -2,6 +2,7 @@ import * as APIUtil from '../util/bill_api_util';
 import { receiveCurrentUser } from './session_actions';
 export const OTHER_BILL_USER = 'OTHER_BILL_USER';
 export const CLEAR_OTHER_BILL_USER = 'CLEAR_OTHER_BILL_USER';
+export const RECEIVE_BILL = 'RECEIVE_BILL';
 
 // export const RECEIVE_BILL = 'RECEIVE_BILL';
 //
@@ -9,6 +10,10 @@ export const CLEAR_OTHER_BILL_USER = 'CLEAR_OTHER_BILL_USER';
 //   type: RECEIVE_BILL,
 //   bill
 // });
+
+export const fetchBill = (id) => (
+  dispatch => (APIUtil.fetchBill(id).then(bill=>dispatch({type:RECEIVE_BILL, bill})))
+);
 
 export const createBill = (bill) => {
   return (dispatch) => {

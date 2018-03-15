@@ -117,7 +117,7 @@ class Dashboard extends React.Component{
     // debugger
     if (this.props.chart === 'list'){
       return (
-        <DashboardList owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
+        <DashboardList openModal={this.props.openModal} fetchBill={this.props.fetchBill} owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
       );} else if (this.props.chart==='chart') {
         return (
           <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array}/>
