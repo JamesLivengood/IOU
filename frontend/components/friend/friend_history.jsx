@@ -1,10 +1,11 @@
 import React from 'react';
 
-const FriendHistory = ({history, currentUser}) => {
-  if (history.length === 0) {
+const FriendHistory = ({friendHistory, currentUser, otherUser}) => {
+
+  if (friendHistory.length === 0) {
     return (<NoHistory/>);
   } else {
-    return(<HistoryList history={history}/>);
+    return(<HistoryList friendHistory={friendHistory} currentUser={currentUser} otherUser={otherUser}/>);
   }
 }
 
@@ -20,36 +21,48 @@ const NoHistory = () => {
   );
 }
 
-const HistoryList = ({history, currentUser}) => {
-  const historyArr = history.map((item, idx) =>
-      if (Object.values(item).includes("owing_at_creation_user_id")) {
-        return (<BillItem idx={idx} owedToId={item.owed_to_at_creation_user_id} currentUser={currentUser}/>);
+const HistoryList = ({friendHistory, currentUser, otherUser}) => {
+  // debugger
+  const friendHistoryArr = friendHistory.map((item, idx) =>{
+    // debugger
+      if (Object.keys(item).includes("owing_at_creation_user_id")) {
+        return (<BillItem idx={idx} bill={item} owedToId={item.owed_to_at_creation_user_id} currentUser={currentUser} otherUser={otherUser}/>);
       } else {
         return (<PaymentItem />);
-      }
+      }}
     );
   return(
-    <ul>{historyArr}</ul>
+    <ul className='friend-history-master-list'>{friendHistoryArr}</ul>
   );
 }
 
 const PaymentItem = ({idx}) => {
-  return (<div>swag</div>);
+  return (<div key={idx}>swag</div>);
 }
 
-const BillItem = ({idx, owedToId, currentUser}) => {
-  const whoOwes = (currentUser.id === owedToId ? "you paid" : `${}`
-
-
+const BillItem = ({idx, owedToId, currentUser, otherUser, bill}) => {
+  const whoPaid = (currentUser.id === owedToId ? "you" : `${otherUser.name}`);
+  const whoOwes = (currentUser.id === owedToId ? `${otherUser.name}` : 'you')
+  const lentAmt = '$' + (bill.total_bill_amount - bill.amount_originally_owed).toFixed(2);
+  const color = (currentUser.id === owedToId ? 'green' : 'orange')
+  // debugger
   return (
-    <li key={idx}>
-      <div>
+    <li className='friend-bill-list-item' key={idx}>
+      <div className='bill-item-left'>
         <img src='https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png'/>
-        <div>{item.description}</div>
+        <div>{bill.description}</div>
       </div>
 
-      <div>
+      <div className='bill-item-right'>
+        <div>
+          <p>{whoPaid} paid {whoOwes}</p>
+          <div >${bill.total_bill_amount.toFixed(2)}</div>
+        </div>
 
+        <div>
+          <p>{whoPaid} lent {whoOwes}</p>
+          <div id={color}>{lentAmt}</div>
+        </div>
       </div>
 
     </li>

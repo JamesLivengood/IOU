@@ -5,12 +5,12 @@ import {
 } from '../actions/friendship_actions';
 
 
-const friendReducer = (state = {history: []}, action) => {
+const friendReducer = (state = {friendHistory: []}, action) => {
   // debugger
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_FRIENDSHIP:
-      return action.history;
+      return action.friendHistory;
     default:
       return state;
   }

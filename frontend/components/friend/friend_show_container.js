@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   modal: state.ui.modal,
   errors: state.errors.sessionErrors,
-  history: state.entities.friendship.history,
+  friendHistory: state.entities.friendship.friendHistory,
 });
 
 const mapDispatchToProps = dispatch => ({
