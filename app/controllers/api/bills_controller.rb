@@ -17,6 +17,9 @@ class Api::BillsController < ApplicationController
     end
 
   def show
+
+    @bill = Bill.find(params[:id])
+
   end
 
   def destroy

@@ -1,0 +1,136 @@
+.payment-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 30px;
+  border: 1px solid #999;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.payment-arrow {
+  width: 32px;
+  height: 20px;
+}
+
+.payment-modal-outer-div {
+  background: white;
+}
+
+.payment-modal-header {
+  background: #5cc5a7;
+  color: #fff;
+  padding: 0px;
+  border-bottom: 1px solid #36977b;
+  text-shadow: 0 -1px 0 #318a71;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.payment-modal-header div {
+  padding-left: 15px;
+}
+
+.payment-form-pics {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.payment-modal-div {
+    background: #fff;
+    width: 350px;
+    height: 300px;
+    border: 1px solid #999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-modal-who-pay-who {
+  display: flex;
+  align-items: center;
+}
+
+.payment-modal-who-pay-who button{
+  background: rgb(246,	246,	246);
+  border: 1px dashed rgb(204,	204,	204);
+  color: rgb(97,	200,	167);
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px;
+
+}
+
+.payment-pop-up {
+  position: absolute;
+  top: 300px;
+  background: #fff;
+  width: 350px;
+  border: 1px solid #999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
+  border-radius: 5px;
+  top: 0px;
+  right: -371px;
+}
+
+.payment-modal-outer-div {
+  position: relative;
+}
+
+.payment-pop-up h3 {
+  padding: 0px;
+  margin: 0px;
+  background: #5cc5a7;
+  color: #fff;
+  padding: 0px;
+  border-bottom: 1px solid #36977b;
+  text-shadow: 0 -1px 0 #318a71;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.payment-pop-up li {
+  line-height: 45px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+
+}
+
+.payment-pop-up li:hover {
+  background: rgb(238, 238, 238);
+}
+
+.payment-pop-up img {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin-right: 8px;
+  margin-top: -2px;
+}
+
+.payment-modal-form label {
+  font-size: 20px;
+  border-bottom: 1px dashed rgb(204, 204,	204);
+}
+
+.payment-modal-form input {
+  border: none;
+  font-size: 36px;
+}

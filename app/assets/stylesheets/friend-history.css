@@ -34,6 +34,7 @@
 .friend-bill-list-item {
   display: flex;
   justify-content: space-between;
+
 }
 
 .friend-history-master-list {
@@ -68,11 +69,11 @@
   align-items: center;
 }
 
-.bill-item-right div {
+.bill-item-right div, .payment-item-right p, .payment-item-right span{
   margin: 0 10px 0 10px;
 }
 
-.bill-item-right div p {
+.bill-item-right div p, .payment-item-right span {
   color: rgb(170,	170,	170);
   font-size: 12px;
 }
@@ -80,4 +81,57 @@
 .bill-item-right div div {
   font-weight: bold;
   font-size: 20px;
+}
+
+.payment-item-left {
+  display: flex;
+  align-items: center;
+}
+
+.payment-item-left img {
+  width: 19px;
+  height: 19px;
+  padding: 0 10px 0 10px;
+}
+
+.payment-item-left div {
+  font-size: 12px;
+}
+
+.friend-payment-list-item {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(238,	238,	238);
+  border-bottom: 1px solid rgb(238,	238,	238);
+  height: 38px;
+}
+
+
+.friend-payment-list-item, .friend-bill-list-item {
+  border-top: 1px solid rgb(238,	238,	238);
+  border-bottom: 1px solid rgb(238,	238,	238);
+}
+
+.friend-payment-list-item:hover, .friend-bill-list-item:hover {
+  background: rgb(248, 248, 248);
+}
+
+.payment-item-right span {
+  color: rgb(170,	170,	170);
+}
+
+.payment-item-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 25px, 15px, 15px;
+  margin-right: 25px;
+}
+.payment-item-right p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.payment-item-right span {
+  margin-right: 20px;
 }

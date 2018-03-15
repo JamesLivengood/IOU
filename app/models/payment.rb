@@ -21,6 +21,8 @@ class Payment < ApplicationRecord
     class_name: 'User',
     foreign_key: :submitting_user_id
 
+  
+
 
 
 end

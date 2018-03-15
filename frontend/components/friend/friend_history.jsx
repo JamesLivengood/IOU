@@ -28,7 +28,7 @@ const HistoryList = ({friendHistory, currentUser, otherUser}) => {
       if (Object.keys(item).includes("owing_at_creation_user_id")) {
         return (<BillItem idx={idx} bill={item} owedToId={item.owed_to_at_creation_user_id} currentUser={currentUser} otherUser={otherUser}/>);
       } else {
-        return (<PaymentItem />);
+        return (<PaymentItem idx={idx} payment={item} otherUser={otherUser} currentUser={currentUser}/>);
       }}
     );
   return(
@@ -36,8 +36,29 @@ const HistoryList = ({friendHistory, currentUser, otherUser}) => {
   );
 }
 
-const PaymentItem = ({idx}) => {
-  return (<div key={idx}>swag</div>);
+const PaymentItem = ({idx, payment, otherUser, currentUser}) => {
+
+  const whoPaid = (currentUser.id === payment.paying_user_id ? "you" : otherUser.name);
+  const gotPaid = (currentUser.id === payment.paying_user_id ? otherUser.name : "you");
+  const paymentAmount = payment.payment_amount.toFixed(2);
+  const color = (currentUser.id === payment.paying_user_id ? "green" : "orange");
+  return (
+
+    <li key={idx} className='friend-payment-list-item'>
+
+      <div className='payment-item-left'>
+        <img src='https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/app/payment-icon-black-95a84e938aaf0309a3c8c0f8c04992ab52a12c852a4f24bf097ebf8581d456a6.png'/>
+        <div>{currentUser.name} paid {gotPaid} ${paymentAmount}</div>
+      </div>
+
+      <div className='payment-item-right'>
+          <span>{whoPaid} paid</span>
+          <p id={color}>${paymentAmount}</p>
+      </div>
+
+    </li>
+
+  );
 }
 
 const BillItem = ({idx, owedToId, currentUser, otherUser, bill}) => {
