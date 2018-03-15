@@ -1,0 +1,24 @@
+.jamie-lannister-button {
+  margin-top: 10px;
+  border: 1px solid rgb(119, 0, 5);
+  border-bottom: 1px solid rgb(99, 0, 4);
+  border-radius: 4px;
+  color: rgb(252,	225,	123);
+  text-shadow: 0 -1px 0 rgb(198, 44,3);
+  /* box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2); */
+  background-color: rgb(140,	0,	5);
+  box-shadow: inset 0px 1px 0px rgb(204, 136, 140), 0 1px 2px 1px rgba(0,0,0,0.2);
+  padding: 5px;
+  width: 200px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.jamie-lannister-button:active{
+  box-shadow: inset 0px 0px 5px rgb(204, 136, 140);
+
+}
+
+.jamie-lannister-button:hover {
+  background-color: rgb(118, 0, 1);
+}

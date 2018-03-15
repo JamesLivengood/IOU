@@ -44,11 +44,12 @@ const DashboardChartItem = ({owed, balance, name, id, highestFriendBalance}) => 
   // const oweOrOwed = owed ? 'you owe' : 'owes you' ;
   // debugger
   const width = Math.abs(((balance / highestFriendBalance) * 210)).toString();
+  const size = Math.sqrt(Math.abs(((balance / highestFriendBalance) * 225))).toString();
   return (
 
-      <div className='dashboard-chart-item-div' style={{width:`${width}px`}}>
+      <div className='dashboard-chart-item-div' style={{width:`${width}px`, fontSize:`${size}px`}}>
           <div className='dashboard-chart-name' >{name}</div>
-          <div className='dashboard-chart-amount'><span className='bold-balance'>${balance.toFixed(2)}</span></div>
+          <div className='dashboard-chart-amount'>${balance.toFixed(2)}</div>
       </div>
   );
 };

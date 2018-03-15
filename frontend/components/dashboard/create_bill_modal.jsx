@@ -37,8 +37,14 @@ class CreateBillModal extends React.Component{
     } else {
       bill.owing_at_creation_user_id = this.props.currentUser.id;
     }
+    let other_id = bill.other_user_id;
     delete bill.other_user_id;
+    // debugger
     this.props.createBill(bill);
+
+    if (!this.props.currentUser.friends.map(friend => friend.id).includes(this.props.other_user_id)) {
+      return this.props.addFriendship({user1_id: this.props.currentUser.id, user2_id: other_id});
+    }
 
     // this.props.closeModal();
   }

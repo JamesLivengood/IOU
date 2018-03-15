@@ -60,6 +60,7 @@ class LoginForm extends React.Component{
               </div>
             </div>
          </div>
+         <button onClick={()=>this.props.processForm({email: 'jamie_lannister@gmail.com', password: 'swagger'})} className='jamie-lannister-button'>Demo Login to Jamie Lannister's Top Secret Account</button>
         </div>
       );
   }
