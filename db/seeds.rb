@@ -7,19 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-20.times do
-  name = Faker::GameOfThrones.character
-  email = name.downcase.split(' ').join('_')
-  User.create(email: "#{email}@gmail.com", password: 'swagger', name: name)
-end
-
-50.times do
-  Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..10), owed_to_at_creation_user_id: rand(11..20), description: Faker::GameOfThrones.dragon)
-end
-
+# 20.times do
+#   name = Faker::GameOfThrones.character
+#   email = name.downcase.split(' ').join('_')
+#   User.create(email: "#{email}@gmail.com", password: 'swagger', name: name)
+# end
+#
+# 50.times do
+#   Bill.create(total_bill_amount: rand(100..500), amount_originally_owed: rand(10..99), owing_at_creation_user_id: rand(1..10), owed_to_at_creation_user_id: rand(11..20), description: Faker::GameOfThrones.dragon)
+# end
+#
+#
+# Bill.all.each do |bill|
+#   Friendship.create(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id) unless Friendship.where(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id).length > 0
+# end
 
 Bill.all.each do |bill|
-  Friendship.create(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id) unless Friendship.where(user1_id: bill.owed_to_at_creation_user_id, user2_id: bill.owing_at_creation_user_id).length > 0
+  Payment.create(bill_id: bill.id, paying_user_id: bill.owing_at_creation_user_id, submitting_user_id: bill.owing_at_creation_user_id, payment_amount: rand(1...bill.amount_originally_owed))
 end
 
 # Bill.all.each do |bill|

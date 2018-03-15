@@ -14,7 +14,7 @@ export const addFriendship = (friendship) => {
 
 export const fetchFriendHistory = (id) => {
   return (dispatch) => {
-    return APIUtil.fetchFriendHistory(id).then(history =>
-    dispatch({type: RECEIVE_FRIENDSHIP, history}));
+    return APIUtil.fetchFriendHistory(id).then(friendHistory =>
+    dispatch({type: RECEIVE_FRIENDSHIP, friendHistory}));
   };
 };

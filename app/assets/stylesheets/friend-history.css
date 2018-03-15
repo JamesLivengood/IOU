@@ -25,3 +25,59 @@
   margin-top: 15px;
   line-height: 25px;
 }
+
+.friend-bill-list-item img {
+  height: 35px;
+  width: 21px;
+}
+
+.friend-bill-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.friend-history-master-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.friendship-history {
+  /* box-shadow: 0 0 12px rgba(0,0,0,0.2); */
+  /* border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc; */
+  width: 100%;
+}
+
+.bill-item-left {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bill-item-left div {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.bill-item-right {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bill-item-right div {
+  margin: 0 10px 0 10px;
+}
+
+.bill-item-right div p {
+  color: rgb(170,	170,	170);
+  font-size: 12px;
+}
+
+.bill-item-right div div {
+  font-weight: bold;
+  font-size: 20px;
+}

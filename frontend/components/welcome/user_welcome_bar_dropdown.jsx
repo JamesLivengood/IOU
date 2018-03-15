@@ -7,7 +7,7 @@ const UserDropdown = (props) => {
   return (
     <div className='user-dropdown-modal-div'>
       <ul className='user-dropdown-modal'>
-        <Link to='/dashboard'><li>&nbsp;&nbsp;&nbsp;Dashboard</li></Link>
+        <Link to='/'><li>&nbsp;&nbsp;&nbsp;Dashboard</li></Link>
         <li><button onClick={props.logout}>&nbsp;&nbsp;&nbsp;Logout</button></li>
       </ul>
       <div id="popover-arrow"></div>

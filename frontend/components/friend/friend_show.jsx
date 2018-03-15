@@ -14,7 +14,7 @@ class FriendShow extends React.Component{
       balance: this.props.currentUser.friend_and_balance_array.filter(info => {
         if (info.id == this.props.match.params.id) {return info;}
       })[0].balance,
-      history: this.props.history,
+      friendHistory: [],
     };
     // debugger
     this.friendExists = this.friendExists.bind(this);
@@ -34,7 +34,9 @@ class FriendShow extends React.Component{
   componentDidMount() {
     // debugger
     this.props.closeModal();
-
+    if (this.friendExists()){
+      return this.props.fetchFriendHistory(this.props.match.params.id);
+    }
   }
 
 
@@ -63,7 +65,8 @@ class FriendShow extends React.Component{
   componentWillReceiveProps(newProps) {
     // debugger
     if (this.friendExists() && newProps.match.params.id !== this.props.match.params.id){
-      return this.props.fetchFriendHistory(this.props.match.params.id);
+      // debugger
+      return this.props.fetchFriendHistory(newProps.match.params.id);
     }
     this.setState({
       other_user: newProps.currentUser.friends.filter(friend => {
@@ -72,7 +75,7 @@ class FriendShow extends React.Component{
       balance: newProps.currentUser.friend_and_balance_array.filter(info => {
         if (info.id == newProps.match.params.id) {return info;}
       })[0].balance,
-      history: newProps.history
+      friendHistory: newProps.friendHistory
     });
   }
 
@@ -108,7 +111,7 @@ class FriendShow extends React.Component{
                 </div>
               </div>
               <div className='friendship-history'>
-                <FriendHistory history={this.state.history}/>
+                <FriendHistory friendHistory={this.state.friendHistory} currentUser={this.props.currentUser} otherUser={this.state.other_user}/>
               </div>
 
             </div>

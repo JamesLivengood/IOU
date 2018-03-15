@@ -32,7 +32,8 @@ class CreateBillModal extends React.Component{
     // debugger
     e.preventDefault();
     const bill = Object.assign({}, this.state);
-    if (bill.owed_to_at_creation_user_id === this.props.currentUser.id) {
+    if (bill.owed_to_at_creation_user_id == this.props.currentUser.id) {
+      // debugger
       bill.owing_at_creation_user_id = bill.other_user_id;
     } else {
       bill.owing_at_creation_user_id = this.props.currentUser.id;

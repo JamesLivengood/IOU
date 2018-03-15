@@ -11,7 +11,7 @@
 
 class Friendship < ApplicationRecord
 
-  def history
+  def friend_history
     final = []
     Bill.where(owing_at_creation_user_id: user1_id, owed_to_at_creation_user_id: user2_id).each do |bill|
       final << bill
