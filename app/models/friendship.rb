@@ -11,4 +11,21 @@
 
 class Friendship < ApplicationRecord
 
+  def history
+    final = []
+    Bill.where(owing_at_creation_user_id: user1_id, owed_to_at_creation_user_id: user2_id).each do |bill|
+      final << bill
+      bill.payments.each do |payment|
+        final << payment
+      end
+    end
+    Bill.where(owing_at_creation_user_id: user2_id, owed_to_at_creation_user_id: user1_id).each do |bill|
+      final << bill
+      bill.payments.each do |payment|
+        final << payment
+      end
+    end
+    final.sort_by {|item| item.created_at}
+  end
+
 end

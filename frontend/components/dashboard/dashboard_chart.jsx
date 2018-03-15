@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DashboardChart = ({highestFriendBalance, friendAndBalanceArray}) => {
   // debugger
@@ -47,10 +48,12 @@ const DashboardChartItem = ({owed, balance, name, id, highestFriendBalance}) => 
   const size = Math.sqrt(Math.abs(((balance / highestFriendBalance) * 225))).toString();
   return (
 
-      <div className='dashboard-chart-item-div' style={{width:`${width}px`, fontSize:`${size}px`}}>
+      <Link to={`/friend/${id}`}>
+        <div className='dashboard-chart-item-div' style={{width:`${width}px`, fontSize:`${size}px`}}>
           <div className='dashboard-chart-name' >{name}</div>
           <div className='dashboard-chart-amount'>${balance.toFixed(2)}</div>
-      </div>
+        </div>
+      </Link>
   );
 };
 // const DashboardList

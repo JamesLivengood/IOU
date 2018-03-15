@@ -21,3 +21,24 @@
   font-size: 36px;
   font-weight: bold;
 }
+
+.friend-show-title {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  height: 63px;
+}
+
+.friend-show-title div {
+  padding-left: 7px;
+}
+
+.friendship-history {
+  background: white;
+}
+
+.friend-column-header {
+    height: 53px;
+    background: rgb(238,	238,	238);
+    /* background: transparent; */
+}

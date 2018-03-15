@@ -1,0 +1,27 @@
+.no-history-div {
+  display: flex;
+}
+
+.no-history-div img {
+  width: 150px;
+  height: 274.41px;
+  margin: 50px;
+}
+
+.no-history-title {
+  margin-top: 40px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.no-history-div-words {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-history-words {
+  color: rgb(153,	153,	159);
+  font-size: 20px;
+  margin-top: 15px;
+  line-height: 25px;
+}

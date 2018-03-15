@@ -5,3 +5,10 @@ export const addFriend = (friendship) => {
     data: friendship
   });
 };
+
+export const fetchFriendHistory = (friendId) => {
+  return $.ajax({
+      method: 'GET',
+      url: `api/friendships/${friendId}`
+  });
+};

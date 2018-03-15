@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index]
     resource :session, only: [:create, :destroy, :show]
     resources :bills, only: [:create]
-    resources :friendships, only: [:create]
+    resources :friendships, only: [:create, :show]
     get 'users/search', :to => 'users#search'
   end
 
