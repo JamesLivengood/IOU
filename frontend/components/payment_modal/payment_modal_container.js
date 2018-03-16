@@ -7,7 +7,7 @@ import PaymentModal from './payment_modal';
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   errors: state.errors.sessionErrors,
-  bills: state.entities.bills,
+  bill: state.entities.bills.bill,
   otherUser: state.entities.bills.other_user,
 });
 

@@ -2,7 +2,6 @@ import React from 'react';
 
 class PaymentModal extends React.Component {
   constructor(props) {
-    // debugger
     super(props);
     this.state = {
       popUp: false,
@@ -10,13 +9,16 @@ class PaymentModal extends React.Component {
       receivingUser: this.props.otherUser,
       paymentAmount: '',
     };
+    // debugger
     this.PopUp = this.PopUp.bind(this);
     this.flipPopUp = this.flipPopUp.bind(this);
     this.setPaidUser = this.setPaidUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
+    // debugger
     this.setState({receivingUser: newProps.otherUser});
   }
 
@@ -24,6 +26,19 @@ class PaymentModal extends React.Component {
     // debugger
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSubmit() {
+    debugger
+    const payment = {
+      bill_id: this.props.bill.id,
+      paying_user_id: this.state.payingUser.id,
+      submitting_user_id: this.props.currentUser.id,
+      payment_amount: this.state.paymentAmount,
+      };
+
+    this.props.createPayment(payment);
+    this.props.closeModal();
   }
 
   PopUp() {
@@ -92,6 +107,12 @@ class PaymentModal extends React.Component {
             <button></button>
           </form>
 
+          <div className='payment-button-holder'>
+            <div className='cancel-or-save-buttons-div'>
+              <button className="create-bill-cancel-button" onClick={this.props.closeModal}>Cancel</button>
+              <button className="create-bill-save-button" onClick={this.handleSubmit}>Save</button>
+            </div>
+          </div>
         </div>
         <this.PopUp/>
       </div>

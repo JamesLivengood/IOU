@@ -111,7 +111,7 @@ class FriendShow extends React.Component{
                 </div>
               </div>
               <div className='friendship-history'>
-                <FriendHistory friendHistory={this.state.friendHistory} currentUser={this.props.currentUser} otherUser={this.state.other_user}/>
+                <FriendHistory fetchBill={this.props.fetchBill} openModal={this.props.openModal} friendHistory={this.state.friendHistory} currentUser={this.props.currentUser} otherUser={this.state.other_user}/>
               </div>
 
             </div>

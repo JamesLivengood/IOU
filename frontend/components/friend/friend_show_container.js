@@ -3,6 +3,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { otherBillUser } from '../../actions/bill_actions';
 import { fetchFriendHistory } from '../../actions/friendship_actions';
 import FriendShow from './friend_show';
+import { fetchBill } from '../../actions/bill_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
@@ -16,6 +17,7 @@ const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   otherBillUser: (user) => dispatch(otherBillUser(user)),
   fetchFriendHistory: (id) => dispatch(fetchFriendHistory(id)),
+  fetchBill: (id) => dispatch(fetchBill(id)),
 });
 
 export default connect(
