@@ -17,10 +17,10 @@ const DashboardChart = ({highestFriendBalance, friendAndBalanceArray}) => {
 };
 
 const OrangeMap = ({highestFriendBalance, friendAndBalanceArray}) => {
-  // debugger
   return (
     friendAndBalanceArray.map((friendItem, idx) => {
-        if (friendItem.balance < 0) {
+        if (friendItem.balance.toFixed(1) < 0.0) {
+          // debugger
           return (<li key={idx}>
                     <DashboardChartItem owed={true} balance={friendItem.balance} name={friendItem.name} id={friendItem.id} highestFriendBalance={highestFriendBalance}/>
                   </li>);
@@ -32,7 +32,7 @@ const OrangeMap = ({highestFriendBalance, friendAndBalanceArray}) => {
 const GreenMap = ({highestFriendBalance, friendAndBalanceArray}) => {
   return (
     friendAndBalanceArray.map((friendItem, idx) => {
-        if (friendItem.balance > 0) {
+        if (friendItem.balance.toFixed(1) > 0.0) {
           return (<li key={idx}>
                     <DashboardChartItem owed={true} balance={friendItem.balance} name={friendItem.name} id={friendItem.id} highestFriendBalance={highestFriendBalance}/>
                   </li>);

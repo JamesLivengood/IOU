@@ -1,24 +1,12 @@
-# README
+# I O U - U O M E, a splitwise.com clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## I O U - U O M E is a bill sharing app. Users can add friends, post bills they paid, and specify exactly how much each person owes. It creates a dynamic chart of all the user's bills, how much the user owes / is owed total, and how much the user owes to each of their friends. Users can then record full, or incremental payments on their bills.
 
-Things you may want to cover:
+## Live Version
+### iou-uome.herokuapp.com
 
-* Ruby version
+## To deploy this app, clone this repo and then:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  - npm install
+  - bundle install
+  - rails db:setup

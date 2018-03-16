@@ -12,6 +12,10 @@
   padding-left: 10px;
 }
 
+.add-friend-big-container {
+  position: relative;
+}
+
 .add-friend-box {
   width: 330px;
   height: 135px;
@@ -24,8 +28,8 @@
   background: white;
   margin-bottom: 400px;
   position: absolute;
-  left: 570px;
-  top: 100px;
+  left: -130px;
+  top: -150px;
 }
 
 .add-friend-buttons {
@@ -85,3 +89,8 @@
   text-align: left;
   padding-left: 15px;
 }
+
+
+/* .modal-background {
+  position: relative;
+} */
