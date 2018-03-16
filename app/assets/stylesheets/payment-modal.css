@@ -70,18 +70,7 @@
 
 }
 
-.payment-pop-up {
-  position: absolute;
-  top: 300px;
-  background: #fff;
-  width: 350px;
-  border: 1px solid #999;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  overflow: hidden;
-  border-radius: 5px;
-  top: 0px;
-  right: -371px;
-}
+
 
 .payment-modal-outer-div {
   position: relative;
@@ -152,4 +141,48 @@
   width: 100%;
   display:flex;
   flex-direction: row-reverse;
+}
+
+.payment-pop-up {
+  position: absolute;
+  top: 300px;
+  background: #fff;
+  width: 350px;
+  border: 1px solid #999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
+  border-radius: 5px;
+  top: 0px;
+  right: -371px;
+  opacity: 1;
+}
+
+.payment-pop-up {
+  animation: swagAnimation .25s ease-in 0s forwards;
+  /* -webkit-animation-fill-mode: forwards; */
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes swagAnimation {
+  from {
+  transform: rotate(180deg);
+  right: -100px;
+  top: -200px;
+  opacity: 1;
+}
+to {
+  top: 0px;
+  opacity: 1;
+  right: -371px;
+  transform: rotate(360deg);
+}
+
+
+    /* to {
+        opacity: 1;
+        width: 350px;
+        height:auto;
+        overflow:hidden;
+    } */
 }
