@@ -12,7 +12,7 @@
   I O U - U O M E creates a dynamic chart of all the user's bills, how much the user owes / is owed total, and how much the user owes to each of their friends. Users can then record full, or incremental payments on their bills.
 
 ## Live Version
-<iou-uome.herokuapp.com>
+<a ref='iou-uome.herokuapp.com'>iou-uome.herokuapp.com</a>
 
 ## To deploy this app, clone this repo and then:
 
@@ -33,5 +33,7 @@ Information the user can see:
   - total amount they are owed
   - history of all transactions with each friend
   - original balance of a bill, current balance, and history of all payments
+
+<img src='https://i.imgur.com/8XSEfQO.png'/>
 
 ### Amount Owed vs. Owed To You
