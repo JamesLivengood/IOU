@@ -37,7 +37,8 @@ class PaymentModal extends React.Component {
       payment_amount: this.state.paymentAmount,
       };
 
-    this.props.createPayment(payment);
+    this.props.createPayment(payment).then(()=>this.props.fetchFriendHistory(this.props.otherUser.id));
+
     this.props.closeModal();
   }
 
