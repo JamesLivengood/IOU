@@ -124,7 +124,7 @@ class CreateBillModal extends React.Component{
               <div>Paid by </div>
                 <select className='paid-by-dropdown' name='owed_to_at_creation_user_id' onChange={ this.handleChange }>
                   <option selected value={this.props.currentUser.id}>Me</option>
-                  <option value={this.state.other_user_id}>name</option>
+                  <option value={this.state.other_user_id}>{this.props.bills.other_user.name}</option>
                 </select>
             </div>
 
