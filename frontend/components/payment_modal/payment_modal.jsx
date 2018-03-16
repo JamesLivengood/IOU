@@ -29,7 +29,7 @@ class PaymentModal extends React.Component {
   }
 
   handleSubmit() {
-    debugger
+    // debugger
     const payment = {
       bill_id: this.props.bill.id,
       paying_user_id: this.state.payingUser.id,

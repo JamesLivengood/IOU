@@ -3,14 +3,24 @@ import React from 'react';
 const DashboardList = ({owedBills, owedToBills, owedBillsInfo, owedToBillsInfo, openModal, fetchBill}) => {
   // debugger
 
+
   return(
 
         <div className='dashboard-list-box'>
           <ul className='orange-dashboard-list'>
-            {owedBills.map((bill, idx) => <li key={idx}><DashboardListItem bill={bill} info={owedBillsInfo[idx]} owed={true} openModal={openModal} fetchBill={fetchBill} /></li>)}
+            {owedBills.map((bill, idx) => {
+              // debugger
+              if (!(owedBillsInfo[idx].balance.toFixed(2) == 0.00)) {
+              return (
+                <li key={idx}><DashboardListItem bill={bill} info={owedBillsInfo[idx]} owed={true} openModal={openModal} fetchBill={fetchBill} /></li> );
+              }})}
           </ul>
           <ul className='green-dashboard-list'>
-            {owedToBills.map((bill, idx) => <li key={idx}><DashboardListItem bill={bill} info={owedToBillsInfo[idx]} owed={false} openModal={openModal} fetchBill={fetchBill} /></li>)}
+            {owedToBills.map((bill, idx) => {
+              if (!(owedToBillsInfo[idx].balance.toFixed(2) == 0.00)) {
+              return (
+              <li key={idx}><DashboardListItem bill={bill} info={owedToBillsInfo[idx]} owed={false} openModal={openModal} fetchBill={fetchBill} /></li> );
+              }})}
           </ul>
         </div>
 
