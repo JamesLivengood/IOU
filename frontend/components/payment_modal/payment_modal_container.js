@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { createPayment } from '../../actions/payment_actions';
 import { closeModal } from '../../actions/modal_actions';
 import PaymentModal from './payment_modal';
+import { fetchFriendHistory } from '../../actions/friendship_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   createPayment: (bill) => dispatch(createPayment(bill)),
   closeModal: () => dispatch(closeModal()),
+  fetchFriendHistory: (id) => dispatch(fetchFriendHistory(id)),
 });
 
 export default connect(

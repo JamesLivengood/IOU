@@ -5,7 +5,7 @@ import CreateBillModal from './create_bill_modal';
 import { searchUsers } from '../../actions/session_actions';
 import { clearSearch } from '../../actions/ui_actions';
 import { clearOtherBillUser } from '../../actions/bill_actions';
-import {addFriendship} from '../../actions/friendship_actions';
+import {addFriendship, fetchFriendHistory} from '../../actions/friendship_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => ({
   clearSearch: () => dispatch(clearSearch()),
   clearOtherBillUser: () => dispatch(clearOtherBillUser()),
   addFriendship: (friendship) => dispatch(addFriendship(friendship)),
+  fetchFriendHistory: (id) => dispatch(fetchFriendHistory(id)),
 });
 
 export default connect(
