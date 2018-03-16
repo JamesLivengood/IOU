@@ -11,8 +11,8 @@
   margin: 50px 0 30px 0;
   display: flex;
   justify-content: space-around;
-  width: 75%;
-
+  /* width: 75%; */
+  width: 1066px;
 }
 
 #a, #d {
