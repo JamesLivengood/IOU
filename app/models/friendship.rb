@@ -25,7 +25,7 @@ class Friendship < ApplicationRecord
         final << payment
       end
     end
-    final.sort_by {|item| item.created_at}
+    (final.sort_by {|item| item.created_at}).reverse
   end
 
 end

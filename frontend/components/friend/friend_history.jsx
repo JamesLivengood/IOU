@@ -1,11 +1,11 @@
 import React from 'react';
 
-const FriendHistory = ({friendHistory, currentUser, otherUser}) => {
+const FriendHistory = ({friendHistory, currentUser, otherUser, fetchBill, openModal}) => {
 
   if (friendHistory.length === 0) {
     return (<NoHistory/>);
   } else {
-    return(<HistoryList friendHistory={friendHistory} currentUser={currentUser} otherUser={otherUser}/>);
+    return(<HistoryList fetchBill={fetchBill} openModal={openModal} friendHistory={friendHistory} currentUser={currentUser} otherUser={otherUser}/>);
   }
 }
 
@@ -21,12 +21,12 @@ const NoHistory = () => {
   );
 }
 
-const HistoryList = ({friendHistory, currentUser, otherUser}) => {
+const HistoryList = ({friendHistory, currentUser, otherUser, fetchBill, openModal}) => {
   // debugger
   const friendHistoryArr = friendHistory.map((item, idx) =>{
     // debugger
       if (Object.keys(item).includes("owing_at_creation_user_id")) {
-        return (<BillItem idx={idx} bill={item} owedToId={item.owed_to_at_creation_user_id} currentUser={currentUser} otherUser={otherUser}/>);
+        return (<BillItem fetchBill={fetchBill} openModal={openModal} idx={idx} bill={item} owedToId={item.owed_to_at_creation_user_id} currentUser={currentUser} otherUser={otherUser}/>);
       } else {
         return (<PaymentItem idx={idx} payment={item} otherUser={otherUser} currentUser={currentUser}/>);
       }}
@@ -38,8 +38,9 @@ const HistoryList = ({friendHistory, currentUser, otherUser}) => {
 
 const PaymentItem = ({idx, payment, otherUser, currentUser}) => {
 
-  const whoPaid = (currentUser.id === payment.paying_user_id ? "you" : otherUser.name);
-  const gotPaid = (currentUser.id === payment.paying_user_id ? otherUser.name : "you");
+  const whoPaid = (currentUser.id === payment.paying_user_id ? currentUser.name : otherUser.name);
+  const youWhoPaid = (currentUser.id === payment.paying_user_id ? "you" : otherUser.name);
+  const gotPaid = (currentUser.id === payment.paying_user_id ? otherUser.name : currentUser.name);
   const paymentAmount = payment.payment_amount.toFixed(2);
   const color = (currentUser.id === payment.paying_user_id ? "green" : "orange");
   return (
@@ -48,11 +49,11 @@ const PaymentItem = ({idx, payment, otherUser, currentUser}) => {
 
       <div className='payment-item-left'>
         <img src='https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/app/payment-icon-black-95a84e938aaf0309a3c8c0f8c04992ab52a12c852a4f24bf097ebf8581d456a6.png'/>
-        <div>{currentUser.name} paid {gotPaid} ${paymentAmount}</div>
+        <div>{whoPaid} paid {gotPaid} ${paymentAmount}</div>
       </div>
 
       <div className='payment-item-right'>
-          <span>{whoPaid} paid</span>
+          <span>{youWhoPaid} paid</span>
           <p id={color}>${paymentAmount}</p>
       </div>
 
@@ -61,32 +62,40 @@ const PaymentItem = ({idx, payment, otherUser, currentUser}) => {
   );
 }
 
-const BillItem = ({idx, owedToId, currentUser, otherUser, bill}) => {
+const BillItem = ({idx, owedToId, currentUser, otherUser, bill, fetchBill, openModal}) => {
   const whoPaid = (currentUser.id === owedToId ? "you" : `${otherUser.name}`);
   const whoOwes = (currentUser.id === owedToId ? `${otherUser.name}` : 'you')
   const lentAmt = '$' + (bill.total_bill_amount - bill.amount_originally_owed).toFixed(2);
-  const color = (currentUser.id === owedToId ? 'green' : 'orange')
+  const color = (currentUser.id === owedToId ? 'green' : 'orange');
+
+  const openModalAndFetch = (id) => {
+    fetchBill(id);
+    return openModal('paymentModal');
+  };
+
   // debugger
   return (
-    <li className='friend-bill-list-item' key={idx}>
-      <div className='bill-item-left'>
-        <img src='https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png'/>
-        <div>{bill.description}</div>
-      </div>
-
-      <div className='bill-item-right'>
-        <div>
-          <p>{whoPaid} paid {whoOwes}</p>
-          <div >${bill.total_bill_amount.toFixed(2)}</div>
+    <button onClick={() => openModalAndFetch(bill.id)}>
+      <li className='friend-bill-list-item' key={idx}>
+        <div className='bill-item-left'>
+          <img src='https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png'/>
+          <div>{bill.description}</div>
         </div>
 
-        <div>
-          <p>{whoPaid} lent {whoOwes}</p>
-          <div id={color}>{lentAmt}</div>
-        </div>
-      </div>
+        <div className='bill-item-right'>
+          <div>
+            <p>{whoPaid} paid {whoOwes}</p>
+            <div >${bill.total_bill_amount.toFixed(2)}</div>
+          </div>
 
-    </li>
+          <div>
+            <p>{whoPaid} lent {whoOwes}</p>
+            <div id={color}>{lentAmt}</div>
+          </div>
+        </div>
+
+      </li>
+    </button>
   );
 }
 
