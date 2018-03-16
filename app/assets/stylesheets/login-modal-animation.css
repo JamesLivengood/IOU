@@ -1,0 +1,6 @@
+
+
+.login-modal-div:before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
