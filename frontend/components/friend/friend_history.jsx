@@ -84,7 +84,7 @@ const BillItem = ({idx, owedToId, currentUser, otherUser, bill, fetchBill, openM
 
         <div className='bill-item-right'>
           <div>
-            <p>{whoPaid} paid {whoOwes}</p>
+            <p>{whoPaid} paid</p>
             <div >${bill.total_bill_amount.toFixed(2)}</div>
           </div>
 
