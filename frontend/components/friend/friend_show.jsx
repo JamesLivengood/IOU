@@ -95,7 +95,7 @@ class FriendShow extends React.Component{
       <div className="dashboard-big-container">
         <div className="dashboard-container">
           <div className="left-column">
-            <AllFriendsContainer/>
+            <AllFriendsContainer selectedFriendId={this.props.match.params.id}/>
           </div>
           <div className="center-column">
             <div className="friend-column-header">
