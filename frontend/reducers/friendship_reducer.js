@@ -6,7 +6,7 @@ import {
 
 
 const friendReducer = (state = {friendHistory: []}, action) => {
-  // debugger
+  //  
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_FRIENDSHIP:

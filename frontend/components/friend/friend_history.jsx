@@ -22,9 +22,9 @@ const NoHistory = () => {
 }
 
 const HistoryList = ({friendHistory, currentUser, otherUser, fetchBill, openModal}) => {
-  // debugger
+  //
   const friendHistoryArr = friendHistory.map((item, idx) =>{
-    // debugger
+    //
       if (Object.keys(item).includes("owing_at_creation_user_id")) {
         return (<BillItem fetchBill={fetchBill} openModal={openModal} idx={idx} bill={item} owedToId={item.owed_to_at_creation_user_id} currentUser={currentUser} otherUser={otherUser}/>);
       } else {
@@ -73,7 +73,7 @@ const BillItem = ({idx, owedToId, currentUser, otherUser, bill, fetchBill, openM
     return openModal('paymentModal');
   };
 
-  // debugger
+  //
   return (
     <button onClick={() => openModalAndFetch(bill.id)}>
       <li className='friend-bill-list-item' key={idx}>

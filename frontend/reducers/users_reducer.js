@@ -11,7 +11,7 @@ import {
 // });
 
 const usersReducer = (state = {}, action) => {
-  // debugger
+  //  
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_SEARCHED_USERS:

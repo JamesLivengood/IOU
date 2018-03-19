@@ -35,7 +35,7 @@ class Bill < ApplicationRecord
   end
 
   def other_user(current_user)
-    # debugger
+    #  
     (self.users.select {|user| user != current_user } )[0]
   end
 

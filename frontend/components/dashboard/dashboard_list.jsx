@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DashboardList = ({owedBills, owedToBills, owedBillsInfo, owedToBillsInfo, openModal, fetchBill}) => {
-  // debugger
+  //  
 
 
   return(
@@ -9,7 +9,7 @@ const DashboardList = ({owedBills, owedToBills, owedBillsInfo, owedToBillsInfo, 
         <div className='dashboard-list-box'>
           <ul className='orange-dashboard-list'>
             {owedBills.map((bill, idx) => {
-              // debugger
+              //  
               if (!(owedBillsInfo[idx].balance.toFixed(2) == 0.00)) {
               return (
                 <li key={idx}><DashboardListItem bill={bill} info={owedBillsInfo[idx]} owed={true} openModal={openModal} fetchBill={fetchBill} /></li> );
@@ -28,7 +28,7 @@ const DashboardList = ({owedBills, owedToBills, owedBillsInfo, owedToBillsInfo, 
 };
 
 const DashboardListItem = ({bill, info, owed, openModal, fetchBill}) => {
-  // debugger
+  //  
   const oweOrOwed = owed ? 'you owe' : 'owes you' ;
 
   const openModalAndFetch = (id) => {

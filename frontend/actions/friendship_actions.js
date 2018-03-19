@@ -3,7 +3,7 @@ import { receiveCurrentUser } from './session_actions';
 export const RECEIVE_FRIENDSHIP = 'RECEIVE_FRIENDSHIP';
 
 export const addFriendship = (friendship) => {
-  // debugger
+  //  
   return (dispatch) => {
     return APIUtil.addFriend(friendship).then(user =>
     dispatch(receiveCurrentUser(user)),

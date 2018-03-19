@@ -1,6 +1,6 @@
 class Api::PaymentsController < ApplicationController
   def create
-    # debugger
+    #  
     @user = current_user
     @payment = Payment.new(payment_params)
     if @payment.save
