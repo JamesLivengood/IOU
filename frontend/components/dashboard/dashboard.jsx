@@ -27,7 +27,7 @@ class Dashboard extends React.Component{
     let sign = '';
     let color = 'grey';
     let number = 0;
-    // debugger
+    //  
     if (this.props.currentUser.total_balance > 0) {
       sign = '+';
       color = 'green';
@@ -51,7 +51,7 @@ class Dashboard extends React.Component{
   }
 
   YouAreOwed() {
-// debugger
+//  
     if (this.props.currentUser.you_are_owed === 0) {
      return <div className='you-are-owed-number'>$0.00</div>;
      } else {
@@ -64,7 +64,7 @@ class Dashboard extends React.Component{
   }
 
   render() {
-    // debugger
+    //  
     return(
       <div className="dashboard-big-container">
         <div className="dashboard-container">
@@ -114,7 +114,7 @@ class Dashboard extends React.Component{
   }
 
   Chart() {
-    // debugger
+    //  
     if (this.props.chart === 'list'){
       return (
         <DashboardList openModal={this.props.openModal} fetchBill={this.props.fetchBill} owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>

@@ -19,20 +19,20 @@ class SignupForm extends React.Component{
   }
 
   handleSubmit(e) {
-// debugger
+//  
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
 
   handleChange(e) {
-// debugger
+//  
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
 
   receiveErrors() {
-    // debugger
+    //  
     if (Object.values(this.props.errors).length > 0) {
       const errorsArr = Object.values(this.props.errors).map((err, idx) => <li key={idx}>{err}</li>);
       return (

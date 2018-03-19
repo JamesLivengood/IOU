@@ -13,7 +13,7 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def show
-    # debugger
+    #  
     @friendship = Friendship.find_by(user1_id: current_user.id, user2_id: params[:id]) || Friendship.find_by(user1_id: params[:id], user2_id: current_user.id)
 
   end

@@ -23,26 +23,26 @@ class CreateBillModal extends React.Component{
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
+    //
     this.setState({other_user_id: newProps.bills.other_user.id});
   }
 
 
   handleSubmit(e) {
-    // debugger
+    //
     e.preventDefault();
     const bill = Object.assign({}, this.state);
     if (bill.owed_to_at_creation_user_id == this.props.currentUser.id) {
-      // debugger
+      //
       bill.owing_at_creation_user_id = bill.other_user_id;
     } else {
       bill.owing_at_creation_user_id = this.props.currentUser.id;
     }
     let other_id = bill.other_user_id;
     delete bill.other_user_id;
-    // debugger
+    //
     this.props.createBill(bill).then(()=>this.props.fetchFriendHistory(other_id));
-    // debugger
+    //
     if (!this.props.currentUser.friends.map(friend => friend.id).includes(this.state.other_user_id)) {
       return this.props.addFriendship({user1_id: this.props.currentUser.id, user2_id: other_id});
     }
@@ -50,13 +50,13 @@ class CreateBillModal extends React.Component{
   }
 
   handleChange(e) {
-    // debugger
+    //
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
 
   errorsPresent(props) {
-    // debugger
+    //
     if (Object.values(props.errors).length > 0) {
       return true;
     }
@@ -64,7 +64,7 @@ class CreateBillModal extends React.Component{
   }
 
   sendQuery() {
-    // debugger
+    //
     if (this.state.query.length > 0) {
       return this.props.searchUsers(this.state.query);
     } else if (this.state.query.length === 0) {
@@ -77,7 +77,7 @@ class CreateBillModal extends React.Component{
   }
 
   WhoOwes() {
-    // debugger
+    //
     if (this.state.other_user_id) {
       if (this.state.other_user_id == this.state.owed_to_at_creation_user_id)
       { return (<div>I owe:</div>);}

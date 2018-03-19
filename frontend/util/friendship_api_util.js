@@ -7,7 +7,7 @@ export const addFriend = (friendship) => {
 };
 
 export const fetchFriendHistory = (friendId) => {
-  // debugger
+  //  
   return $.ajax({
       method: 'GET',
       url: `api/friendships/${friendId}`,

@@ -6,14 +6,14 @@ import {ensureModalOff} from './home_page';
 import { withRouter } from 'react-router-dom';
 
 const Welcome = ({ currentUser, modal, logout, openModal, closeModal, history }) => {
-// debugger
+//  
   return (
     currentUser ? userLoggedIn(currentUser, openModal, logout) : sessionLinks(modal, openModal, closeModal, history)
   );
 };
 
 const sessionLinks = (modal, openModal, closeModal, history) => {
-// debugger
+//  
   return (
     <ul className="login-signup">
       <li className="login-button-li"><button className='login-button' onClick={()=>modalSwitch(modal, openModal, closeModal)}>Log in</button>
@@ -26,10 +26,10 @@ const sessionLinks = (modal, openModal, closeModal, history) => {
 };
 
 const userLoggedIn = (props, openModal, logout) => {
-  // debugger
+  //  
   let toggleObj = {};
   toggleObj['toggle'] = "hidden-user-dropdown";
-// debugger
+//  
 	return (<hgroup className="header-group">
     <div className="user-button-div">
       <button className="user-dropdown-button" onClick={()=>openModal('userDropdown')}>
@@ -43,7 +43,7 @@ const userLoggedIn = (props, openModal, logout) => {
 };
 
 function modalSwitch(modal, openModal, closeModal) {
-// debugger
+//  
   if (modal) {
     return closeModal();
   } else

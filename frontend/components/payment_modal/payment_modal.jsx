@@ -9,7 +9,7 @@ class PaymentModal extends React.Component {
       receivingUser: this.props.otherUser,
       paymentAmount: '',
     };
-    // debugger
+    //  
     this.PopUp = this.PopUp.bind(this);
     this.flipPopUp = this.flipPopUp.bind(this);
     this.setPaidUser = this.setPaidUser.bind(this);
@@ -18,18 +18,18 @@ class PaymentModal extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
+    //  
     this.setState({receivingUser: newProps.otherUser});
   }
 
   handleChange(e) {
-    // debugger
+    //  
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
 
   handleSubmit() {
-    // debugger
+    //  
     const payment = {
       bill_id: this.props.bill.id,
       paying_user_id: this.state.payingUser.id,
@@ -43,7 +43,7 @@ class PaymentModal extends React.Component {
   }
 
   PopUp() {
-    // debugger
+    //  
     if (this.state.popUp) {
       return(
         <div className='payment-pop-up'>

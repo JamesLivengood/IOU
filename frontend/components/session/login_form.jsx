@@ -16,7 +16,7 @@ class LoginForm extends React.Component{
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
+    //  
     if (this.errorsPresent(newProps)){
       this.props.history.push('/login_retry');
       this.props.closeModal();
@@ -25,20 +25,20 @@ class LoginForm extends React.Component{
 
 
   handleSubmit(e) {
-// debugger
+//  
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
 
   handleChange(e) {
-// debugger
+//  
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
 
   errorsPresent(props) {
-    // debugger
+    //  
     if (Object.values(props.errors).length > 0) {
       return true;
     }

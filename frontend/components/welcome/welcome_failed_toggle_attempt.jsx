@@ -5,14 +5,14 @@
 // import {ensureModalOff} from './home_page';
 //
 // const Welcome = ({ currentUser, modal, logout, openModal, closeModal }) => {
-// // debugger
+// //  
 //   return (
 //     currentUser ? userLoggedIn(currentUser, logout) : sessionLinks(modal, openModal, closeModal)
 //   );
 // };
 //
 // const sessionLinks = (modal, openModal, closeModal) => {
-// // debugger
+// //  
 //   return (
 //     <ul className="login-signup">
 //       <li className="login-button-li"><button className='login-button' onClick={()=>modalSwitch(modal, openModal, closeModal)}>Log in</button>
@@ -27,7 +27,7 @@
 // const userLoggedIn = (props, logout) => {
 //   let toggleObj = {};
 //   toggleObj['toggle'] = "hidden-user-dropdown";
-// // debugger
+// //  
 // 	return (<hgroup className="header-group">
 //     <button className="user-dropdown-button" onClick={(e) => toggleObj['toggle'] = userDropDownToggle(toggleObj['toggle'])}>
 //       <img src='https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/avatars/50-31b0bb2f5aec77f11d60a1dc3fa14c23a958fed79261b32e94a73e9c27473ebb.png'/>
@@ -49,7 +49,7 @@
 // };
 //
 // const userDropDownToggle = (className) => {
-//   debugger
+//    
 //   if (className === "hidden-user-dropdown") {
 //     return "show-user-dropdown"
 //   } else {
@@ -58,7 +58,7 @@
 // }
 //
 // function modalSwitch(modal, openModal, closeModal) {
-// // debugger
+// //  
 //   if (modal) {
 //     return closeModal();
 //   } else

@@ -5,11 +5,11 @@ class SearchDropdown extends React.Component {
 
   constructor(props) {
     super(props);
-    // debugger
+    //  
   }
 
   componentWillReceiveProps({userResults}) {
-    // debugger
+    //  
     if (this.props.userResults.length === 0 && userResults.length > 0) {
       window.addEventListener('click', this.props.clearSearch, {once: true} );
     } else if (userResults.length > 0 === 0 ) {

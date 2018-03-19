@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def create
-    # debugger
+    #  
     @user = User.new({name: params[:name], email: params[:email], password: params[:password]})
     if @user.save
       log_in(@user)
@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
   # end
 
   def index
-    # debugger
+    #  
     if params[:query].present?
       @users = User.where('name ~ ?', params[:query])
     else

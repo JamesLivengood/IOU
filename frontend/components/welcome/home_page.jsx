@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
 const HomePage = ({modal, closeModal, history}) => {
-  // debugger
+  //  
   return (
     <div className='homepage-container'>
       <h2 className='homepage-header'>Boss Up On Life.</h2>
@@ -18,7 +18,7 @@ const HomePage = ({modal, closeModal, history}) => {
 };
 
 export const ensureModalOff = (closeModal, modal, history) => {
-  // debugger
+  //  
   if (modal) {
     closeModal();
     history.push('/signup');

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class AllFriends extends React.Component {
   constructor(props) {
-    // debugger
+    //  
     super(props);
     this.AllFriendListItem = this.AllFriendListItem.bind(this);
   }

@@ -10,7 +10,7 @@ import AddFriendModalContainer from './dashboard/add_friend_modal_container';
 import PaymentModalContainer from './payment_modal/payment_modal_container';
 
 function Modal({modal, closeModal, logout, owedBills, owedToBills, owedToBillsInfo, owedBillsInfo}) {
-  // debugger
+  //  
   if (!modal) {
     return null;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DashboardChart = ({highestFriendBalance, friendAndBalanceArray}) => {
-  // debugger
+  //  
   return(
       <div className='dashboard-chart-box'>
         <ul className='orange-dashboard-chart'>
@@ -20,7 +20,7 @@ const OrangeMap = ({highestFriendBalance, friendAndBalanceArray}) => {
   return (
     friendAndBalanceArray.map((friendItem, idx) => {
         if (friendItem.balance.toFixed(1) < 0.0) {
-          // debugger
+          //  
           return (<li key={idx}>
                     <DashboardChartItem owed={true} balance={friendItem.balance} name={friendItem.name} id={friendItem.id} highestFriendBalance={highestFriendBalance}/>
                   </li>);
@@ -43,7 +43,7 @@ const GreenMap = ({highestFriendBalance, friendAndBalanceArray}) => {
 
 const DashboardChartItem = ({owed, balance, name, id, highestFriendBalance}) => {
   // const oweOrOwed = owed ? 'you owe' : 'owes you' ;
-  // debugger
+  //  
   const width = Math.abs(((balance / highestFriendBalance) * 210)).toString();
   const size = Math.sqrt(Math.abs(((balance / highestFriendBalance) * 225))).toString();
   return (

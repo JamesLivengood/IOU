@@ -53,7 +53,7 @@ class User < ApplicationRecord
   end
 
   def highest_friend_balance
-    # debugger
+    #  
     balance = 1
     friends.each do |friend|
       self.balance_with(friend).abs > balance ? balance = self.balance_with(friend).abs : balance
@@ -80,14 +80,14 @@ class User < ApplicationRecord
   end
 
   def you_are_owed_bills_info
-  # debugger
+  #  
     self.you_are_owed_bills.map do |bill|
       {balance: bill.balance, name: bill.owing_user.name, id: bill.owing_user.id}
     end
   end
 
   def total_balance
-    # debugger
+    #  
     self.you_are_owed - self.you_owe
   end
 
@@ -119,7 +119,7 @@ class User < ApplicationRecord
   def you_owe
     total = 0
     #note that < and > are flipped in logic compared to method User#you_are_owed
-    # debugger
+    #  
     self.bills.each do |bill|
       if self.id == bill.owing_at_creation_user_id && bill.balance > 0
         total += bill.balance
@@ -131,7 +131,7 @@ class User < ApplicationRecord
   end
 
   def you_are_owed
-    # debugger
+    #  
     total = 0
     #note that < and > are flipped in logic compared to method User#you_owe
     self.bills.each do |bill|

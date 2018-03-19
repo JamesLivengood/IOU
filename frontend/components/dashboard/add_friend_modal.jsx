@@ -10,7 +10,7 @@ class AddFriendModal extends React.Component {
   }
 
   sendQuery() {
-    // debugger
+    //  
     if (this.state.query.length > 0) {
       return this.props.searchUsers(this.state.query);
     } else if (this.state.query.length === 0) {

@@ -16,7 +16,7 @@ class FriendShow extends React.Component{
       })[0].balance,
       friendHistory: [],
     };
-    // debugger
+    //
     this.friendExists = this.friendExists.bind(this);
     this.FriendBalance = this.FriendBalance.bind(this);
     this.openModalFilledIn = this.openModalFilledIn.bind(this);
@@ -24,7 +24,7 @@ class FriendShow extends React.Component{
 
   friendExists() {
     if (!this.props.currentUser.friends.map(friend => friend.id).includes(parseInt(this.props.match.params.id))) {
-      // debugger
+      //
       return false;
     } else {
       return true;
@@ -32,7 +32,7 @@ class FriendShow extends React.Component{
   }
 
   componentDidMount() {
-    // debugger
+    //
     this.props.closeModal();
     if (this.friendExists()){
       return this.props.fetchFriendHistory(this.props.match.params.id);
@@ -44,7 +44,7 @@ class FriendShow extends React.Component{
     let whoOwes = 'You are all settled up';
     let color = 'grey';
     let number = '';
-    // debugger
+    //
     if (this.state.balance > 0) {
       whoOwes = `${this.state.other_user.name} owes you`;
       color = 'green';
@@ -63,9 +63,9 @@ class FriendShow extends React.Component{
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
+    //
     if (this.friendExists() && newProps.match.params.id !== this.props.match.params.id){
-      // debugger
+      //
       return this.props.fetchFriendHistory(newProps.match.params.id);
     }
     this.setState({
@@ -85,7 +85,7 @@ class FriendShow extends React.Component{
   }
 
   render() {
-    // debugger
+    //
     if (!this.friendExists()) {
       return (
         <div className='friend-not-found'>Friend not found!</div>
