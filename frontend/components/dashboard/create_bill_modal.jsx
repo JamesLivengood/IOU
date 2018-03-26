@@ -146,8 +146,6 @@ class CreateBillModal extends React.Component{
 
 export default withRouter(CreateBillModal);
 
-
-
 //
 //
 // <input className='paid-by' name='owed_to_at_creation_user_id' value={this.state.owed_to_at_creation_user_id} onChange={ this.handleChange }>
