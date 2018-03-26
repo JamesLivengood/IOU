@@ -1,5 +1,5 @@
 .friends-menu-div {
-  margin: 40px 20px 0 5px;
+  margin: 20px 20px 0 5px;
 }
 
 .friends-menu-header {
@@ -37,7 +37,7 @@
   margin-right: 5px;
 }
 
-.friends-menu-header:hover, .friends-menu-div ul li:hover {
+.friends-menu-header:hover, .friends-menu-div ul li:hover, .friend-menu-dashboard-button:hover {
   color: rgb(102, 102, 102);
   background: rgb(238, 238, 238);
 }
@@ -48,6 +48,23 @@
   text-align: center;
 }
 
-#all-friend-selected-sidebar-item {
-  color: green;
+#all-friend-selected-sidebar-item, #selected {
+  border-left: 7px solid rgb(96,	200,	173);
+  color: rgb(96,	200,	173);
+}
+
+.friend-menu-dashboard-button {
+  padding-left: 7px;
+  color: rgb(153, 153, 153);
+  margin: 10px 0 10px 0;
+  font-size: 18px;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.friend-menu-dashboard-button-selected {
+  padding-left: 7px;
+  margin: 10px 0 10px 0;
+  color: rgb(96,	200,	173);
+  border-left: 7px solid rgb(96,	200,	173);
 }
