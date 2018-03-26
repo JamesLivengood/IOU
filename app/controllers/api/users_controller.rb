@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def create
-    #  
+    #
     @user = User.new({name: params[:name], email: params[:email], password: params[:password]})
     if @user.save
       log_in(@user)
@@ -21,12 +21,17 @@ class Api::UsersController < ApplicationController
   # end
 
   def index
-    #  
+    #
     if params[:query].present?
       @users = User.where('name ~ ?', params[:query])
     else
       @users = User.none
     end
+  end
+
+  def recent_activity
+    @user = current_user
+    render 'api/users/recent_activity'
   end
 
   def user_params
