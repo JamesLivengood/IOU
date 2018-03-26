@@ -3,7 +3,10 @@ import CreateBillModalContainer from '../dashboard/create_bill_modal_container';
 import AllFriendsContainer from '../dashboard/all_friends_container';
 import FriendHistory from './friend_history';
 
-class FriendShow extends React.Component{
+// ALL COPIED FROM FRIEND SHOW, COMPLETE LATER
+
+
+class RecentActivity extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -116,10 +119,6 @@ class FriendShow extends React.Component{
 
             </div>
           </div>
-          <div className='friend-show-right-column'>
-            <div className='your-balance'>YOUR BALANCE</div>
-            <this.FriendBalance />
-          </div>
         </div>
       </div>
     );}
@@ -127,4 +126,10 @@ class FriendShow extends React.Component{
 
 }
 
-export default FriendShow;
+export default RecentActivity;
+
+
+// <div className='friend-show-right-column'>
+//   <div className='your-balance'>YOUR BALANCE</div>
+//   <this.FriendBalance />
+// </div>
