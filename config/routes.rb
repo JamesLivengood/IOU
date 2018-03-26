@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :payments, only: [:create]
     resources :friendships, only: [:create, :show]
     get 'users/search', :to => 'users#search'
+    get 'users/recent_activity', :to => 'users#recent_activity'
   end
 
   root "static_pages#root"
