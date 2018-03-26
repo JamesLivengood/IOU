@@ -37,7 +37,7 @@ const Header = () => {
 };
 
 const App = () => (
-  <div>
+  <div className='whole-container'>
     <Switch>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
       <Route path='/' component={Header}/>
@@ -50,7 +50,9 @@ const App = () => (
       <ProtectedRoute path='/friend/:id' component={FriendShowContainer}/>
     </Switch>
 
-    <Footer/>
+    <Switch>
+      <AuthRoute exact path='/' component={Footer}/>
+    </Switch>
 
   </div>
 );
