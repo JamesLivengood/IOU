@@ -64,7 +64,7 @@ class Dashboard extends React.Component{
   }
 
   render() {
-    //
+    // <button className='login-button'>Settle up</button>
     return(
       <div className="dashboard-big-container">
         <div className="dashboard-container">
@@ -77,7 +77,6 @@ class Dashboard extends React.Component{
                 <h2 className='dashboard-title'>Dashboard</h2>
                 <div className='top-dash-buttons'>
                   <button className='signup-button' onClick={() => this.props.openModal('createBill')}>Add a bill</button>
-                  <button className='login-button'>Settle up</button>
                 </div>
               </div>
               <div className="header-bottom-balances">

@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
 const HomePage = ({modal, closeModal, history}) => {
-  //  
+  //
   return (
     <div className='homepage-container'>
       <h2 className='homepage-header'>Boss Up On Life.</h2>

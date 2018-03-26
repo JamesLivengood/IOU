@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserDropdown = (props) => {
-  //  
+  //
   return (
     <div className='user-dropdown-modal-div'>
       <ul className='user-dropdown-modal'>

@@ -10,7 +10,7 @@ import AddFriendModalContainer from './dashboard/add_friend_modal_container';
 import PaymentModalContainer from './payment_modal/payment_modal_container';
 
 function Modal({modal, closeModal, logout, owedBills, owedToBills, owedToBillsInfo, owedBillsInfo}) {
-  //  
+  //
   if (!modal) {
     return null;
   }
@@ -58,7 +58,9 @@ function Modal({modal, closeModal, logout, owedBills, owedToBills, owedToBillsIn
   }
   if (backgroundOffClick){
     return (
-      <div className={backgroundColor} onClick={closeModal}>
+      <div>
+        <div className={backgroundColor} onClick={closeModal}>
+        </div>
         <div className="modal-box" onClick={e => e.stopPropagation()}>
           { component }
         </div>

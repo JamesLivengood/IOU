@@ -129,13 +129,16 @@ h1 {
 }
 
 .modal-background {
-   position: relative;
+   position: fixed;
    top: 0;
    bottom: 0;
    right: 0;
    left: 0;
    background: transparent;
    z-index: 10;
+
+
+
  }
 
 .login-signup {
@@ -152,6 +155,7 @@ body {
   margin: 0px;
   padding: 0px;
   text-rendering: optimizeLegibility;
+  height: 100%;
   /* text-shadow: 0 -.15px 0 rgb(220,	178,	140), .2px 0 0 rgb(117,	154,	192); */
 }
 

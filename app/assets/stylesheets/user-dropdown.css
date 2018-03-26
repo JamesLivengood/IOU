@@ -13,8 +13,8 @@
   display: block;
   border: 1px solid rgb(204, 204, 204);
   border-radius: 5px;
-  top: 2px;
-  right: -2px;
+  top: 52px;
+  right: -54px;
   width: 160px;
   height: 71px;
   background-color: white;
@@ -47,13 +47,13 @@
 }
 
 .user-dropdown-button {
+  position: relative;
   display: flex;
   align-items: center;
   margin-right: 0px;
   height: 50px;
   width: 100px;
   padding: 0 5px 0 5px;
-  position: relative;
 }
 
 .user-dropdown-button:hover {
@@ -86,7 +86,7 @@
 }
 
 .user-button-div {
-  position: relative;
+  /* position: relative; */
 }
 
 #popover-arrow {
