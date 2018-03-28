@@ -14,7 +14,7 @@
   border: 1px solid rgb(204, 204, 204);
   border-radius: 5px;
   top: 52px;
-  right: -54px;
+  right: 21px;
   width: 160px;
   height: 71px;
   background-color: white;
@@ -60,7 +60,7 @@
   background-color: rgb(79, 193, 157);
 }
 
-.user-dropdown-button img{
+.user-dropdown-img {
   border: 1px solid rgb(62, 175, 143);
   border-radius: 1000px;
   height: 22px;
