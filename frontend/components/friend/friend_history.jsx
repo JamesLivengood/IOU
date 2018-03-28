@@ -65,7 +65,7 @@ const PaymentItem = ({idx, payment, otherUser, currentUser}) => {
 const BillItem = ({idx, owedToId, currentUser, otherUser, bill, fetchBill, openModal}) => {
   const whoPaid = (currentUser.id === owedToId ? "you" : `${otherUser.name}`);
   const whoOwes = (currentUser.id === owedToId ? `${otherUser.name}` : 'you')
-  const lentAmt = '$' + (bill.total_bill_amount - bill.amount_originally_owed).toFixed(2);
+  const lentAmt = '$' + (bill.amount_originally_owed).toFixed(2);
   const color = (currentUser.id === owedToId ? 'green' : 'orange');
 
   const openModalAndFetch = (id) => {
