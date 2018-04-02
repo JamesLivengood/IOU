@@ -14,10 +14,6 @@
  *= require_self
  */
 
-@import "./reset.css";
-@import "./login-modal.css";
-@import "./signup-page.css";
-
 header {
   width: 100%;
   border-bottom: 1px solid rgb(79,	193,	157)	;
