@@ -2,10 +2,6 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
 const HomePage = ({modal, closeModal, history}) => {
-<<<<<<< HEAD
-=======
-  //
->>>>>>> eb5a1a3645993f1f64b73e15fd39d209a973880d
   return (
     <div className='homepage-container'>
       <h2 className='homepage-header'>Boss Up On Life.</h2>
@@ -21,10 +17,6 @@ const HomePage = ({modal, closeModal, history}) => {
 };
 
 export const ensureModalOff = (closeModal, modal, history) => {
-<<<<<<< HEAD
-=======
-  //
->>>>>>> eb5a1a3645993f1f64b73e15fd39d209a973880d
   if (modal) {
     closeModal();
     history.push('/signup');
@@ -35,11 +27,3 @@ export const ensureModalOff = (closeModal, modal, history) => {
 };
 
 export default withRouter(HomePage);
-<<<<<<< HEAD
-=======
-
-// <h2 className='homepage-header'>Boss Up On Life.</h2>
-// <div className='homepage-body'>Stop Letting Ur Broke Friends Get Away With Not Paying U Back.</div>
-// <div className='button-even-smaller-font'>(Till We Get U Addicted Then Trick Ur Darkest Emotional Vulnerabilities Into Paying Us LMao)</div>
-// <Link to="/signup"></Link>
->>>>>>> eb5a1a3645993f1f64b73e15fd39d209a973880d
