@@ -63,9 +63,9 @@ const Footer = () => {
       <div>
         <span>This Full Stack Clone Created By James Livengood</span>
         <ul>
-          <li><a href='github.com/jameslivengood'>Github</a> &nbsp;&nbsp;&nbsp;&nbsp;|</li>
+          <li><a href='https://www.github.com/jameslivengood'>Github</a> &nbsp;&nbsp;&nbsp;&nbsp;|</li>
           <li><a href='https://www.linkedin.com/in/james-livengood-091959a4/'>LinkedIn</a> &nbsp;&nbsp;&nbsp;&nbsp;|</li>
-          <li><a href='jameslivengood.github.io'>Portfolio</a> &nbsp;&nbsp;&nbsp;&nbsp;|</li>
+          <li><a href='https://jameslivengood.github.io'>Portfolio</a> &nbsp;&nbsp;&nbsp;&nbsp;|</li>
           <li>james.livengood@gmail.com</li>
         </ul>
       </div>
