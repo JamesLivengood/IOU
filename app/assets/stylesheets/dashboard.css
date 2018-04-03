@@ -3,7 +3,8 @@
   justify-content: center;
 }
 
-.left-column, .right-column, .center-column {
+.left-column {
+  /* width: 250px; */
 }
 
 .center-column {
@@ -208,4 +209,20 @@
         height:0;
         visibility:hidden; */
     }
+}
+
+.right-column {
+  display: none;
+  /* width: 150px; */
+  color: rgb(153,	153,	153);
+  font-size: 5px;
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column div, .right-column span, .right-column a {
+  display: none;
+  font-size: 20px;
+  color: black;
 }
