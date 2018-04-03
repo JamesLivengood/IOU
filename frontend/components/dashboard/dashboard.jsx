@@ -103,7 +103,13 @@ class Dashboard extends React.Component{
             </div>
             <this.Chart/>
           </div>
-          <div className='right-column'></div>
+          <div className='right-column'>
+            <div>This Super Dumb Epic Crazy Fire Brought To You By</div>
+            <div>James Livengood</div>
+            <span>james.livengood@gmail.com</span>
+            <a href='jameslivengood.github.io'>jameslivengood.github.io</a>
+            <a href='github.com/jameslivengood'>Github</a>
+          </div>
         </div>
       </div>
     );
