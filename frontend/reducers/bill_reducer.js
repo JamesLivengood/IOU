@@ -1,21 +1,13 @@
 import merge from 'lodash/merge';
-
 import {
   RECEIVE_BILL,
   OTHER_BILL_USER,
   CLEAR_OTHER_BILL_USER,
 } from '../actions/bill_actions';
-
 import { CLOSE_MODAL } from '../actions/modal_actions';
-
 import { RECEIVE_CURRENT_USER, } from '../actions/session_actions';
 
-// const _nullUser = Object.freeze({
-//   currentUser: null
-// });
-
 const billReducer = (state = {other_user: {}}, action) => {
-  //  
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_BILL:

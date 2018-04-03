@@ -1,6 +1,5 @@
 class Api::BillsController < ApplicationController
     def create
-      #  
       @user = current_user
       @bill = Bill.new({
         total_bill_amount: params[:total_bill_amount],

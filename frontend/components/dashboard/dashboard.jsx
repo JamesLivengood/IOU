@@ -11,7 +11,6 @@ class Dashboard extends React.Component{
     this.TotalBalance = this.TotalBalance.bind(this);
     this.YouOwe = this.YouOwe.bind(this);
     this.YouAreOwed = this.YouAreOwed.bind(this);
-    // debugger
     // this.state = this.props.chart;
     this.Chart = this.Chart.bind(this);
     this.ListButton = this.ListButton.bind(this);
@@ -111,7 +110,6 @@ class Dashboard extends React.Component{
   }
 
   Chart() {
-    //
     if (this.props.chart === 'list'){
       return (
         <DashboardList openModal={this.props.openModal} fetchBill={this.props.fetchBill} owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>

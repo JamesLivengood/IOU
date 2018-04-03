@@ -9,7 +9,6 @@ class PaymentModal extends React.Component {
       receivingUser: this.props.otherUser,
       paymentAmount: '',
     };
-    //  
     this.PopUp = this.PopUp.bind(this);
     this.flipPopUp = this.flipPopUp.bind(this);
     this.setPaidUser = this.setPaidUser.bind(this);
@@ -18,18 +17,15 @@ class PaymentModal extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    //  
     this.setState({receivingUser: newProps.otherUser});
   }
 
   handleChange(e) {
-    //  
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
   }
 
   handleSubmit() {
-    //  
     const payment = {
       bill_id: this.props.bill.id,
       paying_user_id: this.state.payingUser.id,
@@ -43,7 +39,6 @@ class PaymentModal extends React.Component {
   }
 
   PopUp() {
-    //  
     if (this.state.popUp) {
       return(
         <div className='payment-pop-up'>
@@ -71,10 +66,6 @@ class PaymentModal extends React.Component {
     }
     this.flipPopUp();
   }
-  //
-  // setPayingUser() {
-  //
-  // }
 
   flipPopUp() {
     return (this.state.popUp ? this.setState({popUp:false}) : this.setState({popUp:true}));
@@ -102,7 +93,6 @@ class PaymentModal extends React.Component {
           <form className='payment-modal-form' onSubmit={this.props.createPayment}>
             <label>$
               <input placeholder='0.00' type='text' name='paymentAmount' value={this.state.paymentAmount} onChange={this.handleChange}>
-
               </input>
             </label>
             <button></button>
