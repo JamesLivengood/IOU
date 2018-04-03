@@ -171,6 +171,7 @@ class User < ApplicationRecord
 
   attr_reader :password
   validates :password, length: { minimum: 6 }, allow_nil: true
+  validates :name, :email, length: { maximum: 30 }
 
   def password=(pw)
     @password = pw
