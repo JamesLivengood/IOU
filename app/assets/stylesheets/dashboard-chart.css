@@ -29,13 +29,38 @@
 }
 
 .orange-dashboard-chart div {
-  background-color: rgb(252,	95,	49);
+  /* background-color: rgb(252,	95,	49); */
   display: flex;
   align-items: flex-end;
 }
 
 .green-dashboard-chart div {
   background-color: rgb(96,	200,	167);
+}
+
+.orange-dashboard-chart a {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.green-dashboard-chart a {
+  display: flex;
+}
+
+.orange-dashboard-chart .filler-name {
+  background: white!important;
+  color: #00000057!important;
+  font-size: 12px!important;
+  text-shadow: 0.25px 0.25px 1px lightgrey!important;
+  margin-right: 50px!important;
+}
+
+.green-dashboard-chart .filler-name {
+  background: white!important;
+  color: #00000057!important;
+  font-size: 12px!important;
+  text-shadow: 0.25px 0.25px 1px lightgrey!important;
+  margin-left: 50px!important;
 }
 
 .orange-dashboard-chart div, .green-dashboard-chart div {
