@@ -18,7 +18,7 @@ const DashboardChart = ({highestFriendBalance, friendAndBalanceArray}) => {
 
 const OrangeMap = ({highestFriendBalance, friendAndBalanceArray}) => {
   return (
-    friendAndBalanceArray.map((friendItem, idx) => {
+    friendAndBalanceArray.reverse().map((friendItem, idx) => {
         if (friendItem.balance.toFixed(1) < 0.0) {
           //
           return (<li key={idx}>
@@ -31,7 +31,7 @@ const OrangeMap = ({highestFriendBalance, friendAndBalanceArray}) => {
 
 const GreenMap = ({highestFriendBalance, friendAndBalanceArray}) => {
   return (
-    friendAndBalanceArray.map((friendItem, idx) => {
+    friendAndBalanceArray.reverse().map((friendItem, idx) => {
         if (friendItem.balance.toFixed(1) > 0.0) {
           return (<li key={idx}>
                     <DashboardChartItem owed={true} balance={friendItem.balance} name={friendItem.name} id={friendItem.id} highestFriendBalance={highestFriendBalance}/>
@@ -56,18 +56,20 @@ const DashboardChartItem = ({owed, balance, name, id, highestFriendBalance}) => 
           </div>
         </Link>
     ); } else {
+      let thisWidth;
+      if (width < 10) {
+        thisWidth = 10;
+      } else {
+        thisWidth = width;
+      }
       return (
         <Link to={`/friend/${id}`}>
-          <div className='dashboard-chart-item-div' style={{width:`${width}px`, fontSize:`12px`}}>
+          <div className='dashboard-chart-item-div' style={{width:`${thisWidth}px`, fontSize:`12px`}}>
             <div className='dashboard-chart-name' >...</div>
           </div>
+          <div className='filler-name'>{name}</div>
         </Link>);
     }
 };
-// const DashboardList
 
 export default DashboardChart;
-
-// style="color:red;background:black;"
-
-//

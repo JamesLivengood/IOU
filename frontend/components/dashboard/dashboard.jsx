@@ -70,7 +70,7 @@ class Dashboard extends React.Component{
             <AllFriendsContainer/>
           </div>
           <div className="center-column">
-            
+
             <div className="center-column-header">
               <div className="center-column-header-top">
                 <h2 className='dashboard-title'>Dashboard</h2>
@@ -123,7 +123,7 @@ class Dashboard extends React.Component{
         <DashboardList openModal={this.props.openModal} fetchBill={this.props.fetchBill} owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
       );} else if (this.props.chart==='chart') {
         return (
-          <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array}/>
+          <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array.sort((a, b) => {if(a.balance>b.balance){return -1}; if(a.balance<b.balance){return 1}else{return 0}})}/>
         );}
   }
 
