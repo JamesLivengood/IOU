@@ -4,6 +4,7 @@ export const OTHER_BILL_USER = 'OTHER_BILL_USER';
 export const CLEAR_OTHER_BILL_USER = 'CLEAR_OTHER_BILL_USER';
 export const RECEIVE_BILL = 'RECEIVE_BILL';
 export const RECEIVE_BILL_ERRORS = 'RECEIVE_BILL_ERRORS';
+export const CLEAR_BILL_ERRORS = 'CLEAR_BILL_ERRORS';
 
 export const fetchBill = (id) => (
   dispatch => (APIUtil.fetchBill(id).then(bill=>dispatch({type:RECEIVE_BILL, bill})))
@@ -11,7 +12,6 @@ export const fetchBill = (id) => (
 
 export const createBill = (bill) => {
   return (dispatch) => {
-    debugger
     return APIUtil.createBill(bill).then(user =>
     dispatch(receiveCurrentUser(user)),
     errors => (
@@ -30,4 +30,8 @@ export const clearOtherBillUser = () => (
 
 export const receiveErrors = (err) => (
   {type: RECEIVE_BILL_ERRORS, err}
+);
+
+export const clearBillErrors = () => (
+  {type: CLEAR_BILL_ERRORS}
 );

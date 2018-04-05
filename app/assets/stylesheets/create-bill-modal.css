@@ -14,6 +14,21 @@
   align-items: center;
 }
 
+.create-bill-errors {
+  background-color: rgb(202,	60,	85);
+  /* border: 1px solid rgb(187, 51, 68); */
+  color:white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 94.2%;
+  font-size: 12px;
+  text-shadow: 0px -1px 0px rgb(154, 42, 56);
+  padding: 5px 10px 5px 10px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
 .create-bill-modal-div {
   background: white;
   margin-bottom: 250px;
