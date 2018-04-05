@@ -24,6 +24,20 @@ class CreateBillModal extends React.Component{
     this.PopUp = this.PopUp.bind(this);
     this.WhoPaid = this.WhoPaid.bind(this);
     this.flipPopUp = this.flipPopUp.bind(this);
+    this.receiveErrors = this.receiveErrors.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearBillErrors();
+  }
+
+  receiveErrors() {
+    if (Object.values(this.props.errors).length > 0) {
+      const errorsArr = Object.values(this.props.errors).map((err, idx) => <li key={idx}>{err}</li>);
+      return (
+        <div className='create-bill-errors'>The following errors occurred:<ul>{errorsArr}</ul></div>
+      );
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -136,6 +150,7 @@ class CreateBillModal extends React.Component{
               </input>
             </label>
 
+            {this.receiveErrors()}
               <div className='img-description-div'>
                 <img src='https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png'></img>
                 <div className='description-amount-div'>

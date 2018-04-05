@@ -20,7 +20,8 @@ class Bill < ApplicationRecord
   #   through: :bill_joins,
   #   source: :user
 
-  validates :total_bill_amount, :amount_originally_owed, length: { maximum: 15 }
+  # validates :total_bill_amount, :amount_originally_owed, length: { maximum: 15 }
+  validates :total_bill_amount, numericality: { less_than_or_equal_to: 999999999, greater_than: 0 }
 
   has_many :payments
 
