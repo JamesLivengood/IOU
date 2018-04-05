@@ -11,6 +11,7 @@ export const fetchBill = (id) => (
 
 export const createBill = (bill) => {
   return (dispatch) => {
+    debugger
     return APIUtil.createBill(bill).then(user =>
     dispatch(receiveCurrentUser(user)),
     errors => (

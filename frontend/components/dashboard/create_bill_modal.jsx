@@ -32,7 +32,6 @@ class CreateBillModal extends React.Component{
 
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     const bill = Object.assign({}, this.state);
     if (bill.owed_to_at_creation_user_id == this.props.currentUser.id) {
@@ -90,8 +89,8 @@ class CreateBillModal extends React.Component{
   WhoPaid() {
     if (this.state.other_user_id) {
       if (this.state.other_user_id == this.state.owed_to_at_creation_user_id)
-      { return (<div className='paid-by-bill'>Paid by <button onClick={this.flipPopUp}>{this.props.bills.other_user.name}</button></div>);}
-      else {return (<div className='paid-by-bill'> Paid by: <button onClick={this.flipPopUp}>me</button></div>);}
+      { return (<div className='paid-by-bill'>Paid by <span onClick={this.flipPopUp}>{this.props.bills.other_user.name}</span></div>);}
+      else {return (<div className='paid-by-bill'> Paid by: <span onClick={this.flipPopUp}>me</span></div>);}
     } else {
       return (<div>Paid by:</div>);
     }
@@ -102,7 +101,6 @@ class CreateBillModal extends React.Component{
 
   PopUp() {
     if (this.state.popUp) {
-      debugger
       return(
         <div className='payment-pop-up'>
           <h3>Choose Payer</h3>
