@@ -64,6 +64,14 @@
   box-shadow: inset 0px 1px 0px rgb(253,	127,	90), 0 1px 2px 1px rgba(0,0,0,0.2);
 }
 
+.orange-dashboard-chart .dashboard-chart-item-div .dashboard-chart-name {
+  text-align: right;
+}
+
+.dashboard-chart-name {
+  /* padding-top: 5px; */
+}
+
 .green-dashboard-chart .dashboard-chart-item-div {
   border: 1px solid rgb(86,	180,	150);
   border-bottom: 1px solid rgb(72,	150,	125);

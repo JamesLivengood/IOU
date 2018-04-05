@@ -4,6 +4,7 @@ import DashboardList from './dashboard_list.jsx';
 import DashboardChart from './dashboard_chart.jsx';
 import AllFriendsContainer from './all_friends_container';
 import LeftColumnContainer from './left_column_container';
+import Modal from '../modal';
 
 class Dashboard extends React.Component{
   constructor(props) {
@@ -69,6 +70,7 @@ class Dashboard extends React.Component{
             <AllFriendsContainer/>
           </div>
           <div className="center-column">
+            
             <div className="center-column-header">
               <div className="center-column-header-top">
                 <h2 className='dashboard-title'>Dashboard</h2>

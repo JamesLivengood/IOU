@@ -63,10 +63,10 @@
   align-items: center;
 }
 
-.payment-modal-who-pay-who button{
+.payment-modal-who-pay-who button, .paid-by-bill span{
   background: rgb(246,	246,	246);
   border: 1px dashed rgb(204,	204,	204);
-  color: rgb(97,	200,	167);
+  color: rgb(97,	200,	167)!important;
   border-radius: 20px;
   padding: 5px;
   margin: 5px;
