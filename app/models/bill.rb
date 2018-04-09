@@ -11,17 +11,15 @@
 #
 
 class Bill < ApplicationRecord
-  #
-  # has_many :bill_joins,
-  #   class_name: 'BillJoin',
-  #   foreign_key: :bill_id
-  #
-  # has_many :users,
-  #   through: :bill_joins,
-  #   source: :user
-
-  # validates :total_bill_amount, :amount_originally_owed, length: { maximum: 15 }
   validates :total_bill_amount, numericality: { less_than_or_equal_to: 999999999, greater_than: 0 }
+
+  validates_numericality_of :amount_originally_owed
+  validates_numericality_of :total_bill_amount
+  validate :total_bill_amount_is_greater
+
+  def total_bill_amount_is_greater
+      self.errors[:base] << "The amount owed on the bill must be less than or equal to the total bill amount." unless total_bill_amount.to_f >= amount_originally_owed.to_f
+  end
 
   has_many :payments
 

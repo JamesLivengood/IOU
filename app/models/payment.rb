@@ -21,7 +21,7 @@ class Payment < ApplicationRecord
     class_name: 'User',
     foreign_key: :submitting_user_id
 
-  
+  validates :payment_amount, numericality: { less_than_or_equal_to: 999999999, greater_than: 0 }
 
 
 

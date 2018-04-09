@@ -22,6 +22,8 @@ import HomePageContainer from './welcome/home_page_container';
 import LoginRetryContainer from './session/login_retry_container';
 import FriendShowContainer from './friend/friend_show_container';
 import LeftColumnContainer from './dashboard/left_column_container';
+import AllFriendsContainer from './dashboard/all_friends_container';
+import FriendShowRightColumnContainer from './friend/friend_show_right_column_container';
 
 const Header = () => {
   return (
@@ -42,13 +44,25 @@ const App = () => (
       <AuthRoute path="/signup" component={SignupFormContainer}/>
       <Route path='/' component={Header}/>
     </Switch>
-
-    <Switch>
-      <AuthRoute exact path='/' component={HomePageContainer}/>
-      <AuthRoute path='/login_retry' component={LoginRetryContainer}/>
-      <ProtectedRoute path='/dashboard' component={DashboardContainer}/>
-      <ProtectedRoute path='/friend/:id' component={FriendShowContainer}/>
-    </Switch>
+    <div className="dashboard-big-container">
+      <div className="dashboard-container">
+        <div className="left-column">
+          <Switch>
+            <ProtectedRoute path='/' component={AllFriendsContainer}/>
+          </Switch>
+        </div>
+          <Switch>
+            <AuthRoute exact path='/' component={HomePageContainer}/>
+            <AuthRoute path='/login_retry' component={LoginRetryContainer}/>
+            <ProtectedRoute path='/dashboard' component={DashboardContainer}/>
+            <ProtectedRoute path='/friend/:id' component={FriendShowContainer}/>
+          </Switch>
+          <Switch>
+            <ProtectedRoute path='/dashboard' component={DashboardRightColumn}/>
+            <ProtectedRoute path='/friend/:id' component={FriendShowRightColumnContainer}/>
+          </Switch>
+      </div>
+    </div>
 
     <Switch>
       <AuthRoute exact path='/' component={Footer}/>
@@ -73,17 +87,17 @@ const Footer = () => {
   );
 };
 
+const DashboardRightColumn = () => {
+  return(
+    <div className='friend-show-right-column'>
+    </div>
+  );
+}
+
 export default App;
 
-// <ProtectedRoute path='/' component={LeftColumnContainer}/>
-// <AuthRoute exact path='/login_retry' component={LoginRetryContainer}/>
-
-
-
-
-//   <AuthRoute exact path="/login" component={SessionFormContainer} />
-//   <AuthRoute exact path="/signup" component={SessionFormContainer} />
-//   <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
-//   <Route path="/benches/:benchId" component={BenchShowContainer} />
-//   <Route exact path="/" component={SearchContainer} />
-//
+      // <div>This Super Dumb Epic Crazy Fire Brought To You By</div>
+      // <div>James Livengood</div>
+      // <span>james.livengood@gmail.com</span>
+      // <a href='jameslivengood.github.io'>jameslivengood.github.io</a>
+      // <a href='github.com/jameslivengood'>Github</a>

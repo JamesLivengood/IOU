@@ -16,7 +16,6 @@ class FriendShow extends React.Component{
       })[0].balance,
       friendHistory: [],
     };
-    //
     this.friendExists = this.friendExists.bind(this);
     this.FriendBalance = this.FriendBalance.bind(this);
     this.openModalFilledIn = this.openModalFilledIn.bind(this);
@@ -24,7 +23,6 @@ class FriendShow extends React.Component{
 
   friendExists() {
     if (!this.props.currentUser.friends.map(friend => friend.id).includes(parseInt(this.props.match.params.id))) {
-      //
       return false;
     } else {
       return true;
@@ -32,7 +30,6 @@ class FriendShow extends React.Component{
   }
 
   componentDidMount() {
-    //
     this.props.closeModal();
     if (this.friendExists()){
       return this.props.fetchFriendHistory(this.props.match.params.id);
@@ -44,7 +41,6 @@ class FriendShow extends React.Component{
     let whoOwes = 'You are all settled up';
     let color = 'grey';
     let number = '';
-    //
     if (this.state.balance > 0) {
       whoOwes = `${this.state.other_user.name} owes you`;
       color = 'green';
@@ -63,9 +59,7 @@ class FriendShow extends React.Component{
   }
 
   componentWillReceiveProps(newProps) {
-    //
     if (this.friendExists() && newProps.match.params.id !== this.props.match.params.id){
-      //
       return this.props.fetchFriendHistory(newProps.match.params.id);
     }
     this.setState({
@@ -84,19 +78,14 @@ class FriendShow extends React.Component{
     this.props.openModal('createBill');
   }
 
+            // <AllFriendsContainer selectedFriendId={this.props.match.params.id}/>
   render() {
-    //
     if (!this.friendExists()) {
       return (
         <div className='friend-not-found'>Friend not found!</div>
       );
     } else {
     return(
-      <div className="dashboard-big-container">
-        <div className="dashboard-container">
-          <div className="left-column">
-            <AllFriendsContainer selectedFriendId={this.props.match.params.id}/>
-          </div>
           <div className="center-column">
             <div className="friend-column-header">
               <div className="center-column-header-top">
@@ -116,12 +105,6 @@ class FriendShow extends React.Component{
 
             </div>
           </div>
-          <div className='friend-show-right-column'>
-            <div className='your-balance'>YOUR BALANCE</div>
-            <this.FriendBalance />
-          </div>
-        </div>
-      </div>
     );}
   }
 
