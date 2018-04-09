@@ -59,10 +59,13 @@
   font-size: 15px;
 }
 
-
 .left-column, .right-column {
   width: 200px;
   height: 451px;
+}
+
+.right-column, .friend-show-right-column {
+  width: 240px;
 }
 
 .center-column {
@@ -212,7 +215,7 @@
 }
 
 .right-column {
-  display: none;
+  /*display: none;*/
   /* width: 150px; */
   color: rgb(153,	153,	153);
   font-size: 5px;

@@ -10,7 +10,7 @@ class AllFriends extends React.Component {
 
   AllFriendListItem({friend, idx}) {
      let selected = '';
-     if (friend.id == this.props.selectedFriendId){
+     if (friend.id == this.props.location.pathname.slice(8)){
         selected = 'all-friend-selected-sidebar-item';
       }
      return (

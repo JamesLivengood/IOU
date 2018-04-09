@@ -61,14 +61,10 @@ class Dashboard extends React.Component{
 
   }
 
+  // <AllFriendsContainer/>
   render() {
     // <button className='login-button'>Settle up</button>
     return(
-      <div className="dashboard-big-container">
-        <div className="dashboard-container">
-          <div className="left-column">
-            <AllFriendsContainer/>
-          </div>
           <div className="center-column">
 
             <div className="center-column-header">
@@ -105,15 +101,7 @@ class Dashboard extends React.Component{
             </div>
             <this.Chart/>
           </div>
-          <div className='right-column'>
-            <div>This Super Dumb Epic Crazy Fire Brought To You By</div>
-            <div>James Livengood</div>
-            <span>james.livengood@gmail.com</span>
-            <a href='jameslivengood.github.io'>jameslivengood.github.io</a>
-            <a href='github.com/jameslivengood'>Github</a>
-          </div>
-        </div>
-      </div>
+
     );
   }
 
