@@ -46,11 +46,9 @@ const App = () => (
     </Switch>
     <div className="dashboard-big-container">
       <div className="dashboard-container">
-        <div className="left-column">
           <Switch>
             <ProtectedRoute path='/' component={AllFriendsContainer}/>
           </Switch>
-        </div>
           <Switch>
             <AuthRoute exact path='/' component={HomePageContainer}/>
             <AuthRoute path='/login_retry' component={LoginRetryContainer}/>
@@ -62,11 +60,11 @@ const App = () => (
             <ProtectedRoute path='/friend/:id' component={FriendShowRightColumnContainer}/>
           </Switch>
       </div>
-    </div>
-
     <Switch>
       <AuthRoute exact path='/' component={Footer}/>
     </Switch>
+    </div>
+
 
   </div>
 );

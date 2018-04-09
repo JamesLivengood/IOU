@@ -67,12 +67,12 @@
 
 .right-column, .friend-show-right-column {
   /*width: 240px;*/
-  width: 14%;
+  width: 12%;
   height: 451px;
 }
 
 .right-column, .friend-show-right-column {
-  width: 240px;
+  /*width: 240px;*/
 }
 
 .center-column {

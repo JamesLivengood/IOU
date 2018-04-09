@@ -24,12 +24,14 @@ class AllFriends extends React.Component {
       selected = 'selected';
     }
     return(
-      <div className='friends-menu-div'>
-        <Link to='/'><div className={`friend-menu-dashboard-button`} id={selected}>Dashboard</div></Link>
-        <div className='friends-menu-header'><h3>FRIENDS</h3><button onClick={this.props.openModal}><i className='fa fa-plus'/>add</button></div>
-        <ul>
-          {this.props.currentUser.friends.map((friend, idx) => (<this.AllFriendListItem friend={friend} idx={idx}/>))}
-        </ul>
+     <div className="left-column">
+        <div className='friends-menu-div'>
+          <Link to='/'><div className={`friend-menu-dashboard-button`} id={selected}>Dashboard</div></Link>
+          <div className='friends-menu-header'><h3>FRIENDS</h3><button onClick={this.props.openModal}><i className='fa fa-plus'/>add</button></div>
+          <ul>
+            {this.props.currentUser.friends.map((friend, idx) => (<this.AllFriendListItem friend={friend} idx={idx}/>))}
+          </ul>
+        </div>
       </div>
     );
   }
