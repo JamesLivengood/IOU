@@ -236,3 +236,17 @@
   font-size: 20px;
   color: black;
 }
+
+.dashboard-exclaim {
+  border: 1px solid rgb(221, 221, 221);
+  /*margin: 0 50px 0 50px;*/
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px;
+  text-rendering: optimizeLegibility;
+  text-align: center;
+  background: rgb(238, 238, 238);
+  letter-spacing: 1px;
+  color: rgb(63, 63, 63);
+  /*color: black;*/
+  margin: 10px 50px 20px 50px;
+}

@@ -109,13 +109,17 @@ class Dashboard extends React.Component{
     if (this.props.chart === 'list'){
       return (
         <div>
+          <h1 className='dashboard-exclaim'>All Outstanding Bills</h1>
           <DashboardList openModal={this.props.openModal} fetchBill={this.props.fetchBill} owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
+          <h1 className='dashboard-exclaim'>Balance Per Friend</h1>
           <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array.sort((a, b) => {if(a.balance>b.balance){return -1}; if(a.balance<b.balance){return 1}else{return 0}})}/>
         </div>
       );} else if (this.props.chart==='chart') {
         return (
           <div>
+            <h1 className='dashboard-exclaim'>Balance Per Friend</h1>
             <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array.sort((a, b) => {if(a.balance>b.balance){return -1}; if(a.balance<b.balance){return 1}else{return 0}})}/>
+            <h1 className='dashboard-exclaim'>All Outstanding Bills</h1>
             <DashboardList openModal={this.props.openModal} fetchBill={this.props.fetchBill} owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
           </div>
         );}
