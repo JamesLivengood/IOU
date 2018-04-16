@@ -12,7 +12,7 @@ class Dashboard extends React.Component{
     this.TotalBalance = this.TotalBalance.bind(this);
     this.YouOwe = this.YouOwe.bind(this);
     this.YouAreOwed = this.YouAreOwed.bind(this);
-    // this.state = this.props.chart;
+    this.state = {chart: 'list'};
     this.Chart = this.Chart.bind(this);
     this.ListButton = this.ListButton.bind(this);
     this.ChartButton = this.ChartButton.bind(this);
@@ -106,17 +106,17 @@ class Dashboard extends React.Component{
   }
 
   Chart() {
-    if (this.props.chart === 'list'){
+    if (this.state.chart === 'list'){
       return (
-        <div>
+        <div className='list-and-chart'>
           <h1 className='dashboard-exclaim'>All Outstanding Bills</h1>
           <DashboardList openModal={this.props.openModal} fetchBill={this.props.fetchBill} owedBills={this.props.currentUser.owed_bills} owedToBills={this.props.currentUser.you_are_owed_bills} owedToBillsInfo={this.props.currentUser.you_are_owed_bills_info} owedBillsInfo={this.props.currentUser.owed_bills_info}/>
           <h1 className='dashboard-exclaim'>Balance Per Friend</h1>
           <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array.sort((a, b) => {if(a.balance>b.balance){return -1}; if(a.balance<b.balance){return 1}else{return 0}})}/>
         </div>
-      );} else if (this.props.chart==='chart') {
+      );} else if (this.state.chart==='chart') {
         return (
-          <div>
+          <div className='chart-and-list'>
             <h1 className='dashboard-exclaim'>Balance Per Friend</h1>
             <DashboardChart highestFriendBalance={this.props.currentUser.highest_friend_balance} friendAndBalanceArray={this.props.currentUser.friend_and_balance_array.sort((a, b) => {if(a.balance>b.balance){return -1}; if(a.balance<b.balance){return 1}else{return 0}})}/>
             <h1 className='dashboard-exclaim'>All Outstanding Bills</h1>
@@ -126,25 +126,27 @@ class Dashboard extends React.Component{
   }
 
   ListButton() {
-    if (this.props.chart === 'list') {
+    if (this.state.chart === 'list') {
       return(
-        <div id='selected-div-list'><button id='selected-button' className='view-as-list-button' onClick={this.props.openList}><i id='icons' className='fa fa-bars'/>view as list </button><span id='hideMe'>(all bills)</span></div>
+        <div id='selected-div-list'><button id='selected-button' className='view-as-list-button' onClick={()=>this.setState({chart: 'list'})}><i id='icons' className='fa fa-bars'/>view as list </button><span id='hideMe'>(all bills)</span></div>
       );
+// onClick={this.props.openList}
     } else {
         return (
-          <button className='view-as-list-button' onClick={this.props.openList}><i id='icons' className='fa fa-bars'/>view as list</button>
+          <button className='view-as-list-button' onClick={()=>this.setState({chart: 'list'})}><i id='icons' className='fa fa-bars'/>view as list</button>
         );
+// onClick={this.props.openList}
       }
   }
 
   ChartButton() {
-    if (this.props.chart === 'chart') {
+    if (this.state.chart === 'chart') {
       return(
-        <div id='selected-div'><button id='selected-button' className='view-as-chart-button' onClick={this.props.openChart}><i id='icons' className='fa fa-bar-chart'/>view chart </button><span id='hideMe'>(balance per friend)</span></div>
+        <div id='selected-div'><button id='selected-button' className='view-as-chart-button' onClick={()=>this.setState({chart: 'chart'})}><i id='icons' className='fa fa-bar-chart'/>view chart </button><span id='hideMe'>(balance per friend)</span></div>
       );
     } else {
         return (
-        <button className='view-as-chart-button' onClick={this.props.openChart}><i id='icons' className='fa fa-bar-chart'/>view chart</button>
+        <button className='view-as-chart-button' onClick={()=>this.setState({chart: 'chart'})}><i id='icons' className='fa fa-bar-chart'/>view chart</button>
         );
       }
   }
