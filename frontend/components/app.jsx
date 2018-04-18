@@ -24,6 +24,7 @@ import FriendShowContainer from './friend/friend_show_container';
 import LeftColumnContainer from './dashboard/left_column_container';
 import AllFriendsContainer from './dashboard/all_friends_container';
 import FriendShowRightColumnContainer from './friend/friend_show_right_column_container';
+import DashboardRightContainer from './dashboard/dashboard-right-container';
 
 const Header = () => {
   return (
@@ -88,6 +89,8 @@ const Footer = () => {
 const DashboardRightColumn = () => {
   return(
     <div className='friend-show-right-column'>
+      <h2>Recent Activity</h2>
+      <DashboardRightContainer />
     </div>
   );
 }
