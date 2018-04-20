@@ -2,7 +2,7 @@
 
 # I O U - U O M E, a splitwise.com clone
 
-![Gif of chart changing size with bill amount change(https://media.giphy.com/media/iMC9a1kBc8XZn8Qk5V/giphy.gif)https://media.giphy.com/media/4KFahcj0cA9P0MnMB9/giphy.gif)
+![Gif of chart changing size with bill amount change](https://media.giphy.com/media/iMC9a1kBc8XZn8Qk5V/giphy.gif)https://media.giphy.com/media/4KFahcj0cA9P0MnMB9/giphy.gif)
 
 ## I O U - U O M E is a bill sharing app.
 
